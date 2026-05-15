@@ -84,11 +84,44 @@ BNB's negative mean funding suggests the **carry trade is reversed**:
 
 ---
 
+---
+
+## Backtest Results (2023-01 ~ 2026-05, Capital $10,000/symbol)
+
+### Strategy A — Low-FR Reversal (z ≤ −1σ, hold 24h)
+
+| Symbol | Trades | Win% | PnL $ | CAGR | MaxDD | Sharpe | Calmar |
+|--------|--------|------|-------|------|-------|--------|--------|
+| BTCUSDT | 137 | 56.9% | +$7,598 | +18.3% | -20.7% | 1.02 | 0.88 |
+| ETHUSDT | 127 | 57.5% | +$7,999 | +19.0% | -37.2% | 0.84 | 0.51 |
+| SOLUSDT | 36 | 47.2% | +$14,375 | +30.3% | -25.1% | 0.91 | 1.20 |
+| XRPUSDT | 181 | 50.3% | +$703 | +2.0% | -52.5% | 0.23 | 0.04 |
+| ~~BNBUSDT~~ | 116 | 45.7% | -$3,115 | -10.5% | -41.2% | -0.56 | - |
+
+BTC hold-period sweep: best Sharpe at 8h (1.29), best PnL at 96h (+$13,944, CAGR +29.6%).
+
+### Strategy B — Carry Trade (delta-neutral)
+
+| Symbol | PnL $ | CAGR | MaxDD | Sharpe | Calmar |
+|--------|-------|------|-------|--------|--------|
+| BTCUSDT | +$2,821 | +7.7% | -0.5% | 25.38 | 16.86 |
+| ETHUSDT | +$2,955 | +8.0% | -0.6% | 25.01 | 13.17 |
+| XRPUSDT | +$2,850 | +7.8% | -1.0% | 18.31 | 7.76 |
+| SOLUSDT | +$1,496 | +4.3% | -3.9% | 4.48 | 1.08 |
+| ~~BNBUSDT~~ | -$1,253 | -3.9% | -13.4% | -5.31 | - |
+
+Carry Sharpe > 25 for BTC/ETH under delta-neutral assumption (basis risk not modelled).
+
+---
+
 ## Files
 
 | File | Description |
 |------|-------------|
 | `fetch_data_v3.py` | Fetches funding + 8h klines, 2023-01 onwards |
 | `analyze.py` | Statistical analysis: regimes, t-tests, carry sim |
-| `results/results.csv` | Full output: all symbols × regimes × forward horizons |
+| `backtest.py` | Full backtest: reversal + carry, all metrics |
+| `results/results.csv` | Regime × forward return summary |
+| `results/btc_trades.csv` | BTC trade-by-trade log (Strategy A) |
+| `results/btc_equity.csv` | BTC equity curve time series |
 | `data/` | Parquet files (gitignored) — re-run fetch_data_v3.py |
