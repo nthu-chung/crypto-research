@@ -1,0 +1,155 @@
+{
+  "summary": {
+    "BTC Buy-and-Hold": {
+      "full": {
+        "sharpe": 0.461,
+        "max_dd": -83.19,
+        "ann_ret": 25.96,
+        "ann_vol": 56.28
+      },
+      "is": {
+        "sharpe": 0.731,
+        "max_dd": -83.19,
+        "ann_ret": 49.06
+      },
+      "oos": {
+        "sharpe": 0.272,
+        "max_dd": -76.63,
+        "ann_ret": 13.13
+      }
+    },
+    "A: DXY Inverse + MVRV": {
+      "full": {
+        "sharpe": 0.34,
+        "max_dd": -74.69,
+        "ann_ret": 13.96,
+        "ann_vol": 41.04
+      },
+      "is": {
+        "sharpe": 0.543,
+        "max_dd": -74.69,
+        "ann_ret": 29.02
+      },
+      "oos": {
+        "sharpe": 0.174,
+        "max_dd": -67.52,
+        "ann_ret": 5.37
+      }
+    },
+    "B: VIX Panic + MVRV": {
+      "full": {
+        "sharpe": 0.365,
+        "max_dd": -82.38,
+        "ann_ret": 15.91,
+        "ann_vol": 43.58
+      },
+      "is": {
+        "sharpe": 0.611,
+        "max_dd": -82.38,
+        "ann_ret": 34.23
+      },
+      "oos": {
+        "sharpe": 0.17,
+        "max_dd": -69.62,
+        "ann_ret": 5.69
+      }
+    },
+    "C: SPX Trend (2020+) + MVRV": {
+      "full": {
+        "sharpe": 0.433,
+        "max_dd": -83.19,
+        "ann_ret": 19.33,
+        "ann_vol": 44.67
+      },
+      "is": {
+        "sharpe": 0.737,
+        "max_dd": -83.19,
+        "ann_ret": 43.31
+      },
+      "oos": {
+        "sharpe": 0.192,
+        "max_dd": -63.49,
+        "ann_ret": 6.32
+      }
+    },
+    "D: Multi-Signal Macro \u00d7 MVRV": {
+      "full": {
+        "sharpe": 0.379,
+        "max_dd": -67.23,
+        "ann_ret": 12.23,
+        "ann_vol": 32.3
+      },
+      "is": {
+        "sharpe": 0.727,
+        "max_dd": -67.23,
+        "ann_ret": 29.34
+      },
+      "oos": {
+        "sharpe": 0.101,
+        "max_dd": -56.58,
+        "ann_ret": 2.64
+      }
+    },
+    "E: Conservative (A\u2229B)": {
+      "full": {
+        "sharpe": 0.334,
+        "max_dd": -75.41,
+        "ann_ret": 12.0,
+        "ann_vol": 35.89
+      },
+      "is": {
+        "sharpe": 0.539,
+        "max_dd": -75.41,
+        "ann_ret": 25.03
+      },
+      "oos": {
+        "sharpe": 0.164,
+        "max_dd": -61.06,
+        "ann_ret": 4.49
+      }
+    }
+  },
+  "full_corr": {
+    "DXY": -0.0835,
+    "Gold": 0.0827,
+    "VIX": -0.237,
+    "TNX": 0.0144,
+    "SPX": 0.2666
+  },
+  "pre2020_corr": {
+    "DXY": 0.0079,
+    "Gold": 0.0553,
+    "VIX": -0.0852,
+    "TNX": 0.0088,
+    "SPX": 0.0496
+  },
+  "post2020_corr": {
+    "DXY": -0.1224,
+    "Gold": 0.0976,
+    "VIX": -0.3236,
+    "TNX": 0.0173,
+    "SPX": 0.357
+  },
+  "macro_score_2022": 0.3419,
+  "macro_score_2024": 0.7947,
+  "special_2022": {
+    "bnh": {
+      "ann_ret": -51.88,
+      "max_dd": -66.73
+    },
+    "strat_D": {
+      "ann_ret": -34.88,
+      "max_dd": -46.97
+    }
+  },
+  "special_2024": {
+    "bnh": {
+      "ann_ret": 67.66,
+      "max_dd": -26.15
+    },
+    "strat_D": {
+      "ann_ret": 37.13,
+      "max_dd": -17.01
+    }
+  }
+}

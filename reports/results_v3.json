@@ -1,0 +1,273 @@
+{
+  "strategies": {
+    "zscore_pure": {
+      "full": {
+        "label": "zscore_pure",
+        "cagr": 0.146015,
+        "sharpe": 0.447306,
+        "sortino": 0.43008,
+        "max_dd": -0.733428,
+        "calmar": 0.199086,
+        "monthly_wr": 0.452632,
+        "start": "2010-07-18",
+        "end": "2026-05-18",
+        "years": 15.832991,
+        "final_nav": 86528.515866,
+        "initial_nav": 10000.0,
+        "total_return": 7.652852
+      },
+      "is": {
+        "label": "zscore_pure_IS",
+        "cagr": 0.141843,
+        "sharpe": 0.432814,
+        "sortino": 0.433155,
+        "max_dd": -0.733428,
+        "calmar": 0.193398,
+        "monthly_wr": 0.451327,
+        "start": "2010-07-18",
+        "end": "2019-12-31",
+        "years": 9.453799,
+        "final_nav": 35042.903779,
+        "initial_nav": 10000.0,
+        "total_return": 2.50429
+      },
+      "oos": {
+        "label": "zscore_pure_OOS",
+        "cagr": 0.152214,
+        "sharpe": 0.486479,
+        "sortino": 0.439278,
+        "max_dd": -0.576796,
+        "calmar": 0.263896,
+        "monthly_wr": 0.447368,
+        "start": "2020-01-01",
+        "end": "2026-05-18",
+        "years": 6.376454,
+        "final_nav": 86528.515866,
+        "initial_nav": 35058.729245,
+        "total_return": 1.468102
+      },
+      "y2024": {
+        "label": "zscore_pure_2024",
+        "cagr": 0.106781,
+        "sharpe": 1.529584,
+        "sortino": 1.204111,
+        "max_dd": -0.026226,
+        "calmar": 4.071578,
+        "monthly_wr": 0.363636,
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "years": 0.999316,
+        "final_nav": 90547.318533,
+        "initial_nav": 81817.079926,
+        "total_return": 0.106704
+      }
+    },
+    "zscore_halving": {
+      "full": {
+        "label": "zscore_halving",
+        "cagr": 0.170838,
+        "sharpe": 0.487932,
+        "sortino": 0.480968,
+        "max_dd": -0.733428,
+        "calmar": 0.23293,
+        "monthly_wr": 0.468421,
+        "start": "2010-07-18",
+        "end": "2026-05-18",
+        "years": 15.832991,
+        "final_nav": 121480.536496,
+        "initial_nav": 10000.0,
+        "total_return": 11.148054
+      },
+      "is": {
+        "label": "zscore_halving_IS",
+        "cagr": 0.188464,
+        "sharpe": 0.503433,
+        "sortino": 0.509836,
+        "max_dd": -0.733428,
+        "calmar": 0.256963,
+        "monthly_wr": 0.477876,
+        "start": "2010-07-18",
+        "end": "2019-12-31",
+        "years": 9.453799,
+        "final_nav": 51156.811736,
+        "initial_nav": 10000.0,
+        "total_return": 4.115681
+      },
+      "oos": {
+        "label": "zscore_halving_OOS",
+        "cagr": 0.145181,
+        "sharpe": 0.470408,
+        "sortino": 0.446674,
+        "max_dd": -0.576796,
+        "calmar": 0.251702,
+        "monthly_wr": 0.447368,
+        "start": "2020-01-01",
+        "end": "2026-05-18",
+        "years": 6.376454,
+        "final_nav": 121480.536496,
+        "initial_nav": 51179.914284,
+        "total_return": 1.373598
+      },
+      "y2024": {
+        "label": "zscore_halving_2024",
+        "cagr": 0.046033,
+        "sharpe": 0.403679,
+        "sortino": 0.50451,
+        "max_dd": -0.07433,
+        "calmar": 0.619303,
+        "monthly_wr": 0.363636,
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "years": 0.999316,
+        "final_nav": 127122.680004,
+        "initial_nav": 121532.108908,
+        "total_return": 0.046001
+      }
+    },
+    "mvrv_v2": {
+      "full": {
+        "label": "mvrv_v2",
+        "cagr": 0.197749,
+        "sharpe": 0.527091,
+        "sortino": 0.572894,
+        "max_dd": -0.756004,
+        "calmar": 0.261571,
+        "monthly_wr": 0.573684,
+        "start": "2010-07-18",
+        "end": "2026-05-18",
+        "years": 15.832991,
+        "final_nav": 174086.43006,
+        "initial_nav": 10000.0,
+        "total_return": 16.408643
+      },
+      "is": {
+        "label": "mvrv_v2_IS",
+        "cagr": 0.205309,
+        "sharpe": 0.520913,
+        "sortino": 0.558015,
+        "max_dd": -0.756004,
+        "calmar": 0.271571,
+        "monthly_wr": 0.539823,
+        "start": "2010-07-18",
+        "end": "2019-12-31",
+        "years": 9.453799,
+        "final_nav": 58437.001382,
+        "initial_nav": 10000.0,
+        "total_return": 4.8437
+      },
+      "oos": {
+        "label": "mvrv_v2_OOS",
+        "cagr": 0.186656,
+        "sharpe": 0.569759,
+        "sortino": 0.637617,
+        "max_dd": -0.524998,
+        "calmar": 0.355537,
+        "monthly_wr": 0.618421,
+        "start": "2020-01-01",
+        "end": "2026-05-18",
+        "years": 6.376454,
+        "final_nav": 174086.43006,
+        "initial_nav": 58456.79213,
+        "total_return": 1.978036
+      },
+      "y2024": {
+        "label": "mvrv_v2_2024",
+        "cagr": 0.319085,
+        "sharpe": 1.608614,
+        "sortino": 2.699375,
+        "max_dd": -0.069465,
+        "calmar": 4.593484,
+        "monthly_wr": 0.818182,
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "years": 0.999316,
+        "final_nav": 187389.834115,
+        "initial_nav": 142087.393873,
+        "total_return": 0.318835
+      }
+    },
+    "buy_hold": {
+      "full": {
+        "label": "buy_hold",
+        "cagr": 1.376654,
+        "sharpe": 1.174468,
+        "sortino": 1.56206,
+        "max_dd": -0.927486,
+        "calmar": 1.484285,
+        "monthly_wr": 0.573684,
+        "start": "2010-07-18",
+        "end": "2026-05-18",
+        "years": 15.832991,
+        "final_nav": 8963783881.104748,
+        "initial_nav": 9996.0,
+        "total_return": 896736.082944
+      },
+      "is": {
+        "label": "buy_hold_IS",
+        "cagr": 2.315909,
+        "sharpe": 1.38399,
+        "sortino": 1.843531,
+        "max_dd": -0.927486,
+        "calmar": 2.496973,
+        "monthly_wr": 0.575221,
+        "start": "2010-07-18",
+        "end": "2019-12-31",
+        "years": 9.453799,
+        "final_nav": 834637476.307613,
+        "initial_nav": 9996.0,
+        "total_return": 83496.146489
+      },
+      "oos": {
+        "label": "buy_hold_OOS",
+        "cagr": 0.450965,
+        "sharpe": 0.767628,
+        "sortino": 1.028937,
+        "max_dd": -0.766688,
+        "calmar": 0.588198,
+        "monthly_wr": 0.565789,
+        "start": "2020-01-01",
+        "end": "2026-05-18",
+        "years": 6.376454,
+        "final_nav": 8963783881.104748,
+        "initial_nav": 835014400.750543,
+        "total_return": 9.734885
+      },
+      "y2024": {
+        "label": "buy_hold_2024",
+        "cagr": 1.121202,
+        "sharpe": 1.399441,
+        "sortino": 2.373214,
+        "max_dd": -0.263303,
+        "calmar": 4.258213,
+        "monthly_wr": 0.636364,
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "years": 0.999316,
+        "final_nav": 10875160380.784508,
+        "initial_nav": 5129526300.565717,
+        "total_return": 1.12011
+      }
+    }
+  },
+  "thresholds": {
+    "zscore": {
+      "p20": -0.6911298972090452,
+      "p40": -0.3578367385753446,
+      "p60": -0.1768844648899238,
+      "p80": 0.1490016832479601
+    },
+    "mvrv_v2": {
+      "p20": 1.059696052,
+      "p40": 1.436979696,
+      "p60": 1.846122472,
+      "p80": 2.6381908080000005
+    }
+  },
+  "trades": {
+    "zscore_pure": 2813,
+    "zscore_halving": 3039,
+    "mvrv_v2": 4067,
+    "buy_hold": 1
+  },
+  "chart": "/root/.openclaw/workspace/openclaw-media/jarvis-image-1779180215-e5256d09.png"
+}

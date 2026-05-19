@@ -1,0 +1,121 @@
+{
+  "topic": "MVRV 多層次交易策略（含技術指標組合與選擇權應用）",
+  "round": 4,
+  "max_rounds": 4,
+  "status": "complete",
+  "last_score": 79,
+  "last_verdict": "MAX_ROUNDS_REACHED",
+  "created_at": "2026-05-19T06:17:56.740341+00:00",
+  "history": [
+    "research/report_v1.md",
+    "research/feedback_v1.md",
+    "research/report_v2.md",
+    "research/feedback_v2.md",
+    "research/report_v3.md",
+    "research/feedback_v3.md",
+    "research/report_v4.md",
+    "research/feedback_v4.md"
+  ],
+  "config": {
+    "asset": "BTC",
+    "data_start": "2011-01-01",
+    "initial_capital": 10000,
+    "fee_bps": 4
+  },
+  "v3_results": {
+    "strategies": {
+      "zscore_pure": {
+        "cagr": "14.6%",
+        "sharpe": 0.447,
+        "max_dd": "-73.3%",
+        "calmar": 0.199,
+        "oos_cagr": "15.2%"
+      },
+      "zscore_halving": {
+        "cagr": "17.1%",
+        "sharpe": 0.488,
+        "max_dd": "-73.3%",
+        "calmar": 0.233,
+        "oos_cagr": "14.5%"
+      },
+      "mvrv_v2": {
+        "cagr": "19.8%",
+        "sharpe": 0.527,
+        "max_dd": "-75.6%",
+        "calmar": 0.262,
+        "oos_cagr": "18.7%"
+      },
+      "buy_hold": {
+        "cagr": "137.7%",
+        "sharpe": 1.174,
+        "max_dd": "-92.7%"
+      }
+    },
+    "chart": "/root/.openclaw/workspace/openclaw-media/jarvis-image-1779180215-e5256d09.png",
+    "key_finding": "Z-Score IS thresholds extremely compressed (P80=+0.149), causing prolonged zero-position during bull markets. MVRV v2 still outperforms Z-Score on absolute basis despite better Z-Score OOS stability."
+  },
+  "judge_v3": {
+    "score": 62,
+    "breakdown": {
+      "statistical_rigor": 18,
+      "execution_feasibility": 12,
+      "strategy_logic": 18,
+      "risk_management": 14
+    },
+    "critical_issues": [
+      "Options strategy completely absent despite promised in title",
+      "No stop-loss mechanism - MaxDD -73.3% unacceptable",
+      "Strategy goal undefined - fails all risk-adjusted benchmarks vs B&H",
+      "Sortino inconsistency (0.430 vs 0.439 cited)",
+      "No statistical significance testing for Sharpe differences"
+    ],
+    "verdict": "NEEDS_IMPROVEMENT"
+  },
+  "v4_results": {
+    "strategies": {
+      "v4_full": {
+        "cagr": "18.5%",
+        "sharpe": 0.529,
+        "max_dd": "-69.3%",
+        "calmar": 0.268,
+        "oos_cagr": "25.8%"
+      },
+      "v4_no_options": {
+        "cagr": "14.8%",
+        "sharpe": 0.458,
+        "max_dd": "-74.8%",
+        "calmar": 0.198,
+        "oos_cagr": "22.1%"
+      },
+      "buy_hold": {
+        "cagr": "124.8%",
+        "sharpe": 1.139,
+        "max_dd": "-92.7%",
+        "calmar": 1.346
+      }
+    },
+    "options_contribution": "+3.7pp CAGR, +51018 USD total premium, bootstrap p=100% significant",
+    "walk_forward_windows": 11,
+    "walk_forward_positive_years": "8/11",
+    "walk_forward_worst_maxdd": "-52.1% (2018)",
+    "bootstrap_sharpe_ci": "[0.126, 0.923]",
+    "key_finding": "Dynamic rolling-2yr Zone eliminates look-ahead bias; options overlay adds +3.7pp CAGR significantly; trade count reduced from 2813 to 188; ETF-era (2024-2026) MaxDD improved to -33.7%"
+  },
+  "judge_v4": {
+    "score": 79,
+    "breakdown": {
+      "statistical_rigor": 21,
+      "execution_feasibility": 20,
+      "strategy_logic": 20,
+      "risk_management": 18
+    },
+    "critical_issues": [
+      "MaxDD -69.3% still far from -50% target (gap: 19.3pp full-period, 12.3pp OOS)",
+      "CAGR 18.5% below 30% target (gap: 11.5pp full-period, 4.2pp OOS)",
+      "Stop-loss mechanism has zero real-world effect on backtest results (identical outcome with/without)",
+      "No scenario analysis for cycle compression or structural IV decline",
+      "Fixed options premium assumption may overstate options income by 20-30% in post-ETF IV environment"
+    ],
+    "verdict": "NEEDS_IMPROVEMENT"
+  }
+}

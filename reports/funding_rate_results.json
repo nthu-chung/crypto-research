@@ -1,0 +1,156 @@
+{
+  "summary": [
+    {
+      "Strategy": "A: Pure FR Timing",
+      "Period": "IS",
+      "CAGR": "14.1%",
+      "Sharpe": "0.53",
+      "MaxDD": "-73.2%",
+      "WinRate": "51.1%",
+      "TotalReturn": "77.7%"
+    },
+    {
+      "Strategy": "A: Pure FR Timing",
+      "Period": "OOS",
+      "CAGR": "31.9%",
+      "Sharpe": "0.94",
+      "MaxDD": "-49.5%",
+      "WinRate": "50.5%",
+      "TotalReturn": "287.9%"
+    },
+    {
+      "Strategy": "A: Pure FR Timing",
+      "Period": "Full",
+      "CAGR": "23.2%",
+      "Sharpe": "0.68",
+      "MaxDD": "-73.2%",
+      "WinRate": "50.8%",
+      "TotalReturn": "589.2%"
+    },
+    {
+      "Strategy": "B: FR+MVRV Proxy",
+      "Period": "IS",
+      "CAGR": "-6.0%",
+      "Sharpe": "0.17",
+      "MaxDD": "-74.1%",
+      "WinRate": "51.2%",
+      "TotalReturn": "-23.5%"
+    },
+    {
+      "Strategy": "B: FR+MVRV Proxy",
+      "Period": "OOS",
+      "CAGR": "23.9%",
+      "Sharpe": "0.85",
+      "MaxDD": "-49.5%",
+      "WinRate": "50.6%",
+      "TotalReturn": "185.8%"
+    },
+    {
+      "Strategy": "B: FR+MVRV Proxy",
+      "Period": "Full",
+      "CAGR": "8.8%",
+      "Sharpe": "0.42",
+      "MaxDD": "-74.1%",
+      "WinRate": "50.9%",
+      "TotalReturn": "118.7%"
+    },
+    {
+      "Strategy": "C: FR Arb",
+      "Period": "IS",
+      "CAGR": "13.3%",
+      "Sharpe": "8.92",
+      "MaxDD": "0.0%",
+      "WinRate": "50.9%",
+      "TotalReturn": "72.3%"
+    },
+    {
+      "Strategy": "C: FR Arb",
+      "Period": "OOS",
+      "CAGR": "2.9%",
+      "Sharpe": "7.08",
+      "MaxDD": "0.0%",
+      "WinRate": "25.9%",
+      "TotalReturn": "15.3%"
+    },
+    {
+      "Strategy": "C: FR Arb",
+      "Period": "Full",
+      "CAGR": "7.7%",
+      "Sharpe": "7.06",
+      "MaxDD": "0.0%",
+      "WinRate": "37.6%",
+      "TotalReturn": "98.7%"
+    },
+    {
+      "Strategy": "D: Multi-Coin Rotation",
+      "Period": "IS",
+      "CAGR": "70.0%",
+      "Sharpe": "1.09",
+      "MaxDD": "-82.6%",
+      "WinRate": "53.8%",
+      "TotalReturn": "903.2%"
+    },
+    {
+      "Strategy": "D: Multi-Coin Rotation",
+      "Period": "OOS",
+      "CAGR": "28.4%",
+      "Sharpe": "0.77",
+      "MaxDD": "-55.5%",
+      "WinRate": "51.2%",
+      "TotalReturn": "239.9%"
+    },
+    {
+      "Strategy": "D: Multi-Coin Rotation",
+      "Period": "Full",
+      "CAGR": "46.5%",
+      "Sharpe": "0.93",
+      "MaxDD": "-82.6%",
+      "WinRate": "52.4%",
+      "TotalReturn": "3309.8%"
+    },
+    {
+      "Strategy": "BTC Buy & Hold",
+      "Period": "IS",
+      "CAGR": "21.1%",
+      "Sharpe": "0.63",
+      "MaxDD": "-76.6%",
+      "WinRate": "51.2%",
+      "TotalReturn": "129.7%"
+    },
+    {
+      "Strategy": "BTC Buy & Hold",
+      "Period": "OOS",
+      "CAGR": "36.8%",
+      "Sharpe": "0.99",
+      "MaxDD": "-49.5%",
+      "WinRate": "50.7%",
+      "TotalReturn": "364.3%"
+    },
+    {
+      "Strategy": "BTC Buy & Hold",
+      "Period": "Full",
+      "CAGR": "29.2%",
+      "Sharpe": "0.76",
+      "MaxDD": "-76.6%",
+      "WinRate": "50.9%",
+      "TotalReturn": "966.7%"
+    }
+  ],
+  "eda": {
+    "high_fr_1d": 0.006066857595894368,
+    "low_fr_1d": 0.004687306330258331,
+    "high_fr_3d": 0.020330335672025173,
+    "low_fr_3d": 0.010167256906845211,
+    "high_fr_7d": 0.027192791259548516,
+    "low_fr_7d": 0.023446046575496246,
+    "high_fr_14d": 0.035782366409718824,
+    "low_fr_14d": 0.018203140694339252
+  },
+  "fr_stats": {
+    "btc_daily_mean": 0.000330798386958387,
+    "btc_daily_std": 0.0005930639487607678,
+    "btc_p5": -0.00011119999999999999,
+    "btc_p95": 0.001434565,
+    "btc_annualized_avg": 0.12074141123981125
+  }
+}
