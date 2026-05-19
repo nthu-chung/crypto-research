@@ -1,0 +1,43 @@
+📥 下載數據...
+  BTCUSDT: 1628d
+  ETHUSDT: 1628d
+  BNBUSDT: 1628d
+  SOLUSDT: 1405d
+  XRPUSDT: 1628d
+  DOGEUSDT: 1628d
+  ADAUSDT: 1628d
+  AVAXUSDT: 1363d
+  LINKUSDT: 1628d
+  DOTUSDT: 1398d
+  TRXUSDT: 1628d
+  NEARUSDT: 1341d
+  UNIUSDT: 1368d
+  LTCUSDT: 1628d
+  AAVEUSDT: 1340d
+  INJUSDT: 1334d
+  XLMUSDT: 1628d
+  FILUSDT: 1340d
+  ATOMUSDT: 1628d
+共同日期：1334天 (2021-05-08 ~ 2024-12-31)
+
+=== 截面 IC 分析（每日截面 Spearman）===
+  Mom_5d: IC_mean=-0.0431  IC_std=0.3090  ICIR=-0.1394  IC>0%=43.7%
+  Flow_z: IC_mean=-0.0026  IC_std=0.2402  ICIR=-0.0107  IC>0%=49.4%
+
+=== 截面多空策略（Mom_5d 反向）===
+版本                          Sharpe   AnnRet    MaxDD  Sortino
+────────────────────────────────────────────────────────────
+Mom_5d Q20/Q80 hold1        -1.582   -42.3%  -229.9%   -2.077
+Mom_5d Q10/Q90 hold1        -1.213   -57.8%  -303.3%   -1.499
+Mom_5d Q20/Q80 hold3        -3.075   -46.1%  -240.3%   -4.001
+Mom_5d Bull Only hold1      -1.956   -54.4%  -155.3%   -2.561
+Mom_5d Bear Only hold1      -1.177   -30.0%   -94.8%   -1.553
+Flow_z Q20/Q80 hold1        -2.987   -66.3%  -355.5%   -3.845
+
+=== 最佳截面策略年度分解：Mom_5d Bear Only hold1 ===
+  2021  AnnRet=-5.1%  Sharpe=-0.172  MaxDD=-17.0%
+  2022  AnnRet=-43.2%  Sharpe=-1.685  MaxDD=-71.0%
+  2023  AnnRet=-54.9%  Sharpe=-2.910  MaxDD=-18.8%
+  2024  AnnRet=+26.4%  Sharpe=+1.099  MaxDD=-10.0%
+
+✅ 完成！
