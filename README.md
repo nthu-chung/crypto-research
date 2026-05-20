@@ -1,50 +1,46 @@
 # crypto-research
 
-A living research repository for crypto market microstructure, alpha discovery, and quantitative strategies.
-
-> Research partner: **Binance AI Pro** 🦞  
-> Owner: nthu-chung
-
----
-
-## Philosophy
-
-> "We don't just run strategies — we discover market regularities."
-
-Research flows: **Observe → Quantify → Validate → Strategize**
-
----
+Systematic crypto trading strategy research using multi-agent AI loops (Research + Judge).
 
 ## Repository Structure
 
 ```
 crypto-research/
-├── README.md
-├── funding-rate/           # Funding rate alpha research
-│   ├── README.md
-│   ├── data/               # Parquet files (gitignored, too large)
-│   ├── fetch_data_v3.py    # Data fetcher (2023-01 onwards, 5 symbols)
-│   ├── analyze.py          # Core statistical analysis
-│   └── results/
-│       └── results.csv     # Regime → forward return summary
-├── microstructure/         # Order book, bid-ask, liquidation research (TBD)
-├── new-listings/           # New coin price discovery patterns (TBD)
-└── notebooks/              # Ad-hoc exploration (TBD)
+├── mvrv-zscore/          # MVRV Z-Score on-chain valuation strategy (v1~v4)
+│   ├── reports/          # Research reports & Judge feedback (v1~v4)
+│   ├── scripts/          # Backtest scripts
+│   ├── results/          # JSON result files
+│   └── charts/           # Performance charts
+├── funding-rate/         # Funding rate cross-sectional strategy
+├── mom-reversal/         # Momentum reversal strategy
+├── on-chain-flow/        # On-chain flow strategy
+├── altcoin-rotation/     # Altcoin rotation strategy
+├── cross-market/         # Cross-market research
+├── regime-detection/     # Market regime detection
+├── ensemble/             # Ensemble strategy
+├── trend-filter/         # Trend filter strategy
+├── vol-target/           # Volatility targeting strategy
+├── multifactor/          # Multi-factor model results
+├── btc-analysis/         # BTC cycle analysis
+├── notebooks/            # Jupyter notebooks (WIP)
+├── new-listings/         # New listings research (WIP)
+├── microstructure/       # Microstructure research (WIP)
+├── scripts/              # Shared utility scripts
+└── references/           # Agent configs, data sources, state schema
 ```
 
----
+## Current Status
 
-## Research Index
+| Strategy | Latest Version | Judge Score | Status |
+|----------|---------------|-------------|--------|
+| MVRV Z-Score | v4 | 79/100 | Research complete |
+| Funding Rate | v1 | — | Research complete |
+| Mom Reversal | v1 | — | Research complete |
+| On-Chain Flow | v1 | — | Research complete |
 
-| # | Topic | Status | Key Finding |
-|---|-------|--------|-------------|
-| 1 | [Funding Rate Alpha](./funding-rate/README.md) | ✅ First pass complete | Low funding → bullish reversal (BTC p=0.004) |
+## Research Loop
 
----
-
-## How We Work
-
-- All research lives in this repo
-- Code + results + interpretation together
-- Data files (parquet) gitignored — re-fetch with provided scripts
-- Every significant finding gets a README
+Each strategy is researched using an automated Research + Judge loop:
+1. **Research Agent** builds and backtests a strategy
+2. **Judge Agent** scores it (0-100) and provides detailed feedback
+3. Loop continues until score ≥ 80 or max rounds reached
