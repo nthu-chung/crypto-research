@@ -24,6 +24,29 @@ Use this as the `task` parameter when spawning the Judge subagent.
 - 有沒有 out-of-sample 測試？
 - 閾值是否有過度擬合跡象？
 
+### A0. Look-Ahead Bias 程式碼強制查核（必做，任何問題直接 REJECT）
+
+**在讀報告之前，先讀程式碼。** 找到當前版本的 backtest_v{round}.py，執行以下查核：
+
+1. **Universe 選取時序**
+   - 找出 `get_monthly_universe()` 或等效函數的所有呼叫點
+   - 確認：交易月份 t 使用的是**上個月（t-1）**的成交量/排名資料
+   - 錯誤範例：`get_monthly_universe(month_end)` 然後在同一個 month 進行交易
+   - 正確範例：`get_monthly_universe(prev_month_end)` 然後在 current month 進行交易
+   - 如果 `vol_df.loc[month_end]` 的 `month_end` 和交易月份相同 → **REJECT**
+
+2. **Sharpe 篩選時序**
+   - 確認計算 Sharpe 時用的是**上個月**的 returns，不是當月
+   - 找出 `sharpe_scores` 或等效變數的計算範圍（mask 條件）
+   - 確認 mask 的時間範圍在 `month_start` 之前
+
+3. **BTC 趨勢過濾時序**
+   - 確認 `get_btc_state(date)` 傳入的是 `month_start`（月初已知），不是 `month_end`
+
+4. **任何訊號若使用當月未來資料 → 立即 REJECT，不計分，要求研究員修正程式碼**
+   - 在「嚴重問題」裡列出具體行號和錯誤原因
+   - 給出正確修法（例如：改成 `get_monthly_universe(all_months[i-1])`）
+
 ### B. 執行可行性（滿分 25 分）
 - 手續費是否納入計算？（Binance taker 4bps）
 - 流動性問題？（標的能否承接倉位大小？）
