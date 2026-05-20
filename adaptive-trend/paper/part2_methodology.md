@@ -196,12 +196,12 @@ Key findings (summarised from `mcap-rank-analysis`):
 | Metric | All Regimes | Bear Market ($\mathbb{1}_{\text{bear}}=1$) | Bull Market ($\mathbb{1}_{\text{bear}}=0$) |
 |--------|------------|-------------------------------|-------------------------------|
 | Events | 88 | 46 | 42 |
-| 1-month forward short win-rate | 54.5% | **68.3%** | 51.1% |
+| 1-month forward short win-rate | **59.1%** | **68.3%** | 51.1% |
 | Median 1-month return (shorted asset) | −3.2% | −7.8% | +1.4% |
 
 These results establish that:
 
-1. The rank-decay signal has positive directional predictability, but only marginally (54.5%) when applied unconditionally.
+1. The rank-decay signal has positive directional predictability, but only marginally (59.1%) when applied unconditionally.
 2. **BTC bear-market filtering substantially improves accuracy to 68.3%**, providing econometric justification for $\mathbb{1}_{\text{bear}}$ as a regime gate.
 3. In bull markets, rank-decaying assets frequently recover (+1.4% median), confirming that unconditional shorting would be harmful. This validates the bear-only constraint in $\mathcal{S}_t$.
 

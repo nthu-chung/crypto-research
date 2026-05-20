@@ -1,6 +1,7 @@
 <!-- AdaptiveTrend Research Paper -->
-<!-- Generated: 2026-05-20 -->
+<!-- Generated: 2026-05-20 | Fact-checked: 2026-05-20 -->
 <!-- Authors: Binance AI Pro Research System -->
+<!-- Fact-check score: 91/100 (2 corrections applied) -->
 
 # AdaptiveTrend: A Survivorship-Bias-Corrected Momentum Strategy for Cryptocurrency Markets
 ## 自適應趨勢：加密貨幣市場的倖存者偏差修正動量策略
@@ -351,12 +352,12 @@ Key findings (summarised from `mcap-rank-analysis`):
 | Metric | All Regimes | Bear Market ($\mathbb{1}_{\text{bear}}=1$) | Bull Market ($\mathbb{1}_{\text{bear}}=0$) |
 |--------|------------|-------------------------------|-------------------------------|
 | Events | 88 | 46 | 42 |
-| 1-month forward short win-rate | 54.5% | **68.3%** | 51.1% |
+| 1-month forward short win-rate | **59.1%** | **68.3%** | 51.1% |
 | Median 1-month return (shorted asset) | −3.2% | −7.8% | +1.4% |
 
 These results establish that:
 
-1. The rank-decay signal has positive directional predictability, but only marginally (54.5%) when applied unconditionally.
+1. The rank-decay signal has positive directional predictability, but only marginally (59.1%) when applied unconditionally.
 2. **BTC bear-market filtering substantially improves accuracy to 68.3%**, providing econometric justification for $\mathbb{1}_{\text{bear}}$ as a regime gate.
 3. In bull markets, rank-decaying assets frequently recover (+1.4% median), confirming that unconditional shorting would be harmful. This validates the bear-only constraint in $\mathcal{S}_t$.
 
@@ -740,7 +741,7 @@ The v4 short utilisation rate of 2.6% (2/76 months) reflects the conservative de
 
 The preservation mode, introduced in v3 and retained in v4, addresses the practical problem of extended signal droughts: periods when no coin meets the primary Sharpe ≥ 1.3 threshold. In such months, if BTC is in an uptrend (price > 90-day MA) and at least one coin achieves Sharpe ≥ 0.8, a reduced 42% allocation is deployed across the top 2 qualifying coins.
 
-**Preservation mode triggered in 9 months across the full backtest period.** Notably, this mechanism resolved the 2026 cash-idleness problem observed in v2 (where the strategy held 0% invested for multiple consecutive months). In the 4 qualifying months of 2026 where BTC remained above its 90-day MA, the preservation mode generated a cumulative annual return of +3.5% from an otherwise inactive portfolio.
+**Preservation mode triggered in 9 months across the full backtest period.** Notably, this mechanism resolved the 2026 cash-idleness problem observed in v2 (where the strategy held 0% invested for multiple consecutive months). In the 4 qualifying months of 2026 where BTC remained above its 90-day MA, the preservation mode kept the strategy partially invested. Note: in v4, the 2026 annual return is 0.0% (results_v4.json), as BTC remained below its 90-day MA for most of 2026 and preservation mode conditions were not consistently met.
 
 ---
 

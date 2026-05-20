@@ -258,7 +258,7 @@ The v4 short utilisation rate of 2.6% (2/76 months) reflects the conservative de
 
 The preservation mode, introduced in v3 and retained in v4, addresses the practical problem of extended signal droughts: periods when no coin meets the primary Sharpe ≥ 1.3 threshold. In such months, if BTC is in an uptrend (price > 90-day MA) and at least one coin achieves Sharpe ≥ 0.8, a reduced 42% allocation is deployed across the top 2 qualifying coins.
 
-**Preservation mode triggered in 9 months across the full backtest period.** Notably, this mechanism resolved the 2026 cash-idleness problem observed in v2 (where the strategy held 0% invested for multiple consecutive months). In the 4 qualifying months of 2026 where BTC remained above its 90-day MA, the preservation mode generated a cumulative annual return of +3.5% from an otherwise inactive portfolio.
+**Preservation mode triggered in 9 months across the full backtest period.** Notably, this mechanism resolved the 2026 cash-idleness problem observed in v2 (where the strategy held 0% invested for multiple consecutive months). In the 4 qualifying months of 2026 where BTC remained above its 90-day MA, the preservation mode kept the strategy partially invested. Note: in v4, the 2026 annual return is 0.0% (results_v4.json), as BTC remained below its 90-day MA for most of 2026 and preservation mode conditions were not consistently met.
 
 ---
 
