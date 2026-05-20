@@ -1,0 +1,253 @@
+{
+  "period_start": "2020-06-01",
+  "period_end": "2026-05-20",
+  "cagr": 1.1583,
+  "sharpe": 2.97,
+  "max_dd": -0.1876,
+  "calmar": 6.17,
+  "total_return": 98.5941,
+  "n_trades": 930,
+  "rebalances": 72,
+  "symbols_used": [
+    "ETHUSDT",
+    "XRPUSDT",
+    "SOLUSDT",
+    "ZECUSDT",
+    "BNBUSDT",
+    "DOGEUSDT",
+    "SUIUSDT",
+    "EDENUSDT",
+    "TONUSDT",
+    "TRXUSDT",
+    "NEARUSDT",
+    "ONDOUSDT",
+    "ADAUSDT",
+    "LINKUSDT",
+    "UUSDT",
+    "BCHUSDT",
+    "LTCUSDT",
+    "SPKUSDT"
+  ],
+  "btc_benchmark": {
+    "cagr": 0.4039,
+    "sharpe": 0.88,
+    "max_dd": -0.7663,
+    "total_return": 6.5685
+  },
+  "yearly": {
+    "2020": {
+      "cagr": 1.1838,
+      "sharpe": 2.69,
+      "max_dd": -0.0791
+    },
+    "2021": {
+      "cagr": 4.4071,
+      "sharpe": 4.71,
+      "max_dd": -0.0817
+    },
+    "2022": {
+      "cagr": 0.1866,
+      "sharpe": 1.05,
+      "max_dd": -0.0722
+    },
+    "2023": {
+      "cagr": 0.3223,
+      "sharpe": 1.91,
+      "max_dd": -0.0952
+    },
+    "2024": {
+      "cagr": 1.3498,
+      "sharpe": 4.05,
+      "max_dd": -0.1186
+    },
+    "2025": {
+      "cagr": 1.2395,
+      "sharpe": 2.49,
+      "max_dd": -0.1876
+    },
+    "2026": {
+      "cagr": 1.3799,
+      "sharpe": 4.23,
+      "max_dd": -0.0714
+    }
+  },
+  "rebal_history": [
+    {
+      "date": "2025-06-01",
+      "longs": [
+        "ETHUSDT",
+        "ZECUSDT",
+        "BNBUSDT",
+        "BCHUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [
+        "ONDOUSDT",
+        "SUIUSDT",
+        "LINKUSDT"
+      ],
+      "turnover_cost": 0.0004
+    },
+    {
+      "date": "2025-07-01",
+      "longs": [
+        "BCHUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [
+        "SPKUSDT",
+        "ZECUSDT",
+        "ADAUSDT",
+        "DOGEUSDT",
+        "SUIUSDT"
+      ],
+      "turnover_cost": 0.0004
+    },
+    {
+      "date": "2025-08-01",
+      "longs": [
+        "ETHUSDT",
+        "XRPUSDT",
+        "BNBUSDT",
+        "TRXUSDT",
+        "ADAUSDT"
+      ],
+      "shorts": [],
+      "turnover_cost": 0.00028
+    },
+    {
+      "date": "2025-09-01",
+      "longs": [
+        "LINKUSDT",
+        "ETHUSDT",
+        "SOLUSDT",
+        "BNBUSDT",
+        "ZECUSDT"
+      ],
+      "shorts": [
+        "SPKUSDT",
+        "TONUSDT",
+        "XRPUSDT",
+        "SUIUSDT"
+      ],
+      "turnover_cost": 0.00039999999999999996
+    },
+    {
+      "date": "2025-10-01",
+      "longs": [
+        "ZECUSDT",
+        "BNBUSDT",
+        "NEARUSDT",
+        "DOGEUSDT"
+      ],
+      "shorts": [
+        "TONUSDT",
+        "LINKUSDT",
+        "ETHUSDT",
+        "SPKUSDT",
+        "TRXUSDT"
+      ],
+      "turnover_cost": 0.0004
+    },
+    {
+      "date": "2025-11-01",
+      "longs": [
+        "ZECUSDT"
+      ],
+      "shorts": [
+        "TRXUSDT",
+        "EDENUSDT",
+        "ADAUSDT",
+        "SUIUSDT",
+        "DOGEUSDT"
+      ],
+      "turnover_cost": 0.0004
+    },
+    {
+      "date": "2025-12-01",
+      "longs": [
+        "ZECUSDT"
+      ],
+      "shorts": [
+        "TONUSDT",
+        "SUIUSDT",
+        "ADAUSDT",
+        "BNBUSDT",
+        "SOLUSDT"
+      ],
+      "turnover_cost": 0.0004
+    },
+    {
+      "date": "2026-01-01",
+      "longs": [
+        "ZECUSDT",
+        "BCHUSDT",
+        "TONUSDT",
+        "TRXUSDT",
+        "BNBUSDT"
+      ],
+      "shorts": [
+        "ONDOUSDT",
+        "SPKUSDT",
+        "DOGEUSDT",
+        "XRPUSDT",
+        "ADAUSDT"
+      ],
+      "turnover_cost": 0.0004
+    },
+    {
+      "date": "2026-02-01",
+      "longs": [],
+      "shorts": [
+        "LTCUSDT",
+        "ZECUSDT",
+        "EDENUSDT",
+        "NEARUSDT",
+        "LINKUSDT"
+      ],
+      "turnover_cost": 0.00012
+    },
+    {
+      "date": "2026-03-01",
+      "longs": [],
+      "shorts": [
+        "BNBUSDT",
+        "ETHUSDT",
+        "SUIUSDT",
+        "ZECUSDT",
+        "SOLUSDT"
+      ],
+      "turnover_cost": 0.00012
+    },
+    {
+      "date": "2026-04-01",
+      "longs": [
+        "TRXUSDT",
+        "ZECUSDT",
+        "UUSDT",
+        "ETHUSDT",
+        "SPKUSDT"
+      ],
+      "shorts": [
+        "ADAUSDT"
+      ],
+      "turnover_cost": 0.00039999999999999996
+    },
+    {
+      "date": "2026-05-01",
+      "longs": [
+        "SPKUSDT",
+        "ZECUSDT",
+        "DOGEUSDT",
+        "TRXUSDT",
+        "EDENUSDT"
+      ],
+      "shorts": [
+        "BCHUSDT",
+        "UUSDT",
+        "ONDOUSDT"
+      ],
+      "turnover_cost": 0.0004
+    }
+  ]
+}
