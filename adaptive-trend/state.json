@@ -1,10 +1,10 @@
 {
-  "topic": "AdaptiveTrend 多幣趨勢跟蹤策略（6H K線 + ATR Trailing Stop + 動態選幣 + 70/30 多空）",
-  "round": 1,
+  "topic": "AdaptiveTrend \u591a\u7a7a\u8da8\u52e2\u8ddf\u8e64\u7b56\u7565\uff086H K\u7dda + ATR Trailing Stop + \u52d5\u614b\u9078\u5e63 + 70/30 \u591a\u7a7a\uff09",
+  "round": 4,
   "max_rounds": 4,
-  "status": "awaiting_judge",
-  "last_score": null,
-  "last_verdict": null,
+  "status": "complete",
+  "last_score": 79,
+  "last_verdict": "PASS",
   "created_at": "2026-05-20T05:47:00.000Z",
   "history": [
     {
@@ -13,23 +13,76 @@
       "report": "report_v1.md",
       "results": "results_v1.json",
       "summary": "CAGR=115.83%, Sharpe=2.97, MaxDD=-18.76%, Calmar=6.17, Trades=930"
+    },
+    {
+      "round": 1,
+      "type": "judge",
+      "feedback": "feedback_v1.md",
+      "score": 50
+    },
+    {
+      "round": 2,
+      "type": "research",
+      "report": "report_v2.md",
+      "results": "results_v2.json",
+      "summary": "CAGR=40.1%, Sharpe=0.85, MaxDD=-30.9%, Calmar=1.30, IS/OOS\u5206\u5272\u5b8c\u6210, Survivorship Bias\u5df2\u4fee\u6b63, Funding Rate\u5df2\u8a08\u5165"
+    },
+    {
+      "round": 2,
+      "type": "judge",
+      "feedback": "feedback_v2.md",
+      "score": 72
+    },
+    {
+      "round": 3,
+      "type": "research",
+      "report": "report_v3.md",
+      "results": "results_v3.json",
+      "summary": "CAGR=38.2%, Sharpe=0.92, MaxDD=-33.5%, Calmar=1.14, \u7a7a\u5009\u5229\u7528\u738730.3%(v2:3.9%), \u4fdd\u7559\u6a21\u5f0f9\u500b\u6708, OOS CAGR=52.6%"
+    },
+    {
+      "round": 3,
+      "type": "research",
+      "report": "report_v3.md",
+      "results": "results_v3.json"
+    },
+    {
+      "round": 3,
+      "type": "judge",
+      "feedback": "feedback_v3.md",
+      "score": 71
+    },
+    {
+      "round": 4,
+      "type": "research",
+      "report": "report_v4.md",
+      "results": "results_v4.json",
+      "summary": "CAGR=46.54%, Sharpe=1.0, MaxDD=-34.52%"
+    },
+    {
+      "round": 4,
+      "type": "judge",
+      "feedback": "feedback_v4.md",
+      "score": 79
     }
   ],
   "config": {
-    "universe": "Binance USDT 現貨，動態前 20 大市值幣",
+    "universe": "\u6b77\u53f2\u52d5\u614b\u6708\u5ea6\u6210\u4ea4\u91cf\u6392\u540d\u524d20\uff0830\u500b\u5019\u9078\u5e63\uff0c\u52d5\u614b\u7be9\u9078\uff09",
     "data_start": "2020-01-01",
     "data_end": "2026-05-20",
     "timeframe": "6h",
     "initial_capital": 10000,
-    "fee_bps": 4,
-    "long_allocation": 0.7,
+    "fee_bps": "4/8/15 tiered",
+    "long_allocation": "dynamic: 70%/55%/40% based on RV30",
     "short_allocation": 0.3,
     "rebalance": "monthly",
-    "validation": "walk_forward"
+    "validation": "walk_forward",
+    "is_period": "2020-2023",
+    "oos_period": "2024-2026"
   },
   "research_goals": {
     "primary": "Sharpe > 1.5 + MaxDD < -25%",
-    "secondary": "CAGR 接近或超越 BTC Buy & Hold",
+    "secondary": "CAGR \u63a5\u8fd1\u6216\u8d85\u8d8a BTC Buy & Hold",
     "reference_paper": "arXiv 2602.11708 AdaptiveTrend"
   },
   "workspace": "/root/.openclaw/workspace/crypto-research/adaptive-trend"

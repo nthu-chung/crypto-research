@@ -1,0 +1,63 @@
+你是加密貨幣量化研究員 (crypto-research agent)，第 3 輪研究。
+
+## 工作目錄
+/root/.openclaw/workspace/crypto-research/adaptive-trend/
+
+## 第一步：讀取狀態
+讀取 state.json（round=3, status=awaiting_research）
+讀取 feedback_v2.md，了解所有批評
+
+## 第二步：Judge v2 的強制修正清單
+1. **動態多倉配置（解決 IS MaxDD -30.9%）**：
+   - 計算 BTC 最近 30 天已實現波動率（RV30 = std of daily returns * sqrt(365)）
+   - RV30 < 50%：多倉配置 70%（正常）
+   - RV30 50-80%：多倉配置 55%
+   - RV30 > 80%：多倉配置 40%
+   - 空倉配置始終為剩餘的 30%（若有空倉候選）
+
+2. **改進空倉信號（解決 3.9% 利用率）**：
+   - 保留排名衰退信號（rank drop from <=15 to 16-20）
+   - 新增：BTC 熊市 + universe 平均月度 Sharpe < 0 → 做空最弱 Sharpe 的 2 個幣
+   - 兩個條件取 OR（任一滿足即可，最多取 3 個空倉）
+
+3. **保留模式（解決 2026 全閒置）**：
+   - 若無 Sharpe ≥ 1.3 候選，但有 Sharpe ≥ 0.8 的幣種 AND BTC > 90日MA：
+   - 啟用保留模式：取 Sharpe 最高的 1-2 個幣，配置降至正常的 60%（即多倉配置 × 0.6）
+
+## 第三步：使用已有緩存資料重新回測
+緩存在 /root/.openclaw/workspace/crypto-research/adaptive-trend/cache/
+所有幣種 _6h.parquet 已有（含 quote_vol 欄位）
+直接讀取 parquet，不需要重新下載。
+
+關鍵：parquet 讀取後需確認有 quote_vol 欄位，若沒有則用 close * volume 計算。
+
+修改 backtest_v2.py 的相關邏輯，保存為 backtest_v3.py，執行後記錄結果。
+
+## 第四步：計算績效（全期、IS、OOS、逐年）
+IS=2020-2023, OOS=2024-2026
+
+## 第五步：寫 report_v3.md
+格式同 report_v2.md，重點說明：
+- 三個改進的實際效果（MaxDD、空倉利用率、閒置月份）
+- IS vs OOS 對比
+
+## 第六步：更新 state.json
+round=3, status=awaiting_judge, 加入 report_v3.md 到 history
+
+## 第七步：通知 main
+用 message tool 發送到 agent:main:jarvis:direct:147809639:t:019e2974-58ec-7c2d-9de6-92423a34d721
+格式：[RESEARCH v3] 報告完成，摘要：CAGR=X%, Sharpe=X, MaxDD=X%，改進：...
+
+## 第八步：啟動 Judge v3
+
+執行以下 Python 腳本（另存為 judge_v3_runner.py 後執行）：
+
+寫一個 judge_v3_runner.py，邏輯如下：
+1. 讀取 report_v3.md 進行審查（同 v2 邏輯，4維度各25分）
+2. 寫 feedback_v3.md
+3. 更新 state.json（若 score >= 75 → complete，否則 round=4, awaiting_research）
+4. 發送通知到 agent:main:jarvis:direct:147809639:t:019e2974-58ec-7c2d-9de6-92423a34d721
+5. 若 score < 75 且 round < 4，寫 research_v4_minimal.py（只做最關鍵的一個改進），執行後寫 report_v4.md，更新 state.json(round=4, status=awaiting_judge)，發送通知
+6. 最後不管分數，寫 judge_v4_final.py，審查 report_v4.md，寫 feedback_v4.md，設 state.json status=complete，發送 [LOOP COMPLETE] 最終評分X/100
+
+全部工作在當前 exec 工具中完成，不需要再 spawn。

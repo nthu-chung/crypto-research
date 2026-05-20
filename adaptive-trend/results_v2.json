@@ -1,0 +1,1950 @@
+{
+  "full": {
+    "label": "Full Period (2020-2026)",
+    "total_return": 744.34,
+    "cagr": 40.05,
+    "sharpe": 0.85,
+    "max_dd": -30.86,
+    "calmar": 1.3,
+    "win_rate": 27.6,
+    "n_months": 76,
+    "start_capital": 10000.0,
+    "end_capital": 84434.0
+  },
+  "is": {
+    "label": "IS: 2020-2023",
+    "total_return": 207.72,
+    "cagr": 32.45,
+    "sharpe": 0.86,
+    "max_dd": -30.86,
+    "calmar": 1.05,
+    "win_rate": 31.2,
+    "n_months": 48,
+    "start_capital": 10000.0,
+    "end_capital": 30771.92
+  },
+  "oos": {
+    "label": "OOS: 2024-2026",
+    "total_return": 183.87,
+    "cagr": 56.38,
+    "sharpe": 0.88,
+    "max_dd": -7.98,
+    "calmar": 7.07,
+    "win_rate": 21.4,
+    "n_months": 28,
+    "start_capital": 29744.19,
+    "end_capital": 84434.0
+  },
+  "yearly": {
+    "2020": {
+      "return": -1.2,
+      "sharpe": 0.07
+    },
+    "2021": {
+      "return": 171.2,
+      "sharpe": 1.9
+    },
+    "2022": {
+      "return": -10.1,
+      "sharpe": -0.82
+    },
+    "2023": {
+      "return": 27.8,
+      "sharpe": 0.78
+    },
+    "2024": {
+      "return": 91.0,
+      "sharpe": 0.97
+    },
+    "2025": {
+      "return": 43.7,
+      "sharpe": 1.25
+    },
+    "2026": {
+      "return": 0.0,
+      "sharpe": 0
+    }
+  },
+  "btc_buy_hold": {
+    "total_return": 968.7,
+    "cagr": 44.8
+  },
+  "portfolio_history": [
+    {
+      "date": "2020-01-31 00:00:00",
+      "capital": 10000.0,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'BCHUSDT', 'ETHUSDT', 'ETCUSDT']"
+    },
+    {
+      "date": "2020-02-29 00:00:00",
+      "capital": 10909.244024418887,
+      "return": 0.09092440244188868,
+      "long_symbols": "['BCHUSDT', 'LTCUSDT', 'ETHUSDT', 'BTCUSDT', 'EOSUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.1298920034884124,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BCHUSDT', 'XRPUSDT', 'BNBUSDT', 'LTCUSDT', 'EOSUSDT']"
+    },
+    {
+      "date": "2020-03-31 00:00:00",
+      "capital": 10909.244024418887,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BCHUSDT', 'LINKUSDT', 'BNBUSDT', 'XRPUSDT']"
+    },
+    {
+      "date": "2020-04-30 00:00:00",
+      "capital": 10909.244024418887,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2020-05-31 00:00:00",
+      "capital": 10523.00817918035,
+      "return": -0.035404455558423635,
+      "long_symbols": "['ETHUSDT', 'BTCUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.050577793654890915,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT']"
+    },
+    {
+      "date": "2020-06-30 00:00:00",
+      "capital": 10523.00817918035,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT']"
+    },
+    {
+      "date": "2020-07-31 00:00:00",
+      "capital": 10523.00817918035,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'LINKUSDT', 'ADAUSDT', 'VETUSDT']"
+    },
+    {
+      "date": "2020-08-31 00:00:00",
+      "capital": 10514.691959598174,
+      "return": -0.0007902891873285312,
+      "long_symbols": "['ETHUSDT', 'XRPUSDT', 'LTCUSDT', 'BTCUSDT', 'EOSUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.0011289845533264732,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'LINKUSDT', 'XRPUSDT', 'EOSUSDT', 'BNBUSDT', 'LTCUSDT', 'BCHUSDT', 'DOTUSDT']"
+    },
+    {
+      "date": "2020-09-30 00:00:00",
+      "capital": 9094.349027381399,
+      "return": -0.13508174444618298,
+      "long_symbols": "['LINKUSDT', 'DOTUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.1929739206374043,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'LINKUSDT', 'BNBUSDT', 'UNIUSDT', 'TRXUSDT', 'SUSHIUSDT', 'DOTUSDT']"
+    },
+    {
+      "date": "2020-10-31 00:00:00",
+      "capital": 9094.349027381399,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'LINKUSDT', 'BNBUSDT']"
+    },
+    {
+      "date": "2020-11-30 00:00:00",
+      "capital": 10670.177127230309,
+      "return": 0.17327552473567753,
+      "long_symbols": "['BTCUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.2475364639081108,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'LINKUSDT', 'LTCUSDT', 'ADAUSDT', 'BCHUSDT', 'BNBUSDT', 'XLMUSDT', 'EOSUSDT']"
+    },
+    {
+      "date": "2020-12-31 00:00:00",
+      "capital": 9876.884280984303,
+      "return": -0.07434673640248397,
+      "long_symbols": "['XRPUSDT', 'ETHUSDT', 'BTCUSDT', 'XLMUSDT', 'ADAUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.10620962343211997,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'LTCUSDT', 'BCHUSDT', 'LINKUSDT', 'BNBUSDT', 'ADAUSDT', 'XLMUSDT', 'DOTUSDT']"
+    },
+    {
+      "date": "2021-01-31 00:00:00",
+      "capital": 9989.841627376445,
+      "return": 0.011436536379151046,
+      "long_symbols": "['BTCUSDT', 'DOTUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.016337909113072924,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'DOGEUSDT', 'DOTUSDT', 'LTCUSDT', 'LINKUSDT', 'ADAUSDT', 'BCHUSDT', 'XLMUSDT']"
+    },
+    {
+      "date": "2021-02-28 00:00:00",
+      "capital": 14886.962684601487,
+      "return": 0.4902100793875284,
+      "long_symbols": "['AVAXUSDT', 'UNIUSDT', 'AAVEUSDT', 'SUSHIUSDT', 'DOGEUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.7003001134107549,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'XRPUSDT', 'DOGEUSDT', 'DOTUSDT', 'LTCUSDT', 'LINKUSDT', 'BCHUSDT']"
+    },
+    {
+      "date": "2021-03-31 00:00:00",
+      "capital": 19625.84703100157,
+      "return": 0.3183244592466001,
+      "long_symbols": "['ADAUSDT', 'MATICUSDT', 'BNBUSDT', 'DOTUSDT', 'THETAUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.45474922749514296,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'XRPUSDT', 'DOTUSDT', 'FILUSDT', 'THETAUSDT', 'LTCUSDT', 'VETUSDT']"
+    },
+    {
+      "date": "2021-04-30 00:00:00",
+      "capital": 22866.558645478963,
+      "return": 0.16512467509597267,
+      "long_symbols": "['FILUSDT', 'THETAUSDT', 'TRXUSDT', 'VETUSDT', 'ETHUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.2358923929942467,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'DOGEUSDT', 'BNBUSDT', 'ETHUSDT', 'XRPUSDT', 'ADAUSDT', 'VETUSDT', 'TRXUSDT', 'DOTUSDT', 'LTCUSDT']"
+    },
+    {
+      "date": "2021-05-31 00:00:00",
+      "capital": 29682.42072977115,
+      "return": 0.29807117852601656,
+      "long_symbols": "['DOGEUSDT', 'XRPUSDT', 'BNBUSDT', 'ETCUSDT', 'SOLUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.42581596932288085,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT', 'MATICUSDT', 'ETCUSDT', 'EOSUSDT', 'DOTUSDT']"
+    },
+    {
+      "date": "2021-06-30 00:00:00",
+      "capital": 26924.53773033736,
+      "return": -0.0929130081586528,
+      "long_symbols": "['MATICUSDT']",
+      "short_symbols": "['EOSUSDT', 'TRXUSDT', 'BCHUSDT']",
+      "long_return": -0.1652699616376916,
+      "short_return": 0.07591988329243766,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'DOGEUSDT', 'ADAUSDT', 'MATICUSDT', 'XRPUSDT', 'DOTUSDT', 'SOLUSDT', 'VETUSDT']"
+    },
+    {
+      "date": "2021-07-31 00:00:00",
+      "capital": 27721.889810543387,
+      "return": 0.02961432757701938,
+      "long_symbols": "[]",
+      "short_symbols": "['LTCUSDT', 'VETUSDT']",
+      "long_return": 0.0,
+      "short_return": 0.09871442525673127,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'DOGEUSDT', 'XRPUSDT', 'ADAUSDT', 'MATICUSDT', 'DOTUSDT', 'LINKUSDT', 'THETAUSDT']"
+    },
+    {
+      "date": "2021-08-31 00:00:00",
+      "capital": 27721.889810543387,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'ADAUSDT', 'DOGEUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT', 'DOTUSDT', 'MATICUSDT', 'AVAXUSDT']"
+    },
+    {
+      "date": "2021-09-30 00:00:00",
+      "capital": 28601.148397998648,
+      "return": 0.03171712294739927,
+      "long_symbols": "['SOLUSDT', 'ADAUSDT', 'AVAXUSDT', 'ATOMUSDT', 'DOTUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.04531017563914182,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'ADAUSDT', 'DOTUSDT', 'AVAXUSDT', 'BNBUSDT', 'XRPUSDT', 'FILUSDT', 'ATOMUSDT']"
+    },
+    {
+      "date": "2021-10-31 00:00:00",
+      "capital": 28601.148397998648,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'SOLUSDT', 'BNBUSDT', 'DOTUSDT', 'XRPUSDT', 'ADAUSDT', 'FILUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2021-11-30 00:00:00",
+      "capital": 29582.009388450173,
+      "return": 0.03429446177483413,
+      "long_symbols": "['BTCUSDT', 'ETHUSDT', 'ZECUSDT', 'MATICUSDT', 'BNBUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.048992088249763054,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'DOTUSDT', 'XRPUSDT', 'AVAXUSDT', 'TRXUSDT', 'ADAUSDT', 'DOGEUSDT']"
+    },
+    {
+      "date": "2021-12-31 00:00:00",
+      "capital": 26782.3413866069,
+      "return": -0.09464090032154343,
+      "long_symbols": "['AVAXUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.13520128617363347,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'MATICUSDT', 'SOLUSDT', 'AVAXUSDT', 'XRPUSDT', 'DOTUSDT', 'ADAUSDT', 'DOGEUSDT']"
+    },
+    {
+      "date": "2022-01-31 00:00:00",
+      "capital": 26782.3413866069,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'ATOMUSDT', 'ADAUSDT', 'DOTUSDT', 'LINKUSDT', 'MATICUSDT', 'XRPUSDT']"
+    },
+    {
+      "date": "2022-02-28 00:00:00",
+      "capital": 26782.3413866069,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT', 'AVAXUSDT', 'ADAUSDT', 'DOTUSDT', 'MATICUSDT', 'DOGEUSDT']"
+    },
+    {
+      "date": "2022-03-31 00:00:00",
+      "capital": 27580.63096067503,
+      "return": 0.029806564054453193,
+      "long_symbols": "[]",
+      "short_symbols": "['FILUSDT', 'LTCUSDT']",
+      "long_return": 0.0,
+      "short_return": 0.09935521351484398,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'AVAXUSDT', 'ADAUSDT', 'ETCUSDT', 'DOTUSDT', 'ATOMUSDT']"
+    },
+    {
+      "date": "2022-04-30 00:00:00",
+      "capital": 26391.79772656501,
+      "return": -0.043103917231084365,
+      "long_symbols": "['ETCUSDT', 'TRXUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.06157702461583481,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'AVAXUSDT', 'ADAUSDT', 'DOTUSDT', 'TRXUSDT']"
+    },
+    {
+      "date": "2022-05-31 00:00:00",
+      "capital": 26391.79772656501,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'TRXUSDT', 'XRPUSDT', 'AVAXUSDT', 'ADAUSDT', 'DOTUSDT', 'DOGEUSDT']"
+    },
+    {
+      "date": "2022-06-30 00:00:00",
+      "capital": 26391.79772656501,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'ADAUSDT', 'XRPUSDT', 'TRXUSDT', 'AVAXUSDT', 'DOGEUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2022-07-31 00:00:00",
+      "capital": 26391.79772656501,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'MATICUSDT', 'ETCUSDT', 'ADAUSDT', 'XRPUSDT', 'AVAXUSDT', 'DOTUSDT']"
+    },
+    {
+      "date": "2022-08-31 00:00:00",
+      "capital": 26394.734731965604,
+      "return": 0.00011128477987829427,
+      "long_symbols": "['ETCUSDT', 'FILUSDT', 'MATICUSDT', 'ETHUSDT', 'BNBUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.00015897825696899182,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'ETCUSDT', 'BNBUSDT', 'SOLUSDT', 'ADAUSDT', 'DOGEUSDT', 'XRPUSDT', 'AVAXUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2022-09-30 00:00:00",
+      "capital": 26394.734731965604,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'ETCUSDT', 'BNBUSDT', 'SOLUSDT', 'ATOMUSDT', 'ADAUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2022-10-31 00:00:00",
+      "capital": 26921.87573624443,
+      "return": 0.01997144542772858,
+      "long_symbols": "['XRPUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.028530636325326545,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2022-11-30 00:00:00",
+      "capital": 24070.413955626358,
+      "return": -0.10591616306954432,
+      "long_symbols": "['DOGEUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.15130880438506333,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'BNBUSDT', 'XRPUSDT', 'MATICUSDT', 'SOLUSDT', 'LTCUSDT', 'LINKUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2022-12-31 00:00:00",
+      "capital": 24070.413955626358,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'XRPUSDT', 'BNBUSDT', 'LTCUSDT']"
+    },
+    {
+      "date": "2023-01-31 00:00:00",
+      "capital": 24070.413955626358,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'BNBUSDT', 'MATICUSDT', 'LTCUSDT', 'AVAXUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2023-02-28 00:00:00",
+      "capital": 23815.238734337207,
+      "return": -0.010601197875515,
+      "long_symbols": "['BTCUSDT', 'SOLUSDT', 'ETHUSDT', 'FILUSDT', 'LTCUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.015144568393592859,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'MATICUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT', 'DOGEUSDT', 'FILUSDT', 'LTCUSDT']"
+    },
+    {
+      "date": "2023-03-31 00:00:00",
+      "capital": 23815.238734337207,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT', 'MATICUSDT', 'LTCUSDT', 'FILUSDT', 'DOGEUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2023-04-30 00:00:00",
+      "capital": 22960.05359652826,
+      "return": -0.03590915662650599,
+      "long_symbols": "['XRPUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.05129879518072285,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT', 'LTCUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2023-05-31 00:00:00",
+      "capital": 22960.05359652826,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BNBUSDT', 'LTCUSDT', 'SOLUSDT']"
+    },
+    {
+      "date": "2023-06-30 00:00:00",
+      "capital": 22960.05359652826,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BNBUSDT', 'LTCUSDT', 'SOLUSDT', 'BCHUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2023-07-31 00:00:00",
+      "capital": 21731.32468530745,
+      "return": -0.053515942637285714,
+      "long_symbols": "['BCHUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.07645134662469388,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'SOLUSDT', 'BNBUSDT', 'LTCUSDT', 'DOGEUSDT', 'BCHUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2023-08-31 00:00:00",
+      "capital": 21731.32468530745,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT']"
+    },
+    {
+      "date": "2023-09-30 00:00:00",
+      "capital": 21731.32468530745,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BNBUSDT', 'SOLUSDT']"
+    },
+    {
+      "date": "2023-10-31 00:00:00",
+      "capital": 20523.8357021265,
+      "return": -0.05556444444444444,
+      "long_symbols": "['LINKUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.07937777777777777,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'SOLUSDT', 'BNBUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2023-11-30 00:00:00",
+      "capital": 22448.44254032759,
+      "return": 0.09377422749499395,
+      "long_symbols": "['SOLUSDT', 'BTCUSDT', 'LINKUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.13396318213570566,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'LINKUSDT', 'AVAXUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2023-12-31 00:00:00",
+      "capital": 30771.922993297,
+      "return": 0.37078209047316607,
+      "long_symbols": "['AVAXUSDT', 'ADAUSDT', 'SOLUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.5296887006759515,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'AVAXUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'MATICUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2024-01-31 00:00:00",
+      "capital": 29744.190604810723,
+      "return": -0.03339838035829437,
+      "long_symbols": "['BNBUSDT', 'SOLUSDT', 'AVAXUSDT', 'ADAUSDT', 'FILUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.04771197194042053,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'AVAXUSDT', 'LINKUSDT', 'MATICUSDT', 'DOGEUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2024-02-29 00:00:00",
+      "capital": 29744.190604810723,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'LINKUSDT', 'AVAXUSDT', 'FILUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2024-03-31 00:00:00",
+      "capital": 30889.195763017276,
+      "return": 0.038495085424222794,
+      "long_symbols": "['ETHUSDT', 'BTCUSDT', 'BNBUSDT', 'TRXUSDT', 'FILUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.05499297917746113,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'DOGEUSDT', 'BNBUSDT', 'XRPUSDT', 'AVAXUSDT', 'FILUSDT', 'ADAUSDT', 'MATICUSDT']"
+    },
+    {
+      "date": "2024-04-30 00:00:00",
+      "capital": 28661.68824091454,
+      "return": -0.0721128364491013,
+      "long_symbols": "['BCHUSDT', 'BNBUSDT', 'DOGEUSDT', 'SOLUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.10301833778443044,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'DOGEUSDT', 'BNBUSDT', 'XRPUSDT', 'BCHUSDT', 'AVAXUSDT', 'LTCUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2024-05-31 00:00:00",
+      "capital": 28661.68824091454,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'DOGEUSDT', 'BNBUSDT', 'XRPUSDT', 'AVAXUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2024-06-30 00:00:00",
+      "capital": 28425.42451985194,
+      "return": -0.00824318927331493,
+      "long_symbols": "['SOLUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.011775984676164185,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'AVAXUSDT']"
+    },
+    {
+      "date": "2024-07-31 00:00:00",
+      "capital": 28425.42451985194,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'AVAXUSDT']"
+    },
+    {
+      "date": "2024-08-31 00:00:00",
+      "capital": 28425.42451985194,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'TRXUSDT']"
+    },
+    {
+      "date": "2024-09-30 00:00:00",
+      "capital": 28425.42451985194,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT']"
+    },
+    {
+      "date": "2024-10-31 00:00:00",
+      "capital": 28425.42451985194,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'DOGEUSDT', 'XRPUSDT', 'BNBUSDT']"
+    },
+    {
+      "date": "2024-11-30 00:00:00",
+      "capital": 55501.96604323462,
+      "return": 0.9525466015282475,
+      "long_symbols": "['DOGEUSDT']",
+      "short_symbols": "[]",
+      "long_return": 1.360780859326068,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'DOGEUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT', 'XLMUSDT', 'AVAXUSDT', 'DOTUSDT']"
+    },
+    {
+      "date": "2024-12-31 00:00:00",
+      "capital": 58772.96383840883,
+      "return": 0.05893480949172489,
+      "long_symbols": "['XRPUSDT', 'XLMUSDT', 'ALGOUSDT', 'ADAUSDT', 'DOTUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.08419258498817841,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'DOGEUSDT', 'SOLUSDT', 'BNBUSDT', 'TRXUSDT', 'ADAUSDT', 'LINKUSDT', 'AVAXUSDT']"
+    },
+    {
+      "date": "2025-01-31 00:00:00",
+      "capital": 58772.96383840883,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'ADAUSDT', 'BNBUSDT', 'TRXUSDT', 'LINKUSDT', 'LTCUSDT']"
+    },
+    {
+      "date": "2025-02-28 00:00:00",
+      "capital": 55129.83818618938,
+      "return": -0.06198642052893427,
+      "long_symbols": "['XRPUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.08855202932704896,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'SOLUSDT', 'DOGEUSDT', 'BNBUSDT', 'LTCUSDT', 'TRXUSDT', 'ADAUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2025-03-31 00:00:00",
+      "capital": 55129.83818618938,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'SOLUSDT', 'ADAUSDT', 'BNBUSDT', 'DOGEUSDT', 'TRXUSDT', 'LTCUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2025-04-30 00:00:00",
+      "capital": 55129.83818618938,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'BNBUSDT', 'TRXUSDT', 'ADAUSDT']"
+    },
+    {
+      "date": "2025-05-31 00:00:00",
+      "capital": 55129.83818618938,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'BNBUSDT', 'TRXUSDT', 'ADAUSDT', 'AVAXUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2025-06-30 00:00:00",
+      "capital": 54268.03544234213,
+      "return": -0.015632237862492817,
+      "long_symbols": "['ETHUSDT', 'AAVEUSDT']",
+      "short_symbols": "[]",
+      "long_return": -0.02233176837498974,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'TRXUSDT', 'BNBUSDT', 'UNIUSDT', 'ADAUSDT', 'AAVEUSDT']"
+    },
+    {
+      "date": "2025-07-31 00:00:00",
+      "capital": 54268.03544234213,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['ETHUSDT', 'BTCUSDT', 'XRPUSDT', 'SOLUSDT', 'DOGEUSDT', 'BNBUSDT', 'TRXUSDT', 'ADAUSDT', 'UNIUSDT', 'XLMUSDT']"
+    },
+    {
+      "date": "2025-08-31 00:00:00",
+      "capital": 55469.3558271522,
+      "return": 0.0221367951689799,
+      "long_symbols": "['ETHUSDT', 'XRPUSDT', 'TRXUSDT', 'BNBUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.03162399309854272,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['ETHUSDT', 'BTCUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'BNBUSDT', 'ADAUSDT', 'LINKUSDT', 'TRXUSDT', 'UNIUSDT']"
+    },
+    {
+      "date": "2025-09-30 00:00:00",
+      "capital": 55469.3558271522,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['ETHUSDT', 'BTCUSDT', 'SOLUSDT', 'DOGEUSDT', 'XRPUSDT', 'BNBUSDT', 'AVAXUSDT', 'TRXUSDT', 'ADAUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2025-10-31 00:00:00",
+      "capital": 68535.71681695989,
+      "return": 0.2355599915478326,
+      "long_symbols": "['ZECUSDT', 'BNBUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.3365142736397609,
+      "short_return": 0.0,
+      "btc_bear": "False",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'DOGEUSDT', 'ZECUSDT', 'ADAUSDT', 'TRXUSDT', 'LINKUSDT']"
+    },
+    {
+      "date": "2025-11-30 00:00:00",
+      "capital": 84433.99949386134,
+      "return": 0.23197076524874483,
+      "long_symbols": "['ZECUSDT', 'DASHUSDT']",
+      "short_symbols": "[]",
+      "long_return": 0.3313868074982069,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'ZECUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'DASHUSDT', 'TRXUSDT', 'UNIUSDT']"
+    },
+    {
+      "date": "2025-12-31 00:00:00",
+      "capital": 84433.99949386134,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'ZECUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'TRXUSDT']"
+    },
+    {
+      "date": "2026-01-31 00:00:00",
+      "capital": 84433.99949386134,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'ZECUSDT', 'TRXUSDT', 'DASHUSDT']"
+    },
+    {
+      "date": "2026-02-28 00:00:00",
+      "capital": 84433.99949386134,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'DOGEUSDT', 'ZECUSDT']"
+    },
+    {
+      "date": "2026-03-31 00:00:00",
+      "capital": 84433.99949386134,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'BNBUSDT', 'ZECUSDT']"
+    },
+    {
+      "date": "2026-04-30 00:00:00",
+      "capital": 84433.99949386134,
+      "return": 0.0,
+      "long_symbols": "[]",
+      "short_symbols": "[]",
+      "long_return": 0.0,
+      "short_return": 0.0,
+      "btc_bear": "True",
+      "universe": "['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'DOGEUSDT', 'ZECUSDT', 'BNBUSDT']"
+    }
+  ],
+  "trade_log": [
+    {
+      "month": "2020-01",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 10000.0
+    },
+    {
+      "month": "2020-02",
+      "long": [
+        [
+          "BCHUSDT",
+          0.13360942408376958
+        ],
+        [
+          "LTCUSDT",
+          -0.005673605843517236
+        ],
+        [
+          "ETHUSDT",
+          0.3789850917304833
+        ],
+        [
+          "BTCUSDT",
+          0.04861520841861096
+        ],
+        [
+          "EOSUSDT",
+          0.09392389905271534
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 9.09,
+      "capital": 10909.24
+    },
+    {
+      "month": "2020-03",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 10909.24
+    },
+    {
+      "month": "2020-04",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 10909.24
+    },
+    {
+      "month": "2020-05",
+      "long": [
+        [
+          "ETHUSDT",
+          -0.07830785730939609
+        ],
+        [
+          "BTCUSDT",
+          -0.02284773000038575
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -3.54,
+      "capital": 10523.01
+    },
+    {
+      "month": "2020-06",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 10523.01
+    },
+    {
+      "month": "2020-07",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 10523.01
+    },
+    {
+      "month": "2020-08",
+      "long": [
+        [
+          "ETHUSDT",
+          0.0383336314294554
+        ],
+        [
+          "XRPUSDT",
+          0.09711761122184197
+        ],
+        [
+          "LTCUSDT",
+          -0.0648069194943446
+        ],
+        [
+          "BTCUSDT",
+          -0.03032545028487792
+        ],
+        [
+          "EOSUSDT",
+          -0.04596379563870723
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -0.08,
+      "capital": 10514.69
+    },
+    {
+      "month": "2020-09",
+      "long": [
+        [
+          "LINKUSDT",
+          -0.14541586765487696
+        ],
+        [
+          "DOTUSDT",
+          -0.24053197361993162
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -13.51,
+      "capital": 9094.35
+    },
+    {
+      "month": "2020-10",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 9094.35
+    },
+    {
+      "month": "2020-11",
+      "long": [
+        [
+          "BTCUSDT",
+          0.2475364639081108
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 17.33,
+      "capital": 10670.18
+    },
+    {
+      "month": "2020-12",
+      "long": [
+        [
+          "XRPUSDT",
+          -0.1536139058053065
+        ],
+        [
+          "ETHUSDT",
+          -0.057748918545789375
+        ],
+        [
+          "BTCUSDT",
+          -0.06031735114374912
+        ],
+        [
+          "XLMUSDT",
+          -0.13347147860514696
+        ],
+        [
+          "ADAUSDT",
+          -0.12589646306060784
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -7.43,
+      "capital": 9876.88
+    },
+    {
+      "month": "2021-01",
+      "long": [
+        [
+          "BTCUSDT",
+          0.17090480977667805
+        ],
+        [
+          "DOTUSDT",
+          -0.1382289915505322
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 1.14,
+      "capital": 9989.84
+    },
+    {
+      "month": "2021-02",
+      "long": [
+        [
+          "AVAXUSDT",
+          1.9713579987552936
+        ],
+        [
+          "UNIUSDT",
+          -0.0023989451688958157
+        ],
+        [
+          "AAVEUSDT",
+          0.6468967228792014
+        ],
+        [
+          "SUSHIUSDT",
+          0.2279948912392736
+        ],
+        [
+          "DOGEUSDT",
+          0.6576498993489015
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 49.02,
+      "capital": 14886.96
+    },
+    {
+      "month": "2021-03",
+      "long": [
+        [
+          "ADAUSDT",
+          -0.1307998419646949
+        ],
+        [
+          "MATICUSDT",
+          -0.16597549922226423
+        ],
+        [
+          "BNBUSDT",
+          -0.01464449096085236
+        ],
+        [
+          "DOTUSDT",
+          -0.013645923964214898
+        ],
+        [
+          "THETAUSDT",
+          2.598811893587741
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 31.83,
+      "capital": 19625.85
+    },
+    {
+      "month": "2021-04",
+      "long": [
+        [
+          "FILUSDT",
+          -0.1893362184498238
+        ],
+        [
+          "THETAUSDT",
+          -0.026893597592056874
+        ],
+        [
+          "TRXUSDT",
+          0.250839344262295
+        ],
+        [
+          "VETUSDT",
+          1.115607180297584
+        ],
+        [
+          "ETHUSDT",
+          0.029245256453235068
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 16.51,
+      "capital": 22866.56
+    },
+    {
+      "month": "2021-05",
+      "long": [
+        [
+          "DOGEUSDT",
+          0.29195817580075156
+        ],
+        [
+          "XRPUSDT",
+          -0.1255881488920971
+        ],
+        [
+          "BNBUSDT",
+          -0.03755598766895898
+        ],
+        [
+          "ETCUSDT",
+          2.0109991825402944
+        ],
+        [
+          "SOLUSDT",
+          -0.010733375165586015
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 29.81,
+      "capital": 29682.42
+    },
+    {
+      "month": "2021-06",
+      "long": [
+        [
+          "MATICUSDT",
+          -0.1652699616376916
+        ]
+      ],
+      "short": [
+        [
+          "EOSUSDT",
+          0.18808180759447116
+        ],
+        [
+          "TRXUSDT",
+          -0.07739057876978969
+        ],
+        [
+          "BCHUSDT",
+          0.11706842105263153
+        ]
+      ],
+      "portfolio_return": -9.29,
+      "capital": 26924.54
+    },
+    {
+      "month": "2021-07",
+      "long": [],
+      "short": [
+        [
+          "LTCUSDT",
+          -0.03455721925133699
+        ],
+        [
+          "VETUSDT",
+          0.23198606976479952
+        ]
+      ],
+      "portfolio_return": 2.96,
+      "capital": 27721.89
+    },
+    {
+      "month": "2021-08",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 27721.89
+    },
+    {
+      "month": "2021-09",
+      "long": [
+        [
+          "SOLUSDT",
+          0.5820298313644152
+        ],
+        [
+          "ADAUSDT",
+          0.014264562410330079
+        ],
+        [
+          "AVAXUSDT",
+          -0.15291912943871708
+        ],
+        [
+          "ATOMUSDT",
+          -0.10426159695817504
+        ],
+        [
+          "DOTUSDT",
+          -0.112562789182144
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 3.17,
+      "capital": 28601.15
+    },
+    {
+      "month": "2021-10",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 28601.15
+    },
+    {
+      "month": "2021-11",
+      "long": [
+        [
+          "BTCUSDT",
+          0.05092044607212383
+        ],
+        [
+          "ETHUSDT",
+          0.07768757396449696
+        ],
+        [
+          "ZECUSDT",
+          -0.030620556227327757
+        ],
+        [
+          "MATICUSDT",
+          -0.029686910439851583
+        ],
+        [
+          "BNBUSDT",
+          0.1766598878793738
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 3.43,
+      "capital": 29582.01
+    },
+    {
+      "month": "2021-12",
+      "long": [
+        [
+          "AVAXUSDT",
+          -0.13520128617363347
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -9.46,
+      "capital": 26782.34
+    },
+    {
+      "month": "2022-01",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 26782.34
+    },
+    {
+      "month": "2022-02",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 26782.34
+    },
+    {
+      "month": "2022-03",
+      "long": [],
+      "short": [
+        [
+          "FILUSDT",
+          0.1612677224033534
+        ],
+        [
+          "LTCUSDT",
+          0.03744270462633457
+        ]
+      ],
+      "portfolio_return": 2.98,
+      "capital": 27580.63
+    },
+    {
+      "month": "2022-04",
+      "long": [
+        [
+          "ETCUSDT",
+          -0.08216977520587576
+        ],
+        [
+          "TRXUSDT",
+          -0.04098427402579386
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -4.31,
+      "capital": 26391.8
+    },
+    {
+      "month": "2022-05",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 26391.8
+    },
+    {
+      "month": "2022-06",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 26391.8
+    },
+    {
+      "month": "2022-07",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 26391.8
+    },
+    {
+      "month": "2022-08",
+      "long": [
+        [
+          "ETCUSDT",
+          0.08119044516829524
+        ],
+        [
+          "FILUSDT",
+          -0.220168665377176
+        ],
+        [
+          "MATICUSDT",
+          -0.041898992525186876
+        ],
+        [
+          "ETHUSDT",
+          0.08327210401891254
+        ],
+        [
+          "BNBUSDT",
+          0.09840000000000007
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 0.01,
+      "capital": 26394.73
+    },
+    {
+      "month": "2022-09",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 26394.73
+    },
+    {
+      "month": "2022-10",
+      "long": [
+        [
+          "XRPUSDT",
+          0.028530636325326545
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 2.0,
+      "capital": 26921.88
+    },
+    {
+      "month": "2022-11",
+      "long": [
+        [
+          "DOGEUSDT",
+          -0.15130880438506333
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -10.59,
+      "capital": 24070.41
+    },
+    {
+      "month": "2022-12",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 24070.41
+    },
+    {
+      "month": "2023-01",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 24070.41
+    },
+    {
+      "month": "2023-02",
+      "long": [
+        [
+          "BTCUSDT",
+          -0.012357325745814907
+        ],
+        [
+          "SOLUSDT",
+          -0.021734228187919483
+        ],
+        [
+          "ETHUSDT",
+          -0.024627120721130477
+        ],
+        [
+          "FILUSDT",
+          -6.39016897081401e-05
+        ],
+        [
+          "LTCUSDT",
+          -0.01694026562339128
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -1.06,
+      "capital": 23815.24
+    },
+    {
+      "month": "2023-03",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 23815.24
+    },
+    {
+      "month": "2023-04",
+      "long": [
+        [
+          "XRPUSDT",
+          -0.05129879518072285
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -3.59,
+      "capital": 22960.05
+    },
+    {
+      "month": "2023-05",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 22960.05
+    },
+    {
+      "month": "2023-06",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 22960.05
+    },
+    {
+      "month": "2023-07",
+      "long": [
+        [
+          "BCHUSDT",
+          -0.07645134662469388
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -5.35,
+      "capital": 21731.32
+    },
+    {
+      "month": "2023-08",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 21731.32
+    },
+    {
+      "month": "2023-09",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 21731.32
+    },
+    {
+      "month": "2023-10",
+      "long": [
+        [
+          "LINKUSDT",
+          -0.07937777777777777
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -5.56,
+      "capital": 20523.84
+    },
+    {
+      "month": "2023-11",
+      "long": [
+        [
+          "SOLUSDT",
+          0.048623507757033835
+        ],
+        [
+          "BTCUSDT",
+          0.054829681624087794
+        ],
+        [
+          "LINKUSDT",
+          0.2984363570259953
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 9.38,
+      "capital": 22448.44
+    },
+    {
+      "month": "2023-12",
+      "long": [
+        [
+          "AVAXUSDT",
+          0.9104433017591338
+        ],
+        [
+          "ADAUSDT",
+          0.5869774722369118
+        ],
+        [
+          "SOLUSDT",
+          0.09164532803180912
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 37.08,
+      "capital": 30771.92
+    },
+    {
+      "month": "2024-01",
+      "long": [
+        [
+          "BNBUSDT",
+          -0.014881503077421336
+        ],
+        [
+          "SOLUSDT",
+          -0.03907233372687919
+        ],
+        [
+          "AVAXUSDT",
+          -0.04437092626607196
+        ],
+        [
+          "ADAUSDT",
+          -0.056658267184597134
+        ],
+        [
+          "FILUSDT",
+          -0.08357682944713304
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -3.34,
+      "capital": 29744.19
+    },
+    {
+      "month": "2024-02",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 29744.19
+    },
+    {
+      "month": "2024-03",
+      "long": [
+        [
+          "ETHUSDT",
+          0.08982602036272966
+        ],
+        [
+          "BTCUSDT",
+          0.0991655695515447
+        ],
+        [
+          "BNBUSDT",
+          -0.029153057199211043
+        ],
+        [
+          "TRXUSDT",
+          -0.02142441234777681
+        ],
+        [
+          "FILUSDT",
+          0.13655077552001915
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 3.85,
+      "capital": 30889.2
+    },
+    {
+      "month": "2024-04",
+      "long": [
+        [
+          "BCHUSDT",
+          -0.1408931392931392
+        ],
+        [
+          "BNBUSDT",
+          -0.047814864631832994
+        ],
+        [
+          "DOGEUSDT",
+          -0.1240237019421323
+        ],
+        [
+          "SOLUSDT",
+          -0.09934164527061722
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -7.21,
+      "capital": 28661.69
+    },
+    {
+      "month": "2024-05",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 28661.69
+    },
+    {
+      "month": "2024-06",
+      "long": [
+        [
+          "SOLUSDT",
+          -0.011775984676164185
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -0.82,
+      "capital": 28425.42
+    },
+    {
+      "month": "2024-07",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 28425.42
+    },
+    {
+      "month": "2024-08",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 28425.42
+    },
+    {
+      "month": "2024-09",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 28425.42
+    },
+    {
+      "month": "2024-10",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 28425.42
+    },
+    {
+      "month": "2024-11",
+      "long": [
+        [
+          "DOGEUSDT",
+          1.360780859326068
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 95.25,
+      "capital": 55501.97
+    },
+    {
+      "month": "2024-12",
+      "long": [
+        [
+          "XRPUSDT",
+          0.22277942315970714
+        ],
+        [
+          "XLMUSDT",
+          -0.062236583400483506
+        ],
+        [
+          "ALGOUSDT",
+          0.055811764705882436
+        ],
+        [
+          "ADAUSDT",
+          0.12502835249042135
+        ],
+        [
+          "DOTUSDT",
+          0.07957996798536462
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 5.89,
+      "capital": 58772.96
+    },
+    {
+      "month": "2025-01",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 58772.96
+    },
+    {
+      "month": "2025-02",
+      "long": [
+        [
+          "XRPUSDT",
+          -0.08855202932704896
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -6.2,
+      "capital": 55129.84
+    },
+    {
+      "month": "2025-03",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 55129.84
+    },
+    {
+      "month": "2025-04",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 55129.84
+    },
+    {
+      "month": "2025-05",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 55129.84
+    },
+    {
+      "month": "2025-06",
+      "long": [
+        [
+          "ETHUSDT",
+          -0.04231942761397284
+        ],
+        [
+          "AAVEUSDT",
+          -0.0023441091360066426
+        ]
+      ],
+      "short": [],
+      "portfolio_return": -1.56,
+      "capital": 54268.04
+    },
+    {
+      "month": "2025-07",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 54268.04
+    },
+    {
+      "month": "2025-08",
+      "long": [
+        [
+          "ETHUSDT",
+          -0.06906480912084027
+        ],
+        [
+          "XRPUSDT",
+          0.06017762757688403
+        ],
+        [
+          "TRXUSDT",
+          0.07704823348694319
+        ],
+        [
+          "BNBUSDT",
+          0.05833492045118394
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 2.21,
+      "capital": 55469.36
+    },
+    {
+      "month": "2025-09",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 55469.36
+    },
+    {
+      "month": "2025-10",
+      "long": [
+        [
+          "ZECUSDT",
+          0.5836017937219731
+        ],
+        [
+          "BNBUSDT",
+          0.08942675355754874
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 23.56,
+      "capital": 68535.72
+    },
+    {
+      "month": "2025-11",
+      "long": [
+        [
+          "ZECUSDT",
+          0.2191012189043456
+        ],
+        [
+          "DASHUSDT",
+          0.4436723960920682
+        ]
+      ],
+      "short": [],
+      "portfolio_return": 23.2,
+      "capital": 84434.0
+    },
+    {
+      "month": "2025-12",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 84434.0
+    },
+    {
+      "month": "2026-01",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 84434.0
+    },
+    {
+      "month": "2026-02",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 84434.0
+    },
+    {
+      "month": "2026-03",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 84434.0
+    },
+    {
+      "month": "2026-04",
+      "long": [],
+      "short": [],
+      "portfolio_return": 0.0,
+      "capital": 84434.0
+    }
+  ],
+  "short_activity": 3,
+  "bear_months": 31,
+  "total_months": 76
+}

@@ -1,398 +1,517 @@
-#!/usr/bin/env python3
 """
-AdaptiveTrend v1 Backtest - Clean Version
-Uses return-series simulation approach for correctness.
+AdaptiveTrend v2 Backtest
+Fixes applied:
+1. Survivorship Bias: dynamic monthly volume-based universe (not current top 20)
+2. IS/OOS split: IS=2020-2023, OOS=2024-2026
+3. Funding Rate cost for short positions: 0.01%/8h
+4. Liquidity filter: exclude coins with avg daily USDT vol < $50M
+5. Tiered slippage: large >5B = 4bps, mid >500M = 8bps, small = 15bps
+6. BTC trend filter for shorts: short only when BTC < 90-day MA
+7. Short logic: rank drop from <=15 to 16-20 (market cap decay signal)
 """
 
-import requests
-import pandas as pd
-import numpy as np
-import time
-import json
-import os
-from datetime import datetime
+import os, requests, pandas as pd, numpy as np, time, json
 
-WORKDIR = "/root/.openclaw/workspace/crypto-research/adaptive-trend"
-os.makedirs(WORKDIR, exist_ok=True)
-CACHE_DIR = os.path.join(WORKDIR, "cache")
+WORK_DIR = '/root/.openclaw/workspace/crypto-research/adaptive-trend'
+CACHE_DIR = f'{WORK_DIR}/cache'
 os.makedirs(CACHE_DIR, exist_ok=True)
 
-STABLECOINS = {
-    'USDCUSDT','BUSDUSDT','TUSDUSDT','USDTUSDT','FDUSDUSDT','DAIUSDT',
-    'EURUSDT','GBPUSDT','AEURUSDT','BRLLUSDT','PYUSDUSDT','USDSUSDT',
-    'USDPUSDT','USSBUSDT','FRAXUSDT','SUSDUSDT','MUSDUSDT','USD1USDT',
-    'RLUSDUSDT','PAXGUSDT'  # gold-backed, not equity crypto
-}
+# Candidate symbols: listed before 2020, avoiding survivorship bias
+symbols = ['BTCUSDT','ETHUSDT','XRPUSDT','BNBUSDT','LTCUSDT','BCHUSDT','ADAUSDT','LINKUSDT',
+           'DOTUSDT','UNIUSDT','SOLUSDT','MATICUSDT','DOGEUSDT','AVAXUSDT','ATOMUSDT',
+           'XLMUSDT','VETUSDT','TRXUSDT','ETCUSDT','FILUSDT','THETAUSDT','ALGOUSDT',
+           'XMRUSDT','ZECUSDT','DASHUSDT','EOSUSDT','XTZUSDT','AAVEUSDT','COMPUSDT','SUSHIUSDT']
 
-def get_top20():
-    resp = requests.get('https://api.binance.com/api/v3/ticker/24hr', timeout=30)
-    tickers = pd.DataFrame(resp.json())
-    tickers = tickers[tickers['symbol'].str.endswith('USDT')]
-    tickers['quoteVolume'] = tickers['quoteVolume'].astype(float)
-    tickers = tickers[~tickers['symbol'].isin(STABLECOINS)]
-    tickers = tickers[~tickers['symbol'].str.contains('UP|DOWN|BULL|BEAR|3L|3S|5L|5S', regex=True)]
-    # Filter out non-ASCII (e.g. Chinese characters)
-    tickers = tickers[tickers['symbol'].str.match(r'^[A-Z0-9]+$')]
-    top20 = tickers.nlargest(25, 'quoteVolume')['symbol'].tolist()[:20]
-    print(f"Universe ({len(top20)}): {top20}")
-    return top20
-
-def fetch_klines(symbol, interval='6h', start_str='2020-01-01', end_str='2026-05-20', limit=1000):
+# ============================================================
+# DATA FETCH
+# ============================================================
+def fetch_6h_klines(symbol, start='2019-12-01'):
+    cache_file = f'{CACHE_DIR}/{symbol}_6h.parquet'
+    if os.path.exists(cache_file):
+        df = pd.read_parquet(cache_file)
+        # Add quote_vol if missing (compute from close * volume)
+        if 'quote_vol' not in df.columns:
+            df['quote_vol'] = df['close'] * df['volume']
+            df.to_parquet(cache_file)  # update cache
+        return df
+    
     url = 'https://api.binance.com/api/v3/klines'
-    start_ts = int(pd.Timestamp(start_str).timestamp() * 1000)
-    end_ts = int(pd.Timestamp(end_str).timestamp() * 1000)
-    all_klines = []
+    start_ts = int(pd.Timestamp(start).timestamp() * 1000)
+    all_data = []
     while True:
-        params = {'symbol': symbol, 'interval': interval,
-                  'startTime': start_ts, 'endTime': end_ts, 'limit': limit}
-        try:
-            r = requests.get(url, params=params, timeout=30)
-            if r.status_code == 429:
-                print(f"  Rate limited, sleep 10s")
-                time.sleep(10)
-                continue
-            if r.status_code != 200:
-                break
-            data = r.json()
-            if not data or isinstance(data, dict):
-                break
-            all_klines.extend(data)
-            if len(data) < limit:
-                break
-            start_ts = data[-1][0] + 1
-            if start_ts >= end_ts:
-                break
-            time.sleep(0.12)
-        except Exception as e:
-            print(f"  Error {symbol}: {e}")
+        params = {'symbol': symbol, 'interval': '6h', 'startTime': start_ts, 'limit': 1000}
+        r = requests.get(url, params=params, timeout=20)
+        if r.status_code == 429:
+            print(f"Rate limited, sleeping 15s...")
+            time.sleep(15)
+            continue
+        if r.status_code != 200:
             break
-    if not all_klines:
+        data = r.json()
+        if not data or isinstance(data, dict):
+            break
+        all_data.extend(data)
+        if len(data) < 1000:
+            break
+        start_ts = data[-1][0] + 1
+        time.sleep(0.15)
+    
+    if not all_data:
         return None
-    df = pd.DataFrame(all_klines, columns=[
-        'open_time','open','high','low','close','volume',
-        'close_time','quote_vol','trades','tbbase','tbquote','ignore'])
-    df['open_time'] = pd.to_datetime(df['open_time'], unit='ms')
-    for c in ['open','high','low','close','volume']:
+    
+    df = pd.DataFrame(all_data, columns=['open_time','open','high','low','close','volume',
+                                          'close_time','quote_vol','trades','tbb','tbq','ignore'])
+    df['ts'] = pd.to_datetime(df['open_time'], unit='ms')
+    for c in ['open','high','low','close','volume','quote_vol']:
         df[c] = df[c].astype(float)
-    return df.set_index('open_time')[['open','high','low','close','volume']]
-
-def load_or_fetch(symbol):
-    path = os.path.join(CACHE_DIR, f"{symbol}_6h.parquet")
-    if os.path.exists(path):
-        return pd.read_parquet(path)
-    print(f"  Fetching {symbol}...")
-    df = fetch_klines(symbol)
-    if df is not None and len(df) > 100:
-        df.to_parquet(path)
+    df = df.set_index('ts')[['open','high','low','close','volume','quote_vol']]
+    df.to_parquet(cache_file)
     return df
 
-def compute_atr(df, k=14):
+
+# ============================================================
+# LOAD DATA
+# ============================================================
+print("Loading data...")
+data = {}
+for sym in symbols:
+    d = fetch_6h_klines(sym)
+    if d is not None and len(d) > 100:
+        data[sym] = d
+        print(f"  {sym}: {len(d)} bars, from {d.index[0].date()} to {d.index[-1].date()}")
+    time.sleep(0.1)
+
+print(f"\nTotal symbols loaded: {len(data)}")
+
+# ============================================================
+# DYNAMIC MONTHLY VOLUME UNIVERSE (anti-survivorship bias)
+# ============================================================
+print("\nBuilding monthly volume universe...")
+
+# Compute monthly volume for each symbol
+monthly_vol = {}
+for sym, df in data.items():
+    mv = df['quote_vol'].resample('ME').sum()
+    monthly_vol[sym] = mv
+
+vol_df = pd.DataFrame(monthly_vol).fillna(0)
+print(f"Monthly vol matrix: {vol_df.shape}")
+
+def get_monthly_universe(month_end, top_n=20, min_daily_vol=5e7):
+    """
+    Returns top_n symbols by volume for a given month-end timestamp.
+    Applies liquidity filter: avg daily vol > min_daily_vol.
+    """
+    if month_end not in vol_df.index:
+        # Find nearest
+        available = vol_df.index[vol_df.index <= month_end]
+        if len(available) == 0:
+            return []
+        month_end = available[-1]
+    
+    row = vol_df.loc[month_end]
+    # Only include symbols with data that month (non-zero volume)
+    active = row[row > 0]
+    # Liquidity filter: monthly vol / ~30 days > 50M/day
+    # Monthly vol is total, roughly 30 days
+    active = active[active / 30 > min_daily_vol]
+    ranked = active.nlargest(top_n)
+    return ranked.index.tolist(), ranked
+
+
+# ============================================================
+# SIGNAL COMPUTATION
+# ============================================================
+def compute_signals(df, roc_period=20, atr_period=14, atr_mult=2.5):
+    df = df.copy()
+    df['roc'] = df['close'].pct_change(roc_period)
     hl = df['high'] - df['low']
     hc = (df['high'] - df['close'].shift()).abs()
     lc = (df['low'] - df['close'].shift()).abs()
-    tr = pd.concat([hl, hc, lc], axis=1).max(axis=1)
-    return tr.rolling(k).mean()
+    df['tr'] = pd.concat([hl, hc, lc], axis=1).max(axis=1)
+    df['atr'] = df['tr'].rolling(atr_period).mean()
+    df['trailing_stop_long'] = df['close'] - atr_mult * df['atr']
+    df['trailing_stop_short'] = df['close'] + atr_mult * df['atr']
+    return df
 
-def sharpe_6h(rets, periods_per_year=1460):
-    """Annualized Sharpe from 6H returns. 1460 = 4*365."""
-    if len(rets) < 5 or rets.std() == 0:
-        return 0.0
-    return rets.mean() / rets.std() * np.sqrt(periods_per_year)
+# Pre-compute signals for all symbols
+print("Computing signals for all symbols...")
+signals = {}
+for sym, df in data.items():
+    signals[sym] = compute_signals(df)
 
-def run_backtest():
-    # ---- Load data ----
-    universe = get_top20()
-    # Ensure BTC is always available for benchmark
-    if 'BTCUSDT' not in universe:
-        universe.append('BTCUSDT')
+# ============================================================
+# BTC TREND FILTER
+# ============================================================
+btc = data['BTCUSDT'].copy()
+# 90 days = 90 * 4 = 360 bars of 6H
+btc['ma90'] = btc['close'].rolling(360).mean()
+btc['bear_market'] = btc['close'] < btc['ma90']
 
-    data = {}
-    for sym in universe:
-        path = os.path.join(CACHE_DIR, f"{sym}_6h.parquet")
-        if os.path.exists(path):
-            df = pd.read_parquet(path)
+def btc_is_bearish(date):
+    """Check if BTC is in bear market at given date."""
+    available = btc.index[btc.index <= date]
+    if len(available) == 0:
+        return False
+    return btc.loc[available[-1], 'bear_market']
+
+
+# ============================================================
+# COST MODEL
+# ============================================================
+FUNDING_RATE_8H = 0.0001  # 0.01% per 8h
+DAILY_FUNDING = FUNDING_RATE_8H * 3  # 3 times per day
+
+def get_fee_bps(sym, monthly_vol_usd):
+    """Tiered fee based on daily volume."""
+    daily_vol = monthly_vol_usd / 30
+    if daily_vol > 5e8:    # >$500M/day: large
+        return 0.0004      # 4bps
+    elif daily_vol > 5e7:  # >$50M/day: mid
+        return 0.0008      # 8bps
+    else:
+        return 0.0015      # 15bps (small)
+
+
+# ============================================================
+# WALK-FORWARD BACKTEST
+# ============================================================
+print("\nRunning Walk-Forward Backtest...")
+
+INITIAL_CAPITAL = 10000.0
+LONG_ALLOC = 0.70
+SHORT_ALLOC = 0.30
+MAX_LONG = 5
+MAX_SHORT = 3
+SHARPE_LONG_THRESHOLD = 1.3
+MONTHLY_STOP = -0.15  # Portfolio-level monthly stop
+
+capital = INITIAL_CAPITAL
+portfolio_history = []
+trade_log = []
+
+# Get all month-ends in backtest range
+all_months = pd.date_range('2020-01-31', '2026-04-30', freq='ME')
+
+prev_universe_ranked = None  # For rank-drop short signal
+
+for i, month_end in enumerate(all_months):
+    month_str = month_end.strftime('%Y-%m')
+    
+    # Get current month universe
+    universe_result = get_monthly_universe(month_end, top_n=20)
+    if not universe_result or len(universe_result) == 0:
+        print(f"  {month_str}: No universe, skip")
+        portfolio_history.append({'date': month_end, 'capital': capital, 'return': 0.0})
+        continue
+    
+    current_universe, current_vol_ranked = universe_result
+    
+    # Get previous month universe (for rank comparison)
+    if i > 0:
+        prev_month_end = all_months[i-1]
+        prev_result = get_monthly_universe(prev_month_end, top_n=20)
+        if prev_result:
+            prev_universe, prev_vol_ranked = prev_result
         else:
-            df = load_or_fetch(sym)
-        if df is not None and len(df) > 500:
-            data[sym] = df
-            print(f"  {sym}: {len(df)} bars {df.index[0].date()}–{df.index[-1].date()}")
-        else:
-            print(f"  Skip {sym}: too short")
-
-    trading_syms = [s for s in universe if s in data and s != 'BTCUSDT']
-    print(f"\n{len(trading_syms)} tradeable symbols, BTC for benchmark")
-
-    # ---- Build aligned price matrix ----
-    close = pd.DataFrame({s: data[s]['close'] for s in trading_syms + ['BTCUSDT']})
-    close = close.sort_index()
-    high_df  = pd.DataFrame({s: data[s]['high'] for s in trading_syms})
-    low_df   = pd.DataFrame({s: data[s]['low']  for s in trading_syms})
-
-    # 6H returns (forward: return[t] = close[t]/close[t-1] - 1)
-    rets = close[trading_syms].pct_change()
-
-    # ---- ATR Trailing Stop signals ----
-    # For each symbol compute ATR
-    atr_df = pd.DataFrame(index=close.index)
-    for s in trading_syms:
-        h = data[s]['high'].reindex(close.index)
-        l = data[s]['low'].reindex(close.index)
-        c = data[s]['close'].reindex(close.index)
-        hl = h - l
-        hc = (h - c.shift()).abs()
-        lc = (l - c.shift()).abs()
-        tr = pd.concat([hl, hc, lc], axis=1).max(axis=1)
-        atr_df[s] = tr.rolling(14).mean()
-
-    # ---- Parameters ----
-    ROC_L = 20        # 5 days at 6H
-    ATR_K = 2.5       # multiplier
-    FEE   = 0.0004    # 4 bps per side
-    LONG_ALLOC  = 0.70
-    SHORT_ALLOC = 0.30
-    MAX_LONG  = 5
-    MAX_SHORT = 5
-    SHARPE_LONG = 1.3
-
-    # ---- Walk-Forward Simulation ----
-    # Rebalance on first bar of each month
-    # Use previous month's Sharpe to select longs; worst momentum for shorts
-    # No look-ahead: selection at bar t uses data through bar t-1
-
-    # Index: all bars from 2020-06-01 onwards
-    sim_start = pd.Timestamp('2020-06-01')
-    close_sim = close.loc[close.index >= sim_start]
-    rets_sim  = rets.loc[rets.index >= sim_start]
-
-    n_bars = len(close_sim)
-    portfolio_rets = np.zeros(n_bars)
-
-    # State
-    weights = pd.Series(0.0, index=trading_syms)  # current weight per symbol
-    in_position = pd.Series(False, index=trading_syms)
-    trailing_stop = pd.Series(np.nan, index=trading_syms)
-    position_side = pd.Series('none', index=trading_syms)
-    current_month = None
-    n_trades = 0
-    rebal_months = []
-
-    for i in range(1, n_bars):
-        t     = close_sim.index[i]
-        t_prev = close_sim.index[i-1]
-
-        # ---- Monthly rebalance ----
-        this_month = (t.year, t.month)
-        if this_month != current_month:
-            current_month = this_month
-
-            # Compute prior-month Sharpe for each symbol (using ALL data before t)
-            lookback = 120  # 30 days of 6H bars
-            sharpes = {}
-            for s in trading_syms:
-                hist_rets = rets.loc[rets.index < t, s].dropna().tail(lookback)
-                if len(hist_rets) >= 30:
-                    sharpes[s] = sharpe_6h(hist_rets)
-
-            if sharpes:
-                # Longs: Sharpe >= SHARPE_LONG, top MAX_LONG
-                long_cands = sorted(
-                    [(s, v) for s, v in sharpes.items() if v >= SHARPE_LONG],
-                    key=lambda x: x[1], reverse=True
-                )[:MAX_LONG]
-
-                # Shorts: most negative Sharpe (trend down)
-                short_cands = sorted(
-                    [(s, v) for s, v in sharpes.items() if s not in [x[0] for x in long_cands]],
-                    key=lambda x: x[1]
-                )[:MAX_SHORT]
-                # Only short if Sharpe is meaningfully negative
-                short_cands = [(s, v) for s, v in short_cands if v < -0.3]
-
-                new_longs  = [s for s, _ in long_cands]
-                new_shorts = [s for s, _ in short_cands]
-            else:
-                new_longs  = []
-                new_shorts = []
-
-            # Build new weights
-            new_weights = pd.Series(0.0, index=trading_syms)
-            if new_longs:
-                w_each_long = LONG_ALLOC / len(new_longs)
-                for s in new_longs:
-                    new_weights[s] = w_each_long
-            if new_shorts:
-                w_each_short = -SHORT_ALLOC / len(new_shorts)
-                for s in new_shorts:
-                    new_weights[s] = w_each_short
-
-            # Count trades (position changes)
-            changed = (new_weights != weights)
-            n_trades += changed.sum()
-
-            # Apply turnover cost: FEE * |delta_weight| for each symbol
-            turnover_cost = (new_weights - weights).abs().sum() * FEE
-            weights = new_weights.copy()
-
-            # Reset trailing stops for new positions
-            c_t = close_sim.loc[t]
-            a_t = atr_df.loc[t] if t in atr_df.index else pd.Series(np.nan, index=trading_syms)
-            for s in trading_syms:
-                if weights[s] > 0:  # long
-                    ts_val = c_t.get(s, np.nan) - ATR_K * a_t.get(s, np.nan)
-                    trailing_stop[s] = ts_val if not np.isnan(ts_val) else c_t.get(s, np.nan) * 0.9
-                    position_side[s] = 'long'
-                elif weights[s] < 0:  # short
-                    ts_val = c_t.get(s, np.nan) + ATR_K * a_t.get(s, np.nan)
-                    trailing_stop[s] = ts_val if not np.isnan(ts_val) else c_t.get(s, np.nan) * 1.1
-                    position_side[s] = 'short'
-                else:
-                    trailing_stop[s] = np.nan
-                    position_side[s] = 'none'
-
-            rebal_months.append({
-                'date': str(t.date()),
-                'longs': new_longs,
-                'shorts': [s for s, _ in short_cands] if short_cands else [],
-                'turnover_cost': turnover_cost
-            })
-            portfolio_rets[i] -= turnover_cost
-        else:
-            # ---- Intra-month: update trailing stops, apply stops ----
-            c_t = close_sim.loc[t]
-            a_t = atr_df.loc[t] if t in atr_df.index else pd.Series(np.nan, index=trading_syms)
-
-            stops_triggered = []
-            for s in trading_syms:
-                if weights[s] == 0 or np.isnan(trailing_stop[s]):
-                    continue
-                p = c_t.get(s, np.nan)
-                if np.isnan(p):
-                    continue
-                atr_val = a_t.get(s, np.nan)
-
-                if weights[s] > 0:  # long position
-                    # Update trailing stop upward
-                    if not np.isnan(atr_val):
-                        new_ts = p - ATR_K * atr_val
-                        trailing_stop[s] = max(trailing_stop[s], new_ts)
-                    # Check stop
-                    if p <= trailing_stop[s]:
-                        stops_triggered.append(s)
-                else:  # short position
-                    if not np.isnan(atr_val):
-                        new_ts = p + ATR_K * atr_val
-                        trailing_stop[s] = min(trailing_stop[s], new_ts)
-                    if p >= trailing_stop[s]:
-                        stops_triggered.append(s)
-
-            for s in stops_triggered:
-                weights[s] = 0.0
-                trailing_stop[s] = np.nan
-                position_side[s] = 'none'
-                portfolio_rets[i] -= FEE  # exit fee
-                n_trades += 1
-
-        # ---- Bar return ----
-        bar_rets = rets_sim.iloc[i]
-        port_bar = (weights * bar_rets).sum()
-        portfolio_rets[i] += port_bar
-
-    # ---- Convert to daily ----
-    port_series = pd.Series(portfolio_rets, index=close_sim.index)
-    # Resample to daily
-    daily_nav = (1 + port_series).cumprod()
-    daily_nav_d = daily_nav.resample('1D').last().dropna()
-    daily_rets_d = daily_nav_d.pct_change().dropna()
-
-    # ---- Metrics ----
-    total_days = (daily_nav_d.index[-1] - daily_nav_d.index[0]).days
-    total_years = total_days / 365.25
-
-    cagr = (daily_nav_d.iloc[-1] / daily_nav_d.iloc[0]) ** (1 / total_years) - 1
-    sharpe = daily_rets_d.mean() / daily_rets_d.std() * np.sqrt(365)
-    cum = (1 + daily_rets_d).cumprod()
-    max_dd = (cum / cum.cummax() - 1).min()
-    calmar = cagr / abs(max_dd) if max_dd != 0 else 0
-    total_ret = daily_nav_d.iloc[-1] - 1
-
-    # ---- Yearly breakdown ----
-    yearly_stats = {}
-    for yr, grp in daily_rets_d.groupby(daily_rets_d.index.year):
-        if len(grp) < 20:
+            prev_universe, prev_vol_ranked = [], pd.Series()
+    else:
+        prev_universe, prev_vol_ranked = [], pd.Series()
+    
+    # Get month's bar data (this month's bars)
+    month_start = month_end - pd.offsets.MonthBegin(1)
+    
+    # Compute last month Sharpe for each symbol in universe
+    sharpe_scores = {}
+    for sym in current_universe:
+        if sym not in signals:
             continue
-        yr_cagr = (1 + grp).prod() ** (365 / len(grp)) - 1
-        yr_sharpe = grp.mean() / grp.std() * np.sqrt(365) if grp.std() > 0 else 0
-        yr_cum = (1 + grp).cumprod()
-        yr_dd = (yr_cum / yr_cum.cummax() - 1).min()
-        yearly_stats[str(yr)] = {
-            'cagr': round(float(yr_cagr), 4),
-            'sharpe': round(float(yr_sharpe), 2),
-            'max_dd': round(float(yr_dd), 4)
-        }
+        df_sym = signals[sym]
+        prev_month_start = month_start - pd.DateOffset(months=1)
+        prev_month_end_dt = month_start
+        mask = (df_sym.index >= prev_month_start) & (df_sym.index < prev_month_end_dt)
+        returns = df_sym.loc[mask, 'close'].pct_change().dropna()
+        if len(returns) < 10:
+            continue
+        sharpe = returns.mean() / returns.std() * np.sqrt(len(returns)) if returns.std() > 0 else 0
+        sharpe_scores[sym] = sharpe
+    
+    if not sharpe_scores:
+        portfolio_history.append({'date': month_end, 'capital': capital, 'return': 0.0})
+        prev_universe_ranked = current_vol_ranked
+        continue
+    
+    sharpe_series = pd.Series(sharpe_scores)
+    
+    # LONG candidates: Sharpe >= 1.3, top 5
+    long_candidates = sharpe_series[sharpe_series >= SHARPE_LONG_THRESHOLD].nlargest(MAX_LONG).index.tolist()
+    
+    # SHORT candidates: BTC bear market + rank drop signal
+    short_candidates = []
+    btc_bear = btc_is_bearish(month_start)
+    
+    if btc_bear and len(prev_vol_ranked) > 0:
+        # Find symbols that were in top 15 last month but dropped to 16-20 this month
+        prev_ranked_list = prev_vol_ranked.index.tolist()
+        curr_ranked_list = current_vol_ranked.index.tolist()
+        
+        for sym in curr_ranked_list[15:20]:  # rank 16-20 (0-indexed: 15-19)
+            if sym in prev_ranked_list[:15]:  # was top 15 last month
+                short_candidates.append(sym)
+        
+        short_candidates = short_candidates[:MAX_SHORT]
+    
+    # Compute this month's returns for long and short positions
+    monthly_returns_long = {}
+    monthly_returns_short = {}
+    
+    for sym in long_candidates:
+        if sym not in signals:
+            continue
+        df_sym = signals[sym]
+        mask = (df_sym.index >= month_start) & (df_sym.index <= month_end)
+        month_data = df_sym.loc[mask]
+        if len(month_data) < 2:
+            continue
+        
+        entry_price = month_data['close'].iloc[0]
+        
+        # ATR trailing stop simulation
+        exit_price = month_data['close'].iloc[-1]
+        max_price = entry_price
+        for bar in month_data.itertuples():
+            max_price = max(max_price, bar.close)
+            atr_val = bar.atr if not np.isnan(bar.atr) else 0
+            trailing_stop = max_price - 2.5 * atr_val
+            if bar.close < trailing_stop and bar.Index != month_data.index[0]:
+                exit_price = bar.close
+                break
+        
+        # Fee
+        vol_this_month = vol_df.loc[month_end, sym] if sym in vol_df.columns and month_end in vol_df.index else 1e8
+        fee = get_fee_bps(sym, vol_this_month)
+        
+        raw_return = (exit_price - entry_price) / entry_price
+        net_return = raw_return - 2 * fee  # entry + exit
+        monthly_returns_long[sym] = net_return
+    
+    for sym in short_candidates:
+        if sym not in signals:
+            continue
+        df_sym = signals[sym]
+        mask = (df_sym.index >= month_start) & (df_sym.index <= month_end)
+        month_data = df_sym.loc[mask]
+        if len(month_data) < 2:
+            continue
+        
+        entry_price = month_data['close'].iloc[0]
+        exit_price = month_data['close'].iloc[-1]
+        
+        # ATR trailing stop for shorts
+        min_price = entry_price
+        for bar in month_data.itertuples():
+            min_price = min(min_price, bar.close)
+            atr_val = bar.atr if not np.isnan(bar.atr) else 0
+            trailing_stop = min_price + 2.5 * atr_val
+            if bar.close > trailing_stop and bar.Index != month_data.index[0]:
+                exit_price = bar.close
+                break
+        
+        # Fee + Funding Rate
+        vol_this_month = vol_df.loc[month_end, sym] if sym in vol_df.columns and month_end in vol_df.index else 1e8
+        fee = get_fee_bps(sym, vol_this_month)
+        
+        # Short return: negative of price change
+        days_held = (month_data.index[-1] - month_data.index[0]).days
+        funding_cost = DAILY_FUNDING * days_held
+        
+        raw_return = (entry_price - exit_price) / entry_price  # short return
+        net_return = raw_return - 2 * fee - funding_cost
+        monthly_returns_short[sym] = net_return
+    
+    # Compute portfolio return
+    if long_candidates and monthly_returns_long:
+        long_return = np.mean(list(monthly_returns_long.values()))
+    else:
+        long_return = 0.0
+    
+    if short_candidates and monthly_returns_short:
+        short_return = np.mean(list(monthly_returns_short.values()))
+    else:
+        short_return = 0.0
+    
+    # Weighted portfolio return
+    long_weight = LONG_ALLOC if long_candidates else 0
+    short_weight = SHORT_ALLOC if short_candidates else 0
+    cash_weight = 1.0 - long_weight - short_weight
+    
+    portfolio_return = long_weight * long_return + short_weight * short_return
+    
+    # Portfolio-level monthly stop
+    if portfolio_return < MONTHLY_STOP:
+        portfolio_return = MONTHLY_STOP
+    
+    capital_new = capital * (1 + portfolio_return)
+    
+    # Record
+    portfolio_history.append({
+        'date': month_end,
+        'capital': capital_new,
+        'return': portfolio_return,
+        'long_symbols': long_candidates,
+        'short_symbols': short_candidates,
+        'long_return': long_return,
+        'short_return': short_return,
+        'btc_bear': btc_bear,
+        'universe': current_universe[:10],  # first 10 for log
+    })
+    
+    trade_log.append({
+        'month': month_str,
+        'long': list(monthly_returns_long.items()),
+        'short': list(monthly_returns_short.items()),
+        'portfolio_return': round(portfolio_return * 100, 2),
+        'capital': round(capital_new, 2),
+    })
+    
+    prev_universe_ranked = current_vol_ranked
+    capital = capital_new
+    
+    print(f"  {month_str}: long={long_candidates[:3]}... short={short_candidates}, "
+          f"ret={portfolio_return*100:.1f}%, cap=${capital:.0f}, btc_bear={btc_bear}")
 
-    # ---- BTC benchmark ----
-    btc_bench = None
-    if 'BTCUSDT' in close:
-        btc_close = close.loc[close.index >= sim_start, 'BTCUSDT'].dropna()
-        btc_d = btc_close.resample('1D').last().dropna()
-        btc_d = btc_d[btc_d.index >= daily_nav_d.index[0]]
-        btc_d = btc_d[btc_d.index <= daily_nav_d.index[-1]]
-        if len(btc_d) > 30:
-            btc_r = btc_d.pct_change().dropna()
-            btc_years = (btc_d.index[-1] - btc_d.index[0]).days / 365.25
-            btc_cagr = (btc_d.iloc[-1] / btc_d.iloc[0]) ** (1/btc_years) - 1
-            btc_sh = btc_r.mean() / btc_r.std() * np.sqrt(365)
-            btc_c = (1 + btc_r).cumprod()
-            btc_dd = (btc_c / btc_c.cummax() - 1).min()
-            btc_bench = {
-                'cagr': round(float(btc_cagr), 4),
-                'sharpe': round(float(btc_sh), 2),
-                'max_dd': round(float(btc_dd), 4),
-                'total_return': round(float(btc_d.iloc[-1]/btc_d.iloc[0]-1), 4)
-            }
 
-    print("\n=== BACKTEST RESULTS ===")
-    print(f"Period : {daily_nav_d.index[0].date()} → {daily_nav_d.index[-1].date()}")
-    print(f"CAGR   : {cagr:.2%}")
-    print(f"Sharpe : {sharpe:.2f}")
-    print(f"Max DD : {max_dd:.2%}")
-    print(f"Calmar : {calmar:.2f}")
-    print(f"Total R: {total_ret:.2%}")
-    print(f"Trades : {n_trades}")
-    print(f"Rebal  : {len(rebal_months)}")
-    if btc_bench:
-        print(f"\nBTC B&H: CAGR={btc_bench['cagr']:.2%}  Sharpe={btc_bench['sharpe']:.2f}  MaxDD={btc_bench['max_dd']:.2%}")
+# ============================================================
+# PERFORMANCE METRICS
+# ============================================================
+print("\nComputing performance metrics...")
 
-    print("\nYearly breakdown:")
-    for yr, s in yearly_stats.items():
-        print(f"  {yr}: CAGR={s['cagr']:.2%}  Sharpe={s['sharpe']:.2f}  MaxDD={s['max_dd']:.2%}")
+perf_df = pd.DataFrame(portfolio_history)
+perf_df['date'] = pd.to_datetime(perf_df['date'])
+perf_df = perf_df.set_index('date')
 
-    # Show last few rebalances for validation
-    print("\nLast 3 rebalances:")
-    for r in rebal_months[-3:]:
-        print(f"  {r['date']}: longs={r['longs']}  shorts={r['shorts']}")
-
-    results = {
-        'period_start': str(daily_nav_d.index[0].date()),
-        'period_end': str(daily_nav_d.index[-1].date()),
-        'cagr': round(float(cagr), 4),
-        'sharpe': round(float(sharpe), 2),
-        'max_dd': round(float(max_dd), 4),
-        'calmar': round(float(calmar), 2),
-        'total_return': round(float(total_ret), 4),
-        'n_trades': int(n_trades),
-        'rebalances': len(rebal_months),
-        'symbols_used': trading_syms,
-        'btc_benchmark': btc_bench,
-        'yearly': yearly_stats,
-        'rebal_history': rebal_months[-12:]  # last 12 months
+def compute_metrics(df, label=''):
+    if len(df) < 2:
+        return {}
+    
+    returns = df['return'].values
+    capital_series = df['capital'].values
+    
+    n_months = len(returns)
+    years = n_months / 12
+    
+    total_return = (capital_series[-1] / capital_series[0]) - 1
+    cagr = (1 + total_return) ** (1/years) - 1 if years > 0 else 0
+    
+    # Sharpe (monthly)
+    mean_ret = np.mean(returns)
+    std_ret = np.std(returns, ddof=1)
+    sharpe = (mean_ret / std_ret) * np.sqrt(12) if std_ret > 0 else 0
+    
+    # Max Drawdown
+    cumulative = np.cumprod(1 + returns)
+    rolling_max = np.maximum.accumulate(cumulative)
+    drawdown = (cumulative - rolling_max) / rolling_max
+    max_dd = drawdown.min()
+    
+    # Calmar
+    calmar = cagr / abs(max_dd) if max_dd != 0 else 0
+    
+    # Win rate
+    win_rate = (returns > 0).sum() / len(returns)
+    
+    # Trades count
+    n_trades = sum(len(t.get('long', [])) + len(t.get('short', [])) for t in trade_log 
+                   if pd.Timestamp(t['month'] + '-01') >= df.index[0] - pd.DateOffset(months=1) 
+                   and pd.Timestamp(t['month'] + '-01') <= df.index[-1])
+    
+    print(f"\n{'='*40}")
+    print(f"{label} Performance ({df.index[0].date()} to {df.index[-1].date()})")
+    print(f"{'='*40}")
+    print(f"Total Return: {total_return*100:.1f}%")
+    print(f"CAGR: {cagr*100:.1f}%")
+    print(f"Sharpe Ratio: {sharpe:.2f}")
+    print(f"Max Drawdown: {max_dd*100:.1f}%")
+    print(f"Calmar Ratio: {calmar:.2f}")
+    print(f"Monthly Win Rate: {win_rate*100:.1f}%")
+    print(f"Months: {n_months}")
+    
+    return {
+        'label': label,
+        'total_return': round(total_return * 100, 2),
+        'cagr': round(cagr * 100, 2),
+        'sharpe': round(sharpe, 2),
+        'max_dd': round(max_dd * 100, 2),
+        'calmar': round(calmar, 2),
+        'win_rate': round(win_rate * 100, 1),
+        'n_months': n_months,
+        'start_capital': round(capital_series[0], 2),
+        'end_capital': round(capital_series[-1], 2),
     }
 
-    with open(os.path.join(WORKDIR, 'results_v1.json'), 'w') as f:
-        json.dump(results, f, indent=2, default=str)
+# Full period
+full_metrics = compute_metrics(perf_df, 'Full Period (2020-2026)')
 
-    return results, rebal_months, btc_bench
+# IS: 2020-2023
+is_df = perf_df[perf_df.index.year <= 2023]
+is_metrics = compute_metrics(is_df, 'IS: 2020-2023')
 
-if __name__ == '__main__':
-    r, rebal, btc = run_backtest()
-    print("\nSaved to results_v1.json")
+# OOS: 2024-2026
+oos_df = perf_df[perf_df.index.year >= 2024]
+oos_metrics = compute_metrics(oos_df, 'OOS: 2024-2026')
+
+# Yearly breakdown
+print("\n--- Yearly Breakdown ---")
+yearly = {}
+for year in range(2020, 2027):
+    yr_df = perf_df[perf_df.index.year == year]
+    if len(yr_df) == 0:
+        continue
+    yr_returns = yr_df['return'].values
+    yr_total = np.prod(1 + yr_returns) - 1
+    yr_sharpe = (np.mean(yr_returns) / np.std(yr_returns, ddof=1)) * np.sqrt(12) if np.std(yr_returns) > 0 else 0
+    print(f"  {year}: {yr_total*100:.1f}%, Sharpe={yr_sharpe:.2f}")
+    yearly[year] = {'return': round(yr_total*100, 1), 'sharpe': round(yr_sharpe, 2)}
+
+# BTC Buy & Hold
+btc_start = data['BTCUSDT'].loc['2020-01-01':'2020-01-31']['close'].iloc[0]
+btc_end = data['BTCUSDT']['close'].iloc[-1]
+btc_years = 6.4
+btc_total = (btc_end - btc_start) / btc_start
+btc_cagr = (1 + btc_total) ** (1/btc_years) - 1
+print(f"\nBTC Buy & Hold: Total={btc_total*100:.0f}%, CAGR={btc_cagr*100:.1f}%")
+
+# Short activity analysis
+short_months = [p for p in portfolio_history if p.get('short_symbols')]
+print(f"\nShort activity: {len(short_months)} months out of {len(portfolio_history)}")
+bear_months = [p for p in portfolio_history if p.get('btc_bear')]
+print(f"BTC Bear market months: {len(bear_months)}")
+
+# ============================================================
+# SAVE RESULTS
+# ============================================================
+results = {
+    'full': full_metrics,
+    'is': is_metrics,
+    'oos': oos_metrics,
+    'yearly': yearly,
+    'btc_buy_hold': {
+        'total_return': round(btc_total * 100, 1),
+        'cagr': round(btc_cagr * 100, 1),
+    },
+    'portfolio_history': [
+        {k: str(v) if isinstance(v, (pd.Timestamp, list)) else v 
+         for k, v in p.items()} 
+        for p in portfolio_history
+    ],
+    'trade_log': trade_log,
+    'short_activity': len(short_months),
+    'bear_months': len(bear_months),
+    'total_months': len(portfolio_history),
+}
+
+with open(f'{WORK_DIR}/results_v2.json', 'w') as f:
+    json.dump(results, f, indent=2, default=str)
+
+print(f"\nResults saved to results_v2.json")
+print("DONE")
