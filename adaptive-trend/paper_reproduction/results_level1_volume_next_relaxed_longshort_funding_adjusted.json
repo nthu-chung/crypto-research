@@ -1,0 +1,1005 @@
+{
+  "source": "results_level1_volume_next_relaxed_longshort.json",
+  "assumption": "Selected monthly long/short positions are held for the full month for funding adjustment.",
+  "base_metrics": {
+    "cagr": 44.45,
+    "sharpe": 1.2,
+    "max_dd": -13.18,
+    "calmar": 3.37,
+    "total_return": 201.41,
+    "win_rate": 52.8,
+    "months": 36
+  },
+  "funding_adjusted_metrics": {
+    "cagr": 45.52,
+    "sharpe": 1.21,
+    "max_dd": -12.78,
+    "calmar": 3.56,
+    "total_return": 208.13,
+    "win_rate": 55.6,
+    "months": 36
+  },
+  "history": [
+    {
+      "date": "2022-01-31",
+      "info_month": "2021-12-31",
+      "return": 0.015078280286312029,
+      "capital": 10150.782802863121,
+      "longs": [
+        "GALAUSDT",
+        "NEARUSDT"
+      ],
+      "shorts": [
+        "GTCUSDT",
+        "LTCUSDT",
+        "EGLDUSDT",
+        "AXSUSDT",
+        "ONEUSDT",
+        "ALGOUSDT",
+        "DYDXUSDT",
+        "FILUSDT",
+        "YFIUSDT",
+        "ALICEUSDT"
+      ],
+      "long_trades": 14,
+      "short_trades": 84,
+      "funding_adjustment": -0.0009605406999999997,
+      "return_with_funding": 0.014117739586312029
+    },
+    {
+      "date": "2022-02-28",
+      "info_month": "2022-01-31",
+      "return": -0.059670583482387615,
+      "capital": 9545.079670213292,
+      "longs": [
+        "BTCUSDT",
+        "BNBUSDT",
+        "LINKUSDT",
+        "DOGEUSDT"
+      ],
+      "shorts": [
+        "AXSUSDT",
+        "SUSHIUSDT",
+        "FILUSDT",
+        "ALICEUSDT",
+        "XRPUSDT",
+        "CHRUSDT",
+        "THETAUSDT",
+        "AAVEUSDT",
+        "CRVUSDT",
+        "PEOPLEUSDT"
+      ],
+      "long_trades": 26,
+      "short_trades": 70,
+      "funding_adjustment": -0.0013829732499999999,
+      "return_with_funding": -0.06105355673238762
+    },
+    {
+      "date": "2022-03-31",
+      "info_month": "2022-02-28",
+      "return": 0.0,
+      "capital": 9545.079670213292,
+      "longs": [],
+      "shorts": [],
+      "long_trades": 0,
+      "short_trades": 0,
+      "funding_adjustment": 0.0,
+      "return_with_funding": 0.0
+    },
+    {
+      "date": "2022-04-30",
+      "info_month": "2022-03-31",
+      "return": -0.04977432031035557,
+      "capital": 9069.979817320233,
+      "longs": [
+        "RUNEUSDT",
+        "NEARUSDT",
+        "GMTUSDT",
+        "ZILUSDT",
+        "APEUSDT",
+        "ADAUSDT",
+        "BTCUSDT",
+        "ETCUSDT",
+        "SOLUSDT",
+        "ETHUSDT"
+      ],
+      "shorts": [
+        "DOGEUSDT",
+        "AXSUSDT"
+      ],
+      "long_trades": 85,
+      "short_trades": 19,
+      "funding_adjustment": -0.0051279466999999985,
+      "return_with_funding": -0.05490226701035557
+    },
+    {
+      "date": "2022-05-31",
+      "info_month": "2022-04-30",
+      "return": 0.26495215274240264,
+      "capital": 11473.090495249371,
+      "longs": [
+        "KNCUSDT",
+        "APEUSDT",
+        "MTLUSDT"
+      ],
+      "shorts": [
+        "RUNEUSDT",
+        "AXSUSDT",
+        "GALAUSDT",
+        "ZRXUSDT",
+        "MANAUSDT",
+        "ATOMUSDT",
+        "SANDUSDT",
+        "LTCUSDT",
+        "TRXUSDT",
+        "LINKUSDT"
+      ],
+      "long_trades": 13,
+      "short_trades": 91,
+      "funding_adjustment": 0.012575791799999993,
+      "return_with_funding": 0.27752794454240265
+    },
+    {
+      "date": "2022-06-30",
+      "info_month": "2022-05-31",
+      "return": -0.05032400131214397,
+      "capital": 10895.718674112095,
+      "longs": [
+        "KNCUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [
+        "AXSUSDT",
+        "LINKUSDT",
+        "1000SHIBUSDT",
+        "ATOMUSDT",
+        "AAVEUSDT",
+        "DOGEUSDT",
+        "LTCUSDT",
+        "CRVUSDT",
+        "ENSUSDT",
+        "MANAUSDT"
+      ],
+      "long_trades": 22,
+      "short_trades": 81,
+      "funding_adjustment": 0.008414510500000002,
+      "return_with_funding": -0.04190949081214397
+    },
+    {
+      "date": "2022-07-31",
+      "info_month": "2022-06-30",
+      "return": 0.0746203458322379,
+      "capital": 11708.760969665112,
+      "longs": [
+        "SOLUSDT",
+        "BELUSDT",
+        "LINKUSDT",
+        "1000SHIBUSDT"
+      ],
+      "shorts": [
+        "ATOMUSDT",
+        "OPUSDT",
+        "SNXUSDT",
+        "AAVEUSDT",
+        "AXSUSDT",
+        "ETCUSDT",
+        "DOTUSDT",
+        "SANDUSDT",
+        "MTLUSDT",
+        "LTCUSDT"
+      ],
+      "long_trades": 28,
+      "short_trades": 66,
+      "funding_adjustment": -0.0018807191000000003,
+      "return_with_funding": 0.0727396267322379
+    },
+    {
+      "date": "2022-08-31",
+      "info_month": "2022-07-31",
+      "return": -0.0031658693588876505,
+      "capital": 11671.69256208071,
+      "longs": [
+        "SOLUSDT",
+        "BNBUSDT",
+        "SANDUSDT",
+        "XRPUSDT",
+        "OPUSDT",
+        "NEARUSDT",
+        "AVAXUSDT",
+        "ETCUSDT",
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "shorts": [
+        "GALAUSDT",
+        "DOGEUSDT"
+      ],
+      "long_trades": 105,
+      "short_trades": 19,
+      "funding_adjustment": 0.0021157441999999993,
+      "return_with_funding": -0.0010501251588876511
+    },
+    {
+      "date": "2022-09-30",
+      "info_month": "2022-08-31",
+      "return": -0.10272550612657866,
+      "capital": 10472.712036287146,
+      "longs": [
+        "CHZUSDT",
+        "NEARUSDT",
+        "1000SHIBUSDT",
+        "DOGEUSDT",
+        "ETHUSDT"
+      ],
+      "shorts": [
+        "LINKUSDT",
+        "DYDXUSDT",
+        "DOTUSDT",
+        "CRVUSDT",
+        "SANDUSDT",
+        "BCHUSDT",
+        "GALAUSDT",
+        "AXSUSDT",
+        "FLOWUSDT"
+      ],
+      "long_trades": 46,
+      "short_trades": 88,
+      "funding_adjustment": -0.0006579581333333334,
+      "return_with_funding": -0.10338346425991199
+    },
+    {
+      "date": "2022-10-31",
+      "info_month": "2022-09-30",
+      "return": -0.025381900183788407,
+      "capital": 10206.894704728547,
+      "longs": [
+        "LINKUSDT",
+        "XRPUSDT",
+        "RVNUSDT"
+      ],
+      "shorts": [
+        "NEARUSDT"
+      ],
+      "long_trades": 30,
+      "short_trades": 5,
+      "funding_adjustment": -0.0008070553333333335,
+      "return_with_funding": -0.02618895551712174
+    },
+    {
+      "date": "2022-11-30",
+      "info_month": "2022-10-31",
+      "return": -0.0040712565152651176,
+      "capital": 10165.339818161297,
+      "longs": [
+        "SUSHIUSDT",
+        "CHZUSDT",
+        "BTCUSDT",
+        "DOGEUSDT",
+        "ETHUSDT",
+        "APTUSDT",
+        "BNBUSDT",
+        "ADAUSDT",
+        "RSRUSDT",
+        "SOLUSDT"
+      ],
+      "shorts": [
+        "APEUSDT",
+        "AXSUSDT",
+        "GMTUSDT",
+        "FILUSDT",
+        "NEARUSDT",
+        "ENSUSDT",
+        "OPUSDT"
+      ],
+      "long_trades": 70,
+      "short_trades": 53,
+      "funding_adjustment": 0.015265398785714287,
+      "return_with_funding": 0.011194142270449169
+    },
+    {
+      "date": "2022-12-31",
+      "info_month": "2022-11-30",
+      "return": 0.0018771151717316692,
+      "capital": 10184.421331759775,
+      "longs": [
+        "BANDUSDT",
+        "CHZUSDT",
+        "LTCUSDT",
+        "LINKUSDT",
+        "DYDXUSDT",
+        "MASKUSDT",
+        "BNBUSDT"
+      ],
+      "shorts": [
+        "NEARUSDT",
+        "ATOMUSDT",
+        "DOTUSDT",
+        "ALGOUSDT",
+        "APEUSDT",
+        "1000SHIBUSDT",
+        "SFPUSDT",
+        "AVAXUSDT",
+        "GMTUSDT",
+        "AXSUSDT"
+      ],
+      "long_trades": 50,
+      "short_trades": 98,
+      "funding_adjustment": 7.398559999999982e-05,
+      "return_with_funding": 0.001951100771731669
+    },
+    {
+      "date": "2023-01-31",
+      "info_month": "2022-12-31",
+      "return": 0.34252988744012697,
+      "capital": 13672.89002417028,
+      "longs": [
+        "AXSUSDT"
+      ],
+      "shorts": [
+        "APTUSDT",
+        "BANDUSDT",
+        "1000SHIBUSDT",
+        "GMTUSDT",
+        "CELOUSDT",
+        "SANDUSDT",
+        "DOTUSDT",
+        "AVAXUSDT",
+        "FILUSDT",
+        "1000LUNCUSDT"
+      ],
+      "long_trades": 5,
+      "short_trades": 58,
+      "funding_adjustment": 0.0019012917999999999,
+      "return_with_funding": 0.34443117924012695
+    },
+    {
+      "date": "2023-02-28",
+      "info_month": "2023-01-31",
+      "return": -0.03125057061340205,
+      "capital": 13245.604408980666,
+      "longs": [
+        "APTUSDT",
+        "1000SHIBUSDT",
+        "MANAUSDT",
+        "BTCUSDT",
+        "ETHUSDT",
+        "ADAUSDT",
+        "SOLUSDT",
+        "GALAUSDT",
+        "AVAXUSDT",
+        "GMTUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 61,
+      "short_trades": 0,
+      "funding_adjustment": -0.003193596,
+      "return_with_funding": -0.03444416661340205
+    },
+    {
+      "date": "2023-03-31",
+      "info_month": "2023-02-28",
+      "return": 0.0,
+      "capital": 13245.604408980666,
+      "longs": [],
+      "shorts": [],
+      "long_trades": 0,
+      "short_trades": 0,
+      "funding_adjustment": 0.0,
+      "return_with_funding": 0.0
+    },
+    {
+      "date": "2023-04-30",
+      "info_month": "2023-03-31",
+      "return": -0.039517665694892616,
+      "capital": 12722.169042019772,
+      "longs": [
+        "MASKUSDT",
+        "OPUSDT",
+        "XRPUSDT",
+        "BTCUSDT",
+        "CFXUSDT",
+        "BNBUSDT",
+        "STXUSDT"
+      ],
+      "shorts": [
+        "ATOMUSDT",
+        "LINKUSDT",
+        "MAGICUSDT",
+        "LQTYUSDT",
+        "GMTUSDT",
+        "LDOUSDT",
+        "ETCUSDT",
+        "DOTUSDT",
+        "SANDUSDT",
+        "GALAUSDT"
+      ],
+      "long_trades": 54,
+      "short_trades": 83,
+      "funding_adjustment": 0.0011347721000000003,
+      "return_with_funding": -0.038382893594892616
+    },
+    {
+      "date": "2023-05-31",
+      "info_month": "2023-04-30",
+      "return": 0.009217550993903747,
+      "capital": 12839.436283917652,
+      "longs": [
+        "INJUSDT",
+        "APTUSDT",
+        "ETHUSDT",
+        "CTSIUSDT",
+        "DOGEUSDT",
+        "ADAUSDT",
+        "IDUSDT",
+        "SOLUSDT",
+        "LTCUSDT"
+      ],
+      "shorts": [
+        "STXUSDT",
+        "ICXUSDT",
+        "ATOMUSDT",
+        "GALAUSDT",
+        "AVAXUSDT",
+        "DOTUSDT"
+      ],
+      "long_trades": 62,
+      "short_trades": 46,
+      "funding_adjustment": 0.0005331406666666665,
+      "return_with_funding": 0.009750691660570413
+    },
+    {
+      "date": "2023-06-30",
+      "info_month": "2023-05-31",
+      "return": 0.1214522830350409,
+      "capital": 14398.815133482392,
+      "longs": [
+        "ARPAUSDT",
+        "XRPUSDT",
+        "CFXUSDT",
+        "LTCUSDT",
+        "INJUSDT"
+      ],
+      "shorts": [
+        "CTSIUSDT",
+        "MASKUSDT",
+        "APTUSDT",
+        "DYDXUSDT",
+        "FILUSDT",
+        "RLCUSDT",
+        "IDUSDT",
+        "LINKUSDT",
+        "GALAUSDT",
+        "AVAXUSDT"
+      ],
+      "long_trades": 25,
+      "short_trades": 74,
+      "funding_adjustment": 0.0021435832999999994,
+      "return_with_funding": 0.1235958663350409
+    },
+    {
+      "date": "2023-07-31",
+      "info_month": "2023-06-30",
+      "return": -0.07218511750033536,
+      "capital": 13359.434971206358,
+      "longs": [
+        "MTLUSDT",
+        "BCHUSDT",
+        "1000PEPEUSDT",
+        "BTCUSDT",
+        "ETHUSDT",
+        "CFXUSDT"
+      ],
+      "shorts": [
+        "FILUSDT",
+        "LINKUSDT",
+        "COMPUSDT",
+        "APTUSDT",
+        "1000SHIBUSDT",
+        "SANDUSDT",
+        "MASKUSDT",
+        "ETCUSDT",
+        "ARPAUSDT",
+        "AVAXUSDT"
+      ],
+      "long_trades": 51,
+      "short_trades": 76,
+      "funding_adjustment": -0.0005784417666666666,
+      "return_with_funding": -0.07276355926700204
+    },
+    {
+      "date": "2023-08-31",
+      "info_month": "2023-07-31",
+      "return": -0.027372079420914245,
+      "capital": 12993.759456155958,
+      "longs": [
+        "DOGEUSDT",
+        "COMPUSDT",
+        "LINKUSDT",
+        "XLMUSDT",
+        "SOLUSDT",
+        "XRPUSDT",
+        "OPUSDT"
+      ],
+      "shorts": [
+        "XVGUSDT",
+        "1INCHUSDT",
+        "APEUSDT",
+        "STORJUSDT",
+        "CFXUSDT",
+        "SNXUSDT",
+        "SUIUSDT",
+        "INJUSDT",
+        "ETCUSDT"
+      ],
+      "long_trades": 44,
+      "short_trades": 78,
+      "funding_adjustment": -0.0008359759999999999,
+      "return_with_funding": -0.028208055420914244
+    },
+    {
+      "date": "2023-09-30",
+      "info_month": "2023-08-31",
+      "return": 0.016993098026564752,
+      "capital": 13214.563684328017,
+      "longs": [
+        "LPTUSDT",
+        "RUNEUSDT",
+        "1000SHIBUSDT",
+        "OPUSDT"
+      ],
+      "shorts": [
+        "WLDUSDT",
+        "ARBUSDT",
+        "COMPUSDT",
+        "LINKUSDT",
+        "APEUSDT",
+        "ADAUSDT",
+        "CYBERUSDT",
+        "APTUSDT",
+        "CFXUSDT",
+        "BNBUSDT"
+      ],
+      "long_trades": 26,
+      "short_trades": 70,
+      "funding_adjustment": -0.0038370771000000004,
+      "return_with_funding": 0.013156020926564751
+    },
+    {
+      "date": "2023-10-31",
+      "info_month": "2023-09-30",
+      "return": 0.15058449837929472,
+      "capital": 15204.472128033796,
+      "longs": [
+        "TRBUSDT",
+        "LINKUSDT",
+        "STORJUSDT",
+        "WLDUSDT",
+        "ETHUSDT",
+        "BTCUSDT",
+        "XRPUSDT",
+        "BCHUSDT",
+        "BNBUSDT"
+      ],
+      "shorts": [
+        "IMXUSDT",
+        "GALAUSDT",
+        "1000SHIBUSDT",
+        "SUIUSDT",
+        "ADAUSDT",
+        "ARBUSDT",
+        "APEUSDT",
+        "NMRUSDT"
+      ],
+      "long_trades": 68,
+      "short_trades": 34,
+      "funding_adjustment": 0.004793867249999998,
+      "return_with_funding": 0.15537836562929472
+    },
+    {
+      "date": "2023-11-30",
+      "info_month": "2023-10-31",
+      "return": 0.029859143896050107,
+      "capital": 15658.46464916824,
+      "longs": [
+        "LQTYUSDT",
+        "BTCUSDT",
+        "SOLUSDT",
+        "DOGEUSDT",
+        "ETHUSDT",
+        "AVAXUSDT",
+        "BNBUSDT",
+        "LINKUSDT",
+        "GALAUSDT",
+        "BIGTIMEUSDT"
+      ],
+      "shorts": [
+        "CFXUSDT",
+        "ARBUSDT",
+        "DOTUSDT",
+        "BNTUSDT",
+        "RUNEUSDT",
+        "OPUSDT",
+        "APEUSDT",
+        "LTCUSDT",
+        "APTUSDT",
+        "MINAUSDT"
+      ],
+      "long_trades": 90,
+      "short_trades": 86,
+      "funding_adjustment": -0.0012516789999999997,
+      "return_with_funding": 0.028607464896050108
+    },
+    {
+      "date": "2023-12-31",
+      "info_month": "2023-11-30",
+      "return": 0.10935827697162775,
+      "capital": 17370.84736322242,
+      "longs": [
+        "AVAXUSDT",
+        "ETHUSDT",
+        "LINKUSDT",
+        "BLURUSDT",
+        "DOGEUSDT",
+        "TIAUSDT",
+        "XRPUSDT",
+        "SOLUSDT",
+        "MEMEUSDT",
+        "ORDIUSDT"
+      ],
+      "shorts": [
+        "1000PEPEUSDT"
+      ],
+      "long_trades": 83,
+      "short_trades": 12,
+      "funding_adjustment": 0.0021418888999999997,
+      "return_with_funding": 0.11150016587162775
+    },
+    {
+      "date": "2024-01-31",
+      "info_month": "2023-12-31",
+      "return": -0.03850187551323056,
+      "capital": 16702.0371604843,
+      "longs": [
+        "OPUSDT",
+        "SOLUSDT",
+        "TRBUSDT",
+        "BNBUSDT",
+        "ETHUSDT",
+        "LINKUSDT",
+        "AVAXUSDT",
+        "ORDIUSDT",
+        "TIAUSDT",
+        "1000BONKUSDT"
+      ],
+      "shorts": [
+        "MEMEUSDT",
+        "1000LUNCUSDT"
+      ],
+      "long_trades": 82,
+      "short_trades": 15,
+      "funding_adjustment": 0.0021255876000000006,
+      "return_with_funding": -0.03637628791323056
+    },
+    {
+      "date": "2024-02-29",
+      "info_month": "2024-01-31",
+      "return": 0.11837933043704509,
+      "capital": 18679.213136477076,
+      "longs": [
+        "BTCUSDT",
+        "ARBUSDT",
+        "SEIUSDT",
+        "ETHUSDT",
+        "PEOPLEUSDT",
+        "SUIUSDT",
+        "TIAUSDT",
+        "AVAXUSDT"
+      ],
+      "shorts": [
+        "ETCUSDT",
+        "POWRUSDT",
+        "NEARUSDT",
+        "FILUSDT",
+        "LTCUSDT",
+        "INJUSDT",
+        "ENSUSDT",
+        "ADAUSDT",
+        "LINKUSDT",
+        "UMAUSDT"
+      ],
+      "long_trades": 51,
+      "short_trades": 61,
+      "funding_adjustment": 0.0003953458499999994,
+      "return_with_funding": 0.11877467628704509
+    },
+    {
+      "date": "2024-03-31",
+      "info_month": "2024-02-29",
+      "return": 0.15962616049595346,
+      "capital": 21660.904210538487,
+      "longs": [
+        "ETHUSDT",
+        "BNBUSDT",
+        "ADAUSDT",
+        "XRPUSDT",
+        "BTCUSDT",
+        "FILUSDT",
+        "WLDUSDT",
+        "1000PEPEUSDT",
+        "DOGEUSDT",
+        "SOLUSDT"
+      ],
+      "shorts": [
+        "MANTAUSDT",
+        "LPTUSDT"
+      ],
+      "long_trades": 67,
+      "short_trades": 16,
+      "funding_adjustment": -0.0012882723000000008,
+      "return_with_funding": 0.15833788819595346
+    },
+    {
+      "date": "2024-04-30",
+      "info_month": "2024-03-31",
+      "return": 0.020336480592706062,
+      "capital": 22101.410768636568,
+      "longs": [
+        "BTCUSDT",
+        "DOGEUSDT",
+        "NEARUSDT",
+        "BNBUSDT",
+        "BCHUSDT",
+        "ETHUSDT",
+        "WIFUSDT",
+        "1000FLOKIUSDT",
+        "1000PEPEUSDT",
+        "1000SHIBUSDT"
+      ],
+      "shorts": [
+        "OPUSDT",
+        "DOTUSDT",
+        "1000BONKUSDT",
+        "ETCUSDT",
+        "FILUSDT",
+        "ARBUSDT"
+      ],
+      "long_trades": 66,
+      "short_trades": 36,
+      "funding_adjustment": -0.0008213073000000002,
+      "return_with_funding": 0.01951517329270606
+    },
+    {
+      "date": "2024-05-31",
+      "info_month": "2024-04-30",
+      "return": -0.06897859829759,
+      "capital": 20576.886433416756,
+      "longs": [
+        "XRPUSDT",
+        "BNBUSDT"
+      ],
+      "shorts": [
+        "JTOUSDT",
+        "LINKUSDT",
+        "HBARUSDT",
+        "FILUSDT",
+        "ADAUSDT",
+        "APTUSDT",
+        "SUIUSDT",
+        "ARBUSDT",
+        "ETCUSDT",
+        "CKBUSDT"
+      ],
+      "long_trades": 14,
+      "short_trades": 88,
+      "funding_adjustment": 0.0008167044000000002,
+      "return_with_funding": -0.06816189389758999
+    },
+    {
+      "date": "2024-06-30",
+      "info_month": "2024-05-31",
+      "return": -0.050692857419846846,
+      "capital": 19533.78526330318,
+      "longs": [
+        "1000PEPEUSDT",
+        "PEOPLEUSDT",
+        "1000BONKUSDT",
+        "TRBUSDT",
+        "ETHUSDT",
+        "1000SHIBUSDT",
+        "WIFUSDT",
+        "XRPUSDT",
+        "SOLUSDT",
+        "ORDIUSDT"
+      ],
+      "shorts": [
+        "OPUSDT",
+        "BCHUSDT"
+      ],
+      "long_trades": 77,
+      "short_trades": 20,
+      "funding_adjustment": -0.0025327917999999994,
+      "return_with_funding": -0.05322564921984684
+    },
+    {
+      "date": "2024-07-31",
+      "info_month": "2024-06-30",
+      "return": 0.09893033954295789,
+      "capital": 21466.26927196099,
+      "longs": [
+        "BTCUSDT",
+        "PEOPLEUSDT",
+        "ORDIUSDT",
+        "1000RATSUSDT",
+        "BNBUSDT"
+      ],
+      "shorts": [
+        "FETUSDT",
+        "LINKUSDT",
+        "1000SHIBUSDT",
+        "NEARUSDT",
+        "AVAXUSDT",
+        "1000BONKUSDT",
+        "CRVUSDT",
+        "1000SATSUSDT",
+        "UNIUSDT",
+        "FILUSDT"
+      ],
+      "long_trades": 31,
+      "short_trades": 83,
+      "funding_adjustment": -0.0021954551999999994,
+      "return_with_funding": 0.09673488434295789
+    },
+    {
+      "date": "2024-08-31",
+      "info_month": "2024-07-31",
+      "return": 0.06143399159517031,
+      "capital": 22785.027877994304,
+      "longs": [
+        "XRPUSDT",
+        "1000SATSUSDT",
+        "BNBUSDT",
+        "1000PEPEUSDT",
+        "SOLUSDT",
+        "ETHUSDT",
+        "BTCUSDT",
+        "DOGEUSDT",
+        "PEOPLEUSDT",
+        "WLDUSDT"
+      ],
+      "shorts": [
+        "TIAUSDT",
+        "OPUSDT",
+        "1000FLOKIUSDT",
+        "ZENUSDT",
+        "LINKUSDT",
+        "LTCUSDT",
+        "ARBUSDT",
+        "NEARUSDT",
+        "1000RATSUSDT",
+        "BCHUSDT"
+      ],
+      "long_trades": 51,
+      "short_trades": 62,
+      "funding_adjustment": -0.0018003638999999996,
+      "return_with_funding": 0.05963362769517031
+    },
+    {
+      "date": "2024-09-30",
+      "info_month": "2024-08-31",
+      "return": 0.13065639313393868,
+      "capital": 25762.03743798928,
+      "longs": [
+        "BNBUSDT",
+        "1000SATSUSDT",
+        "AVAXUSDT",
+        "BTCUSDT",
+        "SUIUSDT",
+        "1000PEPEUSDT",
+        "WIFUSDT",
+        "ORDIUSDT",
+        "AAVEUSDT",
+        "XRPUSDT"
+      ],
+      "shorts": [
+        "1000BONKUSDT",
+        "FILUSDT",
+        "ADAUSDT",
+        "PEOPLEUSDT",
+        "1000FLOKIUSDT",
+        "TRBUSDT",
+        "LTCUSDT",
+        "LINKUSDT",
+        "1000SHIBUSDT",
+        "TRXUSDT"
+      ],
+      "long_trades": 93,
+      "short_trades": 78,
+      "funding_adjustment": -0.0008009040000000001,
+      "return_with_funding": 0.12985548913393868
+    },
+    {
+      "date": "2024-10-31",
+      "info_month": "2024-09-30",
+      "return": 0.047259168700823175,
+      "capital": 26979.529911348138,
+      "longs": [
+        "SOLUSDT",
+        "BTCUSDT",
+        "SUIUSDT",
+        "TIAUSDT",
+        "ORDIUSDT",
+        "ETHUSDT",
+        "AAVEUSDT",
+        "DOGEUSDT",
+        "BNBUSDT",
+        "WLDUSDT"
+      ],
+      "shorts": [
+        "NEARUSDT",
+        "ADAUSDT",
+        "APTUSDT"
+      ],
+      "long_trades": 66,
+      "short_trades": 22,
+      "funding_adjustment": 0.004282858500000001,
+      "return_with_funding": 0.051542027200823175
+    },
+    {
+      "date": "2024-11-30",
+      "info_month": "2024-10-31",
+      "return": 0.23610825042726935,
+      "capital": 33349.61951606673,
+      "longs": [
+        "1000SHIBUSDT",
+        "BTCUSDT",
+        "BNBUSDT",
+        "DOGEUSDT",
+        "ETHUSDT",
+        "SOLUSDT",
+        "APEUSDT",
+        "WLDUSDT"
+      ],
+      "shorts": [
+        "AVAXUSDT",
+        "NEARUSDT",
+        "AAVEUSDT",
+        "ORDIUSDT",
+        "SEIUSDT",
+        "1000SATSUSDT",
+        "FETUSDT",
+        "ADAUSDT",
+        "INJUSDT",
+        "LINKUSDT"
+      ],
+      "long_trades": 74,
+      "short_trades": 72,
+      "funding_adjustment": -0.0001630849500000003,
+      "return_with_funding": 0.23594516547726935
+    },
+    {
+      "date": "2024-12-31",
+      "info_month": "2024-11-30",
+      "return": -0.09619844919283352,
+      "capital": 30141.437837450052,
+      "longs": [
+        "ADAUSDT",
+        "XLMUSDT",
+        "BTCUSDT",
+        "XRPUSDT",
+        "1000BONKUSDT",
+        "SUIUSDT",
+        "BNBUSDT",
+        "ETHUSDT",
+        "WLDUSDT",
+        "SOLUSDT"
+      ],
+      "shorts": [
+        "HBARUSDT"
+      ],
+      "long_trades": 92,
+      "short_trades": 8,
+      "funding_adjustment": -0.0024213508999999995,
+      "return_with_funding": -0.09861980009283351
+    }
+  ]
+}

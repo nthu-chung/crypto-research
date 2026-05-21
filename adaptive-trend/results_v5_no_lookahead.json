@@ -1,0 +1,67 @@
+{
+  "full": {
+    "cagr": 27.36,
+    "sharpe": 0.69,
+    "max_dd": -30.52,
+    "calmar": 0.9,
+    "win_rate": 28.9,
+    "n_months": 76,
+    "total_return": 362.51
+  },
+  "is": {
+    "cagr": 21.39,
+    "sharpe": 0.74,
+    "max_dd": -30.52,
+    "calmar": 0.7,
+    "win_rate": 31.2,
+    "n_months": 48,
+    "total_return": 117.11
+  },
+  "oos": {
+    "cagr": 38.28,
+    "sharpe": 0.71,
+    "max_dd": -13.42,
+    "calmar": 2.85,
+    "win_rate": 25.0,
+    "n_months": 28,
+    "total_return": 113.03
+  },
+  "yearly": {
+    "2020": {
+      "return": 5.1,
+      "sharpe": 0.3
+    },
+    "2021": {
+      "return": 82.2,
+      "sharpe": 1.65
+    },
+    "2022": {
+      "return": -13.0,
+      "sharpe": -1.07
+    },
+    "2023": {
+      "return": 30.3,
+      "sharpe": 0.86
+    },
+    "2024": {
+      "return": 85.7,
+      "sharpe": 0.94
+    },
+    "2025": {
+      "return": 14.7,
+      "sharpe": 0.83
+    },
+    "2026": {
+      "return": 0.0,
+      "sharpe": 0.0
+    }
+  },
+  "short_months": 3,
+  "preservation_months": 9,
+  "total_months": 76,
+  "notes": [
+    "Month m universe, rank-decay, and fee tier use month m-1 data.",
+    "Rank-decay short uses the known m-2 to m-1 ranking transition and trades in month m.",
+    "BTC regime and RV30 use bars strictly before month_start."
+  ]
+}
