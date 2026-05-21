@@ -1,0 +1,67 @@
+<!doctype html>
+<html><head><meta charset="utf-8"/>
+<title>AdaptiveTrend IS/OOS Static Charts</title>
+<style>
+body{margin:0;background:#0d1117;color:#f0f6fc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{padding:24px;max-width:1320px;margin:0 auto}
+h1{font-size:24px;margin:0 0 4px}.sub{color:#8b949e;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.wide{grid-column:1/span 2}.chart-svg{width:100%;height:auto;display:block}
+.note{margin-top:18px;color:#c9d1d9;line-height:1.5}
+</style></head><body><div class="wrap">
+<h1>AdaptiveTrend Clean-Room Reproduction: IS vs 2025+ OOS</h1>
+<p class="sub">No external JS. Candidate: volume-next relaxed long-short. IS 2022-2024, OOS 2025-01 to 2026-04.</p>
+<div class="grid">
+<div class="wide"><svg viewBox="0 0 1280 420" class="chart-svg">
+    
+    <rect x="0" y="0" width="1280" height="420" rx="8" fill="#111827" stroke="#30363d"/>
+    <text x="640" y="32" text-anchor="middle" fill="#f0f6fc" font-size="20" font-weight="700">Equity Curve (Start = 1.0)</text>
+    <line x1="70" y1="374" x2="1250" y2="374" stroke="#30363d"/>
+    <line x1="70" y1="56" x2="70" y2="374" stroke="#30363d"/>
+    <text x="18" y="210" transform="rotate(-90 18 210)" text-anchor="middle" fill="#8b949e" font-size="12">Equity</text>
+    <rect x="902.9411764705883" y="56" width="347.0588235294117" height="318" fill="#7c2d12" opacity="0.22"/>
+    <line x1="902.9411764705883" y1="56" x2="902.9411764705883" y2="374" stroke="#fbbf24" stroke-dasharray="6 6"/>
+    <path d="M70.0,356.4 L93.1,363.0 L116.3,363.0 L139.4,368.3 L162.5,341.8 L185.7,348.2 L208.8,339.2 L232.0,339.6 L255.1,352.8 L278.2,355.7 L301.4,356.2 L324.5,356.0 L347.6,317.6 L370.8,322.3 L393.9,322.3 L417.1,328.0 L440.2,326.7 L463.3,309.6 L486.5,321.0 L509.6,325.0 L532.7,322.6 L555.9,300.7 L579.0,295.7 L602.2,276.8 L625.3,284.2 L648.4,262.4 L671.6,229.5 L694.7,224.7 L717.8,241.5 L741.0,253.0 L764.1,231.7 L787.3,217.2 L810.4,184.4 L833.5,170.9 L856.7,100.8 L879.8,136.1 L902.9,128.5 L926.1,123.5 L949.2,123.5 L972.4,140.3 L995.5,83.7 L1018.6,109.7 L1041.8,144.1 L1064.9,138.3 L1088.0,146.8 L1111.2,147.6 L1134.3,147.0 L1157.5,175.6 L1180.6,180.3 L1203.7,210.2 L1226.9,210.2 L1250.0,210.1" fill="none" stroke="#58a6ff" stroke-width="3"/>
+    <path d="M70.0,356.5 L93.1,363.3 L116.3,363.3 L139.4,369.0 L162.5,341.5 L185.7,346.8 L208.8,337.9 L232.0,338.1 L255.1,351.5 L278.2,354.5 L301.4,353.3 L324.5,353.1 L347.6,313.4 L370.8,318.8 L393.9,318.8 L417.1,324.5 L440.2,323.2 L463.3,305.2 L486.5,317.1 L509.6,321.3 L532.7,319.3 L555.9,296.2 L579.0,291.3 L602.2,271.6 L625.3,278.8 L648.4,256.3 L671.6,222.9 L694.7,218.2 L717.8,235.2 L741.0,247.6 L764.1,226.4 L787.3,212.0 L810.4,178.7 L833.5,163.8 L856.7,92.1 L879.8,129.2 L902.9,121.4 L926.1,116.2 L949.2,116.2 L972.4,133.4 L995.5,75.6 L1018.6,102.2 L1041.8,137.3 L1064.9,131.4 L1088.0,140.1 L1111.2,140.9 L1134.3,140.3 L1157.5,169.5 L1180.6,174.3 L1203.7,204.8 L1226.9,204.8 L1250.0,204.7" fill="none" stroke="#f0883e" stroke-width="2"/>
+    <text x="78" y="74" fill="#58a6ff">Base</text>
+    <text x="140" y="74" fill="#f0883e">Funding approx.</text>
+    <text x="912.9411764705883" y="74" fill="#fbbf24">OOS starts 2025</text>
+  </svg></div>
+<div><svg viewBox="0 0 620 360" class="chart-svg">
+    
+    <rect x="0" y="0" width="620" height="360" rx="8" fill="#111827" stroke="#30363d"/>
+    <text x="310" y="32" text-anchor="middle" fill="#f0f6fc" font-size="20" font-weight="700">Monthly Returns</text>
+    <line x1="60" y1="318" x2="596" y2="318" stroke="#30363d"/>
+    <line x1="60" y1="56" x2="60" y2="318" stroke="#30363d"/>
+    <text x="18" y="180" transform="rotate(-90 18 180)" text-anchor="middle" fill="#8b949e" font-size="12">Return (%)</text>
+    <line x1="60" y1="257.1656705125648" x2="596" y2="257.1656705125648" stroke="#c9d1d9" opacity="0.6"/>
+    <rect x="62.0" y="249.5" width="8.0" height="7.7" fill="#2ea043"/><rect x="72.3" y="257.2" width="8.0" height="30.5" fill="#f85149"/><rect x="82.6" y="257.2" width="8.0" height="0.0" fill="#2ea043"/><rect x="92.9" y="257.2" width="8.0" height="25.4" fill="#f85149"/><rect x="103.2" y="121.9" width="8.0" height="135.3" fill="#2ea043"/><rect x="113.5" y="257.2" width="8.0" height="25.7" fill="#f85149"/><rect x="123.8" y="219.1" width="8.0" height="38.1" fill="#2ea043"/><rect x="134.2" y="257.2" width="8.0" height="1.6" fill="#f85149"/><rect x="144.5" y="257.2" width="8.0" height="52.5" fill="#f85149"/><rect x="154.8" y="257.2" width="8.0" height="13.0" fill="#f85149"/><rect x="165.1" y="257.2" width="8.0" height="2.1" fill="#f85149"/><rect x="175.4" y="256.2" width="8.0" height="1.0" fill="#2ea043"/><rect x="185.7" y="82.2" width="8.0" height="174.9" fill="#2ea043"/><rect x="196.0" y="257.2" width="8.0" height="16.0" fill="#f85149"/><rect x="206.3" y="257.2" width="8.0" height="0.0" fill="#2ea043"/><rect x="216.6" y="257.2" width="8.0" height="20.2" fill="#f85149"/><rect x="226.9" y="252.5" width="8.0" height="4.7" fill="#2ea043"/><rect x="237.2" y="195.1" width="8.0" height="62.0" fill="#2ea043"/><rect x="247.5" y="257.2" width="8.0" height="36.9" fill="#f85149"/><rect x="257.8" y="257.2" width="8.0" height="14.0" fill="#f85149"/><rect x="268.2" y="248.5" width="8.0" height="8.7" fill="#2ea043"/><rect x="278.5" y="180.3" width="8.0" height="76.9" fill="#2ea043"/><rect x="288.8" y="241.9" width="8.0" height="15.2" fill="#2ea043"/><rect x="299.1" y="201.3" width="8.0" height="55.8" fill="#2ea043"/><rect x="309.4" y="257.2" width="8.0" height="19.7" fill="#f85149"/><rect x="319.7" y="196.7" width="8.0" height="60.5" fill="#2ea043"/><rect x="330.0" y="175.6" width="8.0" height="81.5" fill="#2ea043"/><rect x="340.3" y="246.8" width="8.0" height="10.4" fill="#2ea043"/><rect x="350.6" y="257.2" width="8.0" height="35.2" fill="#f85149"/><rect x="360.9" y="257.2" width="8.0" height="25.9" fill="#f85149"/><rect x="371.2" y="206.6" width="8.0" height="50.5" fill="#2ea043"/><rect x="381.5" y="225.8" width="8.0" height="31.4" fill="#2ea043"/><rect x="391.8" y="190.4" width="8.0" height="66.7" fill="#2ea043"/><rect x="402.2" y="233.0" width="8.0" height="24.1" fill="#2ea043"/><rect x="412.5" y="136.6" width="8.0" height="120.6" fill="#2ea043"/><rect x="422.8" y="257.2" width="8.0" height="49.1" fill="#f85149"/><rect x="433.1" y="245.5" width="8.0" height="11.7" fill="#2ea043"/><rect x="443.4" y="249.6" width="8.0" height="7.6" fill="#2ea043"/><rect x="453.7" y="257.2" width="8.0" height="0.0" fill="#2ea043"/><rect x="464.0" y="257.2" width="8.0" height="24.9" fill="#f85149"/><rect x="474.3" y="169.0" width="8.0" height="88.2" fill="#2ea043"/><rect x="484.6" y="257.2" width="8.0" height="34.6" fill="#f85149"/><rect x="494.9" y="257.2" width="8.0" height="48.9" fill="#f85149"/><rect x="505.2" y="248.0" width="8.0" height="9.1" fill="#2ea043"/><rect x="515.5" y="257.2" width="8.0" height="13.3" fill="#f85149"/><rect x="525.8" y="257.2" width="8.0" height="1.2" fill="#f85149"/><rect x="536.2" y="256.2" width="8.0" height="0.9" fill="#2ea043"/><rect x="546.5" y="257.2" width="8.0" height="45.5" fill="#f85149"/><rect x="556.8" y="257.2" width="8.0" height="8.3" fill="#f85149"/><rect x="567.1" y="257.2" width="8.0" height="52.9" fill="#f85149"/><rect x="577.4" y="257.2" width="8.0" height="0.0" fill="#2ea043"/><rect x="587.7" y="257.1" width="8.0" height="0.1" fill="#2ea043"/>
+  </svg></div>
+<div><svg viewBox="0 0 620 360" class="chart-svg">
+    
+    <rect x="0" y="0" width="620" height="360" rx="8" fill="#111827" stroke="#30363d"/>
+    <text x="310" y="32" text-anchor="middle" fill="#f0f6fc" font-size="20" font-weight="700">Drawdown</text>
+    <line x1="60" y1="318" x2="596" y2="318" stroke="#30363d"/>
+    <line x1="60" y1="56" x2="60" y2="318" stroke="#30363d"/>
+    <text x="18" y="180" transform="rotate(-90 18 180)" text-anchor="middle" fill="#8b949e" font-size="12">DD (%)</text>
+    <path d="M60.0,56.0 L70.5,99.2 L81.0,99.2 L91.5,133.1 L102.0,56.0 L112.5,92.4 L123.1,56.0 L133.6,58.3 L144.1,132.4 L154.6,148.9 L165.1,151.4 L175.6,150.3 L186.1,56.0 L196.6,78.6 L207.1,78.6 L217.6,106.3 L228.2,100.1 L238.7,56.0 L249.2,108.3 L259.7,126.7 L270.2,115.6 L280.7,56.0 L291.2,56.0 L301.7,56.0 L312.2,83.9 L322.7,56.0 L333.3,56.0 L343.8,56.0 L354.3,105.9 L364.8,140.1 L375.3,76.8 L385.8,56.0 L396.3,56.0 L406.8,56.0 L417.3,56.0 L427.8,125.7 L438.4,110.7 L448.9,100.7 L459.4,100.7 L469.9,133.9 L480.4,56.0 L490.9,105.1 L501.4,169.7 L511.9,158.8 L522.4,175.0 L532.9,176.3 L543.5,175.2 L554.0,229.1 L564.5,238.0 L575.0,294.2 L585.5,294.2 L596.0,294.1 L596,56 L60,56 Z" fill="rgba(248,81,73,0.28)"/>
+    <path d="M60.0,56.0 L70.5,99.2 L81.0,99.2 L91.5,133.1 L102.0,56.0 L112.5,92.4 L123.1,56.0 L133.6,58.3 L144.1,132.4 L154.6,148.9 L165.1,151.4 L175.6,150.3 L186.1,56.0 L196.6,78.6 L207.1,78.6 L217.6,106.3 L228.2,100.1 L238.7,56.0 L249.2,108.3 L259.7,126.7 L270.2,115.6 L280.7,56.0 L291.2,56.0 L301.7,56.0 L312.2,83.9 L322.7,56.0 L333.3,56.0 L343.8,56.0 L354.3,105.9 L364.8,140.1 L375.3,76.8 L385.8,56.0 L396.3,56.0 L406.8,56.0 L417.3,56.0 L427.8,125.7 L438.4,110.7 L448.9,100.7 L459.4,100.7 L469.9,133.9 L480.4,56.0 L490.9,105.1 L501.4,169.7 L511.9,158.8 L522.4,175.0 L532.9,176.3 L543.5,175.2 L554.0,229.1 L564.5,238.0 L575.0,294.2 L585.5,294.2 L596.0,294.1" fill="none" stroke="#ff7b72" stroke-width="2"/>
+  </svg></div>
+<div class="wide"><svg viewBox="0 0 1280 360" class="chart-svg">
+    
+    <rect x="0" y="0" width="1280" height="360" rx="8" fill="#111827" stroke="#30363d"/>
+    <text x="640" y="32" text-anchor="middle" fill="#f0f6fc" font-size="20" font-weight="700">IS/OOS Metrics</text>
+    <line x1="90" y1="304" x2="1250" y2="304" stroke="#30363d"/>
+    <line x1="90" y1="56" x2="90" y2="304" stroke="#30363d"/>
+    <text x="18" y="180" transform="rotate(-90 18 180)" text-anchor="middle" fill="#8b949e" font-size="12"></text>
+    <line x1="90" y1="198.53426428756146" x2="1250" y2="198.53426428756146" stroke="#c9d1d9" opacity="0.6"/>
+    <rect x="275" y="74.59142577663845" width="62" height="123.94283851092301" fill="#58a6ff"/>
+      <text x="306" y="67.59142577663845" text-anchor="middle" fill="#c9d1d9" font-size="12">44.45</text><rect x="350" y="195.18822590256465" width="62" height="3.3460383849968025" fill="#a371f7"/>
+      <text x="381" y="188.18822590256465" text-anchor="middle" fill="#c9d1d9" font-size="12">1.2</text><rect x="425" y="198.53426428756146" width="62" height="36.7506549285481" fill="#f85149"/>
+      <text x="456" y="290.03557414465763" text-anchor="middle" fill="#c9d1d9" font-size="12">-13.18</text><rect x="855" y="198.53426428756146" width="62" height="48.04353447791229" fill="#58a6ff"/>
+      <text x="886" y="312.62133324338606" text-anchor="middle" fill="#c9d1d9" font-size="12">-17.23</text><rect x="930" y="198.53426428756146" width="62" height="2.035506684206325" fill="#a371f7"/>
+      <text x="961" y="220.6052776559741" text-anchor="middle" fill="#c9d1d9" font-size="12">-0.73</text><rect x="1005" y="198.53426428756146" width="62" height="91.7093354021205" fill="#f85149"/>
+      <text x="1036" y="399.9529350918025" text-anchor="middle" fill="#c9d1d9" font-size="12">-32.89</text><text x="380" y="340" text-anchor="middle" fill="#f0f6fc" font-size="16">IS</text><text x="960" y="340" text-anchor="middle" fill="#f0f6fc" font-size="16">OOS</text><rect x="1030" y="24" width="12" height="12" fill="#58a6ff"/><text x="1048" y="35" fill="#c9d1d9" font-size="13">CAGR</text><rect x="1110" y="24" width="12" height="12" fill="#a371f7"/><text x="1128" y="35" fill="#c9d1d9" font-size="13">Sharpe</text><rect x="1190" y="24" width="12" height="12" fill="#f85149"/><text x="1208" y="35" fill="#c9d1d9" font-size="13">MaxDD</text>
+  </svg></div>
+</div>
+<p class="note">Key read: the strategy compounds strongly in IS, then loses money in the 2025+ OOS period. OOS CAGR = -17.23%, Sharpe = -0.73, MaxDD = -32.89%.</p>
+</div></body></html>

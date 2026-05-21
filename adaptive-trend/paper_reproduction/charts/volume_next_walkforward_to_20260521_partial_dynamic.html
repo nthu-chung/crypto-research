@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AdaptiveTrend Walk-Forward Dynamic</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --panel: #111827;
+  --panel-2: #0f172a;
+  --line: #30363d;
+  --text: #f0f6fc;
+  --muted: #9aa4b2;
+  --blue: #58a6ff;
+  --green: #2ea043;
+  --red: #f85149;
+  --orange: #f0883e;
+  --yellow: #fbbf24;
+  --violet: #a371f7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.wrap {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 22px 0 28px;
+}
+header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+h1 {
+  font-size: 24px;
+  line-height: 1.15;
+  margin: 0 0 4px;
+}
+.sub {
+  color: var(--muted);
+  margin: 0;
+  font-size: 14px;
+}
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #0f172a;
+  color: #c9d1d9;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(330px, 0.8fr);
+  gap: 16px;
+  align-items: start;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px 0;
+}
+.panel-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.panel-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.controls {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px 14px;
+  border-top: 1px solid var(--line);
+}
+button {
+  width: 42px;
+  height: 34px;
+  border: 1px solid #3b4758;
+  border-radius: 7px;
+  background: #182235;
+  color: var(--text);
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--blue); }
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--blue);
+}
+.speed {
+  display: flex;
+  gap: 6px;
+}
+.speed button {
+  width: auto;
+  min-width: 42px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+.speed button.active {
+  background: #1f6feb;
+  border-color: #58a6ff;
+}
+.side {
+  display: grid;
+  gap: 16px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px;
+}
+.stat {
+  min-height: 78px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 10px;
+}
+.stat-label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.stat-value {
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+.green { color: #3fb950; }
+.red { color: #ff7b72; }
+.blue { color: var(--blue); }
+.orange { color: var(--orange); }
+.lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 14px 14px;
+}
+.list-box {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  padding: 10px;
+  min-height: 150px;
+}
+.list-title {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  border: 1px solid #344154;
+  border-radius: 6px;
+  padding: 4px 6px;
+  color: #d1d9e6;
+  font-size: 11px;
+  background: #121c2e;
+}
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.metrics-table th,
+.metrics-table td {
+  border-top: 1px solid var(--line);
+  padding: 9px 10px;
+  text-align: right;
+}
+.metrics-table th:first-child,
+.metrics-table td:first-child { text-align: left; }
+.metrics-table thead th {
+  color: var(--muted);
+  font-weight: 600;
+}
+.explain {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0f172a;
+  padding: 14px 16px;
+  color: #c9d1d9;
+  line-height: 1.55;
+  font-size: 14px;
+}
+@media (max-width: 960px) {
+  header { align-items: start; flex-direction: column; }
+  .pill-row { justify-content: flex-start; }
+  .layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .controls { grid-template-columns: auto 1fr; }
+  .speed { grid-column: 1 / span 2; }
+  .stats, .lists { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>AdaptiveTrend Walk-Forward Dynamic</h1>
+      <p class="sub">逐月播放：每個月用上一個資訊月份調整，下一段才交易。OOS 從 2025-01-31 開始。</p>
+    </div>
+    <div class="pill-row">
+      <span class="pill">short pool: next</span>
+      <span class="pill">max positions: 10</span>
+      <span class="pill">fee: 4 bps</span>
+      <span class="pill">partial final month</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <section class="panel">
+      <div class="panel-head">
+        <div class="panel-title">Equity / Monthly Return / Drawdown</div>
+        <div class="panel-note" id="phaseLabel">IS</div>
+      </div>
+      <svg id="mainChart" viewBox="0 0 1000 590" aria-label="dynamic walk-forward chart"></svg>
+      <div class="controls">
+        <button id="play" aria-label="play or pause">▶</button>
+        <input id="monthSlider" type="range" min="0" max="52" value="52" step="1" aria-label="month"/>
+        <div class="speed">
+          <button data-speed="900">慢</button>
+          <button data-speed="550" class="active">中</button>
+          <button data-speed="260">快</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="panel-title">Current Month</div>
+          <div class="panel-note" id="monthCount"></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="stat-label">Trade month end</div><div class="stat-value" id="dateValue"></div></div>
+          <div class="stat"><div class="stat-label">Info month used</div><div class="stat-value blue" id="infoValue"></div></div>
+          <div class="stat"><div class="stat-label">Monthly return</div><div class="stat-value" id="returnValue"></div></div>
+          <div class="stat"><div class="stat-label">Capital</div><div class="stat-value" id="capitalValue"></div></div>
+          <div class="stat"><div class="stat-label">Drawdown</div><div class="stat-value red" id="drawdownValue"></div></div>
+          <div class="stat"><div class="stat-label">Trades</div><div class="stat-value orange" id="tradesValue"></div></div>
+        </div>
+        <div class="lists">
+          <div class="list-box"><div class="list-title">Longs</div><div class="chips" id="longsList"></div></div>
+          <div class="list-box"><div class="list-title">Shorts</div><div class="chips" id="shortsList"></div></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="panel-title">Period Metrics</div>
+          <div class="panel-note">IS vs OOS</div>
+        </div>
+        <table class="metrics-table">
+          <thead><tr><th>Period</th><th>CAGR</th><th>Sharpe</th><th>MaxDD</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>IS</td><td>37.72%</td><td>1.05</td><td>-16.68%</td><td>161.21%</td></tr>
+            <tr><td>OOS</td><td>-20.08%</td><td>-0.76</td><td>-39.91%</td><td>-27.2%</td></tr>
+            <tr><td>Full</td><td>15.66%</td><td>0.58</td><td>-40.11%</td><td>90.16%</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </aside>
+  </div>
+
+  <div class="explain">
+    讀法：藍線是資金曲線，綠/紅柱是每月報酬，下方紅線是回撤；黃色直線之後是 2025+ OOS。播放時可以看到策略在 IS 期間往上走得很順，但進入 OOS 後回撤變深，代表「每月重新調參」沒有保證下個月延續有效。
+  </div>
+</div>
+
+<script>
+const payload = {"rows":[{"index":0,"date":"2022-01-31","infoMonth":"2021-12-31","ret":0.015078280286312029,"retPct":1.507828028631203,"capital":10150.782802863121,"equity":1.015078280286312,"longs":["GALAUSDT","NEARUSDT"],"shorts":["GTCUSDT","LTCUSDT","EGLDUSDT","AXSUSDT","ONEUSDT","ALGOUSDT","DYDXUSDT","FILUSDT","YFIUSDT","ALICEUSDT"],"longTrades":14,"shortTrades":84,"drawdown":0,"drawdownPct":0},{"index":1,"date":"2022-02-28","infoMonth":"2022-01-31","ret":-0.05845284193993783,"retPct":-5.845284193993782,"capital":9557.440700120724,"equity":0.9557440700120724,"longs":["BTCUSDT","BNBUSDT","LINKUSDT","DOGEUSDT","NEARUSDT"],"shorts":["AXSUSDT","SUSHIUSDT","FILUSDT","ALICEUSDT","XRPUSDT","CHRUSDT","THETAUSDT","AAVEUSDT","CRVUSDT","PEOPLEUSDT"],"longTrades":31,"shortTrades":70,"drawdown":-0.05845284193993783,"drawdownPct":-5.845284193993782},{"index":2,"date":"2022-03-31","infoMonth":"2022-02-28","ret":-0.042368227120354804,"retPct":-4.23682271203548,"capital":9152.508881848686,"equity":0.9152508881848685,"longs":["MANAUSDT","ATOMUSDT"],"shorts":["FILUSDT","ONEUSDT","EGLDUSDT","CRVUSDT","LINKUSDT","ETCUSDT","XTZUSDT","SUSHIUSDT"],"longTrades":10,"shortTrades":60,"drawdown":-0.09834452577715125,"drawdownPct":-9.834452577715124},{"index":3,"date":"2022-04-30","infoMonth":"2022-03-31","ret":-0.031208908239105337,"retPct":-3.1208908239105337,"capital":8866.869071997473,"equity":0.8866869071997473,"longs":["RUNEUSDT","NEARUSDT","GMTUSDT","ZILUSDT","APEUSDT","ADAUSDT","BTCUSDT","ETCUSDT","SOLUSDT","ETHUSDT"],"shorts":["DOGEUSDT","AXSUSDT"],"longTrades":80,"shortTrades":19,"drawdown":-0.12648420873545918,"drawdownPct":-12.648420873545918},{"index":4,"date":"2022-05-31","infoMonth":"2022-04-30","ret":0.26495215274240264,"retPct":26.495215274240262,"capital":11216.165120708232,"equity":1.1216165120708232,"longs":["KNCUSDT","APEUSDT","MTLUSDT"],"shorts":["RUNEUSDT","AXSUSDT","GALAUSDT","ZRXUSDT","MANAUSDT","ATOMUSDT","SANDUSDT","LTCUSDT","TRXUSDT","LINKUSDT"],"longTrades":13,"shortTrades":91,"drawdown":0,"drawdownPct":0},{"index":5,"date":"2022-06-30","infoMonth":"2022-05-31","ret":-0.05032400131214397,"retPct":-5.032400131214397,"capital":10651.722812456488,"equity":1.0651722812456488,"longs":["KNCUSDT","TRXUSDT"],"shorts":["AXSUSDT","LINKUSDT","1000SHIBUSDT","ATOMUSDT","AAVEUSDT","DOGEUSDT","LTCUSDT","CRVUSDT","ENSUSDT","MANAUSDT"],"longTrades":22,"shortTrades":81,"drawdown":-0.050324001312143984,"drawdownPct":-5.032400131214398},{"index":6,"date":"2022-07-31","infoMonth":"2022-06-30","ret":0.0746203458322379,"retPct":7.462034583223789,"capital":11446.558052431128,"equity":1.1446558052431128,"longs":["SOLUSDT","BELUSDT","LINKUSDT","1000SHIBUSDT"],"shorts":["ATOMUSDT","OPUSDT","SNXUSDT","AAVEUSDT","AXSUSDT","ETCUSDT","DOTUSDT","SANDUSDT","MTLUSDT","LTCUSDT"],"longTrades":28,"shortTrades":66,"drawdown":0,"drawdownPct":0},{"index":7,"date":"2022-08-31","infoMonth":"2022-07-31","ret":-0.0031658693588876505,"retPct":-0.3165869358887651,"capital":11410.319745028208,"equity":1.1410319745028208,"longs":["SOLUSDT","BNBUSDT","SANDUSDT","XRPUSDT","OPUSDT","NEARUSDT","AVAXUSDT","ETCUSDT","BTCUSDT","ETHUSDT"],"shorts":["GALAUSDT","DOGEUSDT"],"longTrades":105,"shortTrades":19,"drawdown":-0.0031658693588876297,"drawdownPct":-0.31658693588876297},{"index":8,"date":"2022-09-30","infoMonth":"2022-08-31","ret":-0.10824069423166417,"retPct":-10.824069423166417,"capital":10175.25881442109,"equity":1.0175258814421089,"longs":["CHZUSDT","NEARUSDT","1000SHIBUSDT","DOGEUSDT","ETHUSDT","AVAXUSDT"],"shorts":["LINKUSDT","DYDXUSDT","DOTUSDT","CRVUSDT","SANDUSDT","BCHUSDT","GALAUSDT","AXSUSDT","FLOWUSDT"],"longTrades":56,"shortTrades":88,"drawdown":-0.11106388769329911,"drawdownPct":-11.10638876932991},{"index":9,"date":"2022-10-31","infoMonth":"2022-09-30","ret":-0.025381900183788407,"retPct":-2.538190018378841,"capital":9916.991410849241,"equity":0.9916991410849241,"longs":["LINKUSDT","XRPUSDT","RVNUSDT"],"shorts":["NEARUSDT"],"longTrades":30,"shortTrades":5,"drawdown":-0.1336267753656326,"drawdownPct":-13.362677536563261},{"index":10,"date":"2022-11-30","infoMonth":"2022-10-31","ret":-0.0040712565152651176,"retPct":-0.40712565152651176,"capital":9876.616794955993,"equity":0.9876616794955994,"longs":["SUSHIUSDT","CHZUSDT","BTCUSDT","DOGEUSDT","ETHUSDT","APTUSDT","BNBUSDT","ADAUSDT","RSRUSDT","SOLUSDT"],"shorts":["APEUSDT","AXSUSDT","GMTUSDT","FILUSDT","NEARUSDT","ENSUSDT","OPUSDT"],"longTrades":70,"shortTrades":53,"drawdown":-0.1371540030010765,"drawdownPct":-13.71540030010765},{"index":11,"date":"2022-12-31","infoMonth":"2022-11-30","ret":0.0018771151717316692,"retPct":0.18771151717316692,"capital":9895.156342187185,"equity":0.9895156342187185,"longs":["BANDUSDT","CHZUSDT","LTCUSDT","LINKUSDT","DYDXUSDT","MASKUSDT","BNBUSDT"],"shorts":["NEARUSDT","ATOMUSDT","DOTUSDT","ALGOUSDT","APEUSDT","1000SHIBUSDT","SFPUSDT","AVAXUSDT","GMTUSDT","AXSUSDT"],"longTrades":50,"shortTrades":98,"drawdown":-0.13553434168924183,"drawdownPct":-13.553434168924184},{"index":12,"date":"2023-01-31","infoMonth":"2022-12-31","ret":0.34252988744012697,"retPct":34.2529887440127,"capital":13284.54313027902,"equity":1.328454313027902,"longs":["AXSUSDT"],"shorts":["APTUSDT","BANDUSDT","1000SHIBUSDT","GMTUSDT","CELOUSDT","SANDUSDT","DOTUSDT","AVAXUSDT","FILUSDT","1000LUNCUSDT"],"longTrades":5,"shortTrades":58,"drawdown":0,"drawdownPct":0},{"index":13,"date":"2023-02-28","infoMonth":"2023-01-31","ret":-0.03125057061340205,"retPct":-3.125057061340205,"capital":12869.39357711945,"equity":1.286939357711945,"longs":["APTUSDT","1000SHIBUSDT","MANAUSDT","BTCUSDT","ETHUSDT","ADAUSDT","SOLUSDT","GALAUSDT","AVAXUSDT","GMTUSDT"],"shorts":[],"longTrades":61,"shortTrades":0,"drawdown":-0.031250570613402084,"drawdownPct":-3.1250570613402084},{"index":14,"date":"2023-03-31","infoMonth":"2023-02-28","ret":-0.10448782680721855,"retPct":-10.448782680721855,"capital":11524.698609919462,"equity":1.1524698609919461,"longs":["GRTUSDT","FILUSDT","1000SHIBUSDT","ETHUSDT"],"shorts":["GALAUSDT","GMTUSDT","MASKUSDT","DOTUSDT","AVAXUSDT"],"longTrades":28,"shortTrades":28,"drawdown":-0.13247309321074086,"drawdownPct":-13.247309321074086},{"index":15,"date":"2023-04-30","infoMonth":"2023-03-31","ret":-0.039517665694892616,"retPct":-3.9517665694892616,"capital":11069.269423018271,"equity":1.106926942301827,"longs":["MASKUSDT","OPUSDT","XRPUSDT","BTCUSDT","CFXUSDT","BNBUSDT","STXUSDT"],"shorts":["ATOMUSDT","LINKUSDT","MAGICUSDT","LQTYUSDT","GMTUSDT","LDOUSDT","ETCUSDT","DOTUSDT","SANDUSDT","GALAUSDT"],"longTrades":54,"shortTrades":83,"drawdown":-0.16675573149456302,"drawdownPct":-16.6755731494563},{"index":16,"date":"2023-05-31","infoMonth":"2023-04-30","ret":0.005204013143711397,"retPct":0.5204013143711397,"capital":11126.874046586941,"equity":1.112687404658694,"longs":["INJUSDT","APTUSDT","ETHUSDT","CTSIUSDT","DOGEUSDT","ADAUSDT","IDUSDT","SOLUSDT","LTCUSDT"],"shorts":["STXUSDT","ICXUSDT","ATOMUSDT","GALAUSDT","AVAXUSDT","DOTUSDT","ETCUSDT"],"longTrades":62,"shortTrades":55,"drawdown":-0.16241951736933846,"drawdownPct":-16.241951736933846},{"index":17,"date":"2023-06-30","infoMonth":"2023-05-31","ret":0.1214522830350409,"retPct":12.145228303504089,"capital":12478.258302588269,"equity":1.2478258302588268,"longs":["ARPAUSDT","XRPUSDT","CFXUSDT","LTCUSDT","INJUSDT"],"shorts":["CTSIUSDT","MASKUSDT","APTUSDT","DYDXUSDT","FILUSDT","RLCUSDT","IDUSDT","LINKUSDT","GALAUSDT","AVAXUSDT"],"longTrades":25,"shortTrades":74,"drawdown":-0.06069345552825334,"drawdownPct":-6.069345552825334},{"index":18,"date":"2023-07-31","infoMonth":"2023-06-30","ret":-0.07218511750033536,"retPct":-7.218511750033536,"capital":11577.513760816399,"equity":1.1577513760816398,"longs":["MTLUSDT","BCHUSDT","1000PEPEUSDT","BTCUSDT","ETHUSDT","CFXUSDT"],"shorts":["FILUSDT","LINKUSDT","COMPUSDT","APTUSDT","1000SHIBUSDT","SANDUSDT","MASKUSDT","ETCUSDT","ARPAUSDT","AVAXUSDT"],"longTrades":51,"shortTrades":76,"drawdown":-0.12849740880978033,"drawdownPct":-12.849740880978032},{"index":19,"date":"2023-08-31","infoMonth":"2023-07-31","ret":-0.027372079420914245,"retPct":-2.7372079420914246,"capital":11260.613134658604,"equity":1.1260613134658604,"longs":["DOGEUSDT","COMPUSDT","LINKUSDT","XLMUSDT","SOLUSDT","XRPUSDT","OPUSDT"],"shorts":["XVGUSDT","1INCHUSDT","APEUSDT","STORJUSDT","CFXUSDT","SNXUSDT","SUIUSDT","INJUSDT","ETCUSDT"],"longTrades":44,"shortTrades":78,"drawdown":-0.15235224695137162,"drawdownPct":-15.235224695137163},{"index":20,"date":"2023-09-30","infoMonth":"2023-08-31","ret":0.016993098026564752,"retPct":1.6993098026564752,"capital":11451.96583749508,"equity":1.145196583749508,"longs":["LPTUSDT","RUNEUSDT","1000SHIBUSDT","OPUSDT"],"shorts":["WLDUSDT","ARBUSDT","COMPUSDT","LINKUSDT","APEUSDT","ADAUSDT","CYBERUSDT","APTUSDT","CFXUSDT","BNBUSDT"],"longTrades":26,"shortTrades":70,"drawdown":-0.13794808559181904,"drawdownPct":-13.794808559181904},{"index":21,"date":"2023-10-31","infoMonth":"2023-09-30","ret":0.15058449837929472,"retPct":15.058449837929471,"capital":13176.454368591096,"equity":1.3176454368591095,"longs":["TRBUSDT","LINKUSDT","STORJUSDT","WLDUSDT","ETHUSDT","BTCUSDT","XRPUSDT","BCHUSDT","BNBUSDT"],"shorts":["IMXUSDT","GALAUSDT","1000SHIBUSDT","SUIUSDT","ADAUSDT","ARBUSDT","APEUSDT","NMRUSDT"],"longTrades":68,"shortTrades":34,"drawdown":-0.008136430483752344,"drawdownPct":-0.8136430483752344},{"index":22,"date":"2023-11-30","infoMonth":"2023-10-31","ret":0.029859143896050107,"retPct":2.9859143896050107,"capital":13569.892015622594,"equity":1.3569892015622593,"longs":["LQTYUSDT","BTCUSDT","SOLUSDT","DOGEUSDT","ETHUSDT","AVAXUSDT","BNBUSDT","LINKUSDT","GALAUSDT","BIGTIMEUSDT"],"shorts":["CFXUSDT","ARBUSDT","DOTUSDT","BNTUSDT","RUNEUSDT","OPUSDT","APEUSDT","LTCUSDT","APTUSDT","MINAUSDT"],"longTrades":90,"shortTrades":86,"drawdown":0,"drawdownPct":0},{"index":23,"date":"2023-12-31","infoMonth":"2023-11-30","ret":0.10935827697162775,"retPct":10.935827697162775,"capital":15053.87202514213,"equity":1.505387202514213,"longs":["AVAXUSDT","ETHUSDT","LINKUSDT","BLURUSDT","DOGEUSDT","TIAUSDT","XRPUSDT","SOLUSDT","MEMEUSDT","ORDIUSDT"],"shorts":["1000PEPEUSDT"],"longTrades":83,"shortTrades":12,"drawdown":0,"drawdownPct":0},{"index":24,"date":"2024-01-31","infoMonth":"2023-12-31","ret":-0.03850187551323056,"retPct":-3.850187551323056,"capital":14474.269718438003,"equity":1.4474269718438002,"longs":["OPUSDT","SOLUSDT","TRBUSDT","BNBUSDT","ETHUSDT","LINKUSDT","AVAXUSDT","ORDIUSDT","TIAUSDT","1000BONKUSDT"],"shorts":["MEMEUSDT","1000LUNCUSDT"],"longTrades":82,"shortTrades":15,"drawdown":-0.0385018755132307,"drawdownPct":-3.85018755132307},{"index":25,"date":"2024-02-29","infoMonth":"2024-01-31","ret":0.11837933043704509,"retPct":11.837933043704508,"capital":16187.72407627189,"equity":1.618772407627189,"longs":["BTCUSDT","ARBUSDT","SEIUSDT","ETHUSDT","PEOPLEUSDT","SUIUSDT","TIAUSDT","AVAXUSDT"],"shorts":["ETCUSDT","POWRUSDT","NEARUSDT","FILUSDT","LTCUSDT","INJUSDT","ENSUSDT","ADAUSDT","LINKUSDT","UMAUSDT"],"longTrades":51,"shortTrades":61,"drawdown":0,"drawdownPct":0},{"index":26,"date":"2024-03-31","infoMonth":"2024-02-29","ret":0.15962616049595346,"retPct":15.962616049595347,"capital":18771.708317735076,"equity":1.8771708317735076,"longs":["ETHUSDT","BNBUSDT","ADAUSDT","XRPUSDT","BTCUSDT","FILUSDT","WLDUSDT","1000PEPEUSDT","DOGEUSDT","SOLUSDT"],"shorts":["MANTAUSDT","LPTUSDT"],"longTrades":67,"shortTrades":16,"drawdown":0,"drawdownPct":0},{"index":27,"date":"2024-04-30","infoMonth":"2024-03-31","ret":0.020336480592706062,"retPct":2.033648059270606,"capital":19153.458799630633,"equity":1.9153458799630634,"longs":["BTCUSDT","DOGEUSDT","NEARUSDT","BNBUSDT","BCHUSDT","ETHUSDT","WIFUSDT","1000FLOKIUSDT","1000PEPEUSDT","1000SHIBUSDT"],"shorts":["OPUSDT","DOTUSDT","1000BONKUSDT","ETCUSDT","FILUSDT","ARBUSDT"],"longTrades":66,"shortTrades":36,"drawdown":0,"drawdownPct":0},{"index":28,"date":"2024-05-31","infoMonth":"2024-04-30","ret":-0.06897859829759,"retPct":-6.897859829759,"capital":17832.28005908147,"equity":1.783228005908147,"longs":["XRPUSDT","BNBUSDT"],"shorts":["JTOUSDT","LINKUSDT","HBARUSDT","FILUSDT","ADAUSDT","APTUSDT","SUIUSDT","ARBUSDT","ETCUSDT","CKBUSDT"],"longTrades":14,"shortTrades":88,"drawdown":-0.06897859829759012,"drawdownPct":-6.897859829759012},{"index":29,"date":"2024-06-30","infoMonth":"2024-05-31","ret":-0.050692857419846846,"retPct":-5.069285741984684,"capital":16928.310828575675,"equity":1.6928310828575674,"longs":["1000PEPEUSDT","PEOPLEUSDT","1000BONKUSDT","TRBUSDT","ETHUSDT","1000SHIBUSDT","WIFUSDT","XRPUSDT","SOLUSDT","ORDIUSDT"],"shorts":["OPUSDT","BCHUSDT"],"longTrades":77,"shortTrades":20,"drawdown":-0.11617473346891638,"drawdownPct":-11.617473346891638},{"index":30,"date":"2024-07-31","infoMonth":"2024-06-30","ret":0.09893033954295789,"retPct":9.89303395429579,"capital":18603.0343667354,"equity":1.8603034366735398,"longs":["BTCUSDT","PEOPLEUSDT","ORDIUSDT","1000RATSUSDT","BNBUSDT"],"shorts":["FETUSDT","LINKUSDT","1000SHIBUSDT","NEARUSDT","AVAXUSDT","1000BONKUSDT","CRVUSDT","1000SATSUSDT","UNIUSDT","FILUSDT"],"longTrades":31,"shortTrades":83,"drawdown":-0.028737599754350862,"drawdownPct":-2.873759975435086},{"index":31,"date":"2024-08-31","infoMonth":"2024-07-31","ret":0.06143399159517031,"retPct":6.143399159517031,"capital":19745.893023666085,"equity":1.9745893023666086,"longs":["XRPUSDT","1000SATSUSDT","BNBUSDT","1000PEPEUSDT","SOLUSDT","ETHUSDT","BTCUSDT","DOGEUSDT","PEOPLEUSDT","WLDUSDT"],"shorts":["TIAUSDT","OPUSDT","1000FLOKIUSDT","ZENUSDT","LINKUSDT","LTCUSDT","ARBUSDT","NEARUSDT","1000RATSUSDT","BCHUSDT"],"longTrades":51,"shortTrades":62,"drawdown":0,"drawdownPct":0},{"index":32,"date":"2024-09-30","infoMonth":"2024-08-31","ret":0.13065639313393868,"retPct":13.065639313393868,"capital":22325.820185346896,"equity":2.2325820185346896,"longs":["BNBUSDT","1000SATSUSDT","AVAXUSDT","BTCUSDT","SUIUSDT","1000PEPEUSDT","WIFUSDT","ORDIUSDT","AAVEUSDT","XRPUSDT"],"shorts":["1000BONKUSDT","FILUSDT","ADAUSDT","PEOPLEUSDT","1000FLOKIUSDT","TRBUSDT","LTCUSDT","LINKUSDT","1000SHIBUSDT","TRXUSDT"],"longTrades":93,"shortTrades":78,"drawdown":0,"drawdownPct":0},{"index":33,"date":"2024-10-31","infoMonth":"2024-09-30","ret":0.047259168700823175,"retPct":4.725916870082317,"capital":23380.919887870452,"equity":2.338091988787045,"longs":["SOLUSDT","BTCUSDT","SUIUSDT","TIAUSDT","ORDIUSDT","ETHUSDT","AAVEUSDT","DOGEUSDT","BNBUSDT","WLDUSDT"],"shorts":["NEARUSDT","ADAUSDT","APTUSDT"],"longTrades":66,"shortTrades":22,"drawdown":0,"drawdownPct":0},{"index":34,"date":"2024-11-30","infoMonth":"2024-10-31","ret":0.23610825042726935,"retPct":23.610825042726937,"capital":28901.347975975692,"equity":2.890134797597569,"longs":["1000SHIBUSDT","BTCUSDT","BNBUSDT","DOGEUSDT","ETHUSDT","SOLUSDT","APEUSDT","WLDUSDT"],"shorts":["AVAXUSDT","NEARUSDT","AAVEUSDT","ORDIUSDT","SEIUSDT","1000SATSUSDT","FETUSDT","ADAUSDT","INJUSDT","LINKUSDT"],"longTrades":74,"shortTrades":72,"drawdown":0,"drawdownPct":0},{"index":35,"date":"2024-12-31","infoMonth":"2024-11-30","ret":-0.09619844919283352,"retPct":-9.619844919283352,"capital":26121.083121104395,"equity":2.6121083121104394,"longs":["ADAUSDT","XLMUSDT","BTCUSDT","XRPUSDT","1000BONKUSDT","SUIUSDT","BNBUSDT","ETHUSDT","WLDUSDT","SOLUSDT"],"shorts":["HBARUSDT"],"longTrades":92,"shortTrades":8,"drawdown":-0.09619844919283349,"drawdownPct":-9.619844919283349},{"index":36,"date":"2025-01-31","infoMonth":"2024-12-31","ret":0.022833452235948043,"retPct":2.283345223594804,"capital":26717.517624901364,"equity":2.6717517624901364,"longs":["BNBUSDT","AVAXUSDT","ADAUSDT","BTCUSDT","HBARUSDT","LINKUSDT"],"shorts":["WLDUSDT","APTUSDT","FILUSDT","TRXUSDT","ORDIUSDT","SANDUSDT","DOTUSDT","TIAUSDT","UNIUSDT","BCHUSDT"],"longTrades":50,"shortTrades":84,"drawdown":-0.07556153965170209,"drawdownPct":-7.556153965170209},{"index":37,"date":"2025-02-28","infoMonth":"2025-01-31","ret":0.014911534756293407,"retPct":1.4911534756293408,"capital":27115.916817566962,"equity":2.7115916817566963,"longs":["XRPUSDT","SOLUSDT","1000PEPEUSDT","ADAUSDT","WIFUSDT","LTCUSDT","LINKUSDT","BTCUSDT","XLMUSDT","DOGEUSDT"],"shorts":["AVAXUSDT","CRVUSDT","AGLDUSDT","GALAUSDT","1000SHIBUSDT","FILUSDT","RUNEUSDT","UNIUSDT","DOTUSDT","1000BONKUSDT"],"longTrades":84,"shortTrades":79,"drawdown":-0.06177674342016404,"drawdownPct":-6.177674342016404},{"index":38,"date":"2025-03-31","infoMonth":"2025-02-28","ret":-0.04751406221372716,"retPct":-4.751406221372716,"capital":25827.529458914836,"equity":2.5827529458914835,"longs":["LTCUSDT","BNBUSDT"],"shorts":["1000SHIBUSDT","LDOUSDT","XLMUSDT","AAVEUSDT","DOTUSDT","NEARUSDT","HBARUSDT","APTUSDT","FILUSDT","TRXUSDT"],"longTrades":23,"shortTrades":68,"drawdown":-0.10635554160366412,"drawdownPct":-10.63555416036641},{"index":39,"date":"2025-04-30","infoMonth":"2025-03-31","ret":-0.04879299660158832,"retPct":-4.879299660158832,"capital":24567.326901798584,"equity":2.4567326901798583,"longs":["AUCTIONUSDT","XRPUSDT","ADAUSDT"],"shorts":["CAKEUSDT","DOTUSDT","ORDIUSDT","1000SHIBUSDT","API3USDT","APTUSDT","WLDUSDT","TRXUSDT","TIAUSDT","BCHUSDT"],"longTrades":26,"shortTrades":72,"drawdown":-0.14995913262522464,"drawdownPct":-14.995913262522464},{"index":40,"date":"2025-05-31","infoMonth":"2025-04-30","ret":0.17262813373806676,"retPct":17.262813373806676,"capital":28808.338695789076,"equity":2.8808338695789075,"longs":["SOLUSDT","WIFUSDT","1000PEPEUSDT","SUIUSDT","AVAXUSDT","AAVEUSDT","LINKUSDT","DOGEUSDT","BTCUSDT"],"shorts":["NEARUSDT","TIAUSDT","DOTUSDT","MAGICUSDT","FETUSDT","WLDUSDT"],"longTrades":64,"shortTrades":47,"drawdown":-0.0032181640892297025,"drawdownPct":-0.32181640892297025},{"index":41,"date":"2025-06-30","infoMonth":"2025-05-31","ret":-0.06775936719279023,"retPct":-6.775936719279023,"capital":26856.30389588684,"equity":2.6856303895886837,"longs":["BNBUSDT","WLDUSDT","ETHUSDT","AAVEUSDT","BTCUSDT","AVAXUSDT","WIFUSDT","1000PEPEUSDT","SOLUSDT","DOGEUSDT"],"shorts":["1000BONKUSDT","1000SHIBUSDT","FETUSDT","DOTUSDT","UNIUSDT","PEOPLEUSDT","TIAUSDT","OPUSDT"],"longTrades":72,"shortTrades":67,"drawdown":-0.07075947051981113,"drawdownPct":-7.075947051981113},{"index":42,"date":"2025-07-31","infoMonth":"2025-06-30","ret":-0.09577172772027168,"retPct":-9.577172772027168,"capital":24284.229271597094,"equity":2.4284229271597093,"longs":["BCHUSDT","AAVEUSDT"],"shorts":["CRVUSDT","RVNUSDT","TIAUSDT","DOTUSDT","LPTUSDT","WLDUSDT","AVAXUSDT","ARBUSDT","FILUSDT","OPUSDT"],"longTrades":18,"shortTrades":74,"drawdown":-0.15975444149582874,"drawdownPct":-15.975444149582874},{"index":43,"date":"2025-08-31","infoMonth":"2025-07-31","ret":0.017870044483432074,"retPct":1.7870044483432075,"capital":24718.1895289264,"equity":2.4718189528926398,"longs":["BNBUSDT","XRPUSDT","1000PEPEUSDT","ETHUSDT","ADAUSDT","LINKUSDT","XLMUSDT","LTCUSDT","DOGEUSDT","1000BONKUSDT"],"shorts":["1000SHIBUSDT","DOTUSDT"],"longTrades":68,"shortTrades":10,"drawdown":-0.14473921598835293,"drawdownPct":-14.473921598835293},{"index":44,"date":"2025-09-30","infoMonth":"2025-08-31","ret":-0.02599499554387815,"retPct":-2.599499554387815,"capital":24075.64030226922,"equity":2.407564030226922,"longs":["BTCUSDT","ETHUSDT","SOLUSDT","LINKUSDT","BNBUSDT","ADAUSDT","ARBUSDT"],"shorts":["LDOUSDT","BCHUSDT","MEMEUSDT"],"longTrades":50,"shortTrades":27,"drawdown":-0.16697171625758944,"drawdownPct":-16.697171625758944},{"index":45,"date":"2025-10-31","infoMonth":"2025-09-30","ret":-0.0022592927145275964,"retPct":-0.22592927145275965,"capital":24021.246383536716,"equity":2.4021246383536714,"longs":["BNBUSDT","AVAXUSDT","WLDUSDT","ADAUSDT","DOGEUSDT","BTCUSDT","SOLUSDT"],"shorts":["1000BONKUSDT","UNIUSDT","CRVUSDT"],"longTrades":52,"shortTrades":24,"drawdown":-0.16885377099004417,"drawdownPct":-16.885377099004415},{"index":46,"date":"2025-11-30","infoMonth":"2025-10-31","ret":0.0018267370107589859,"retPct":0.1826737010758986,"capital":24065.126883350084,"equity":2.4065126883350083,"longs":["ZECUSDT","XRPUSDT","BTCUSDT","AAVEUSDT"],"shorts":["BCHUSDT","APTUSDT","DOTUSDT","1000SHIBUSDT","FILUSDT","HBARUSDT","CRVUSDT","UNIUSDT","ARBUSDT","WIFUSDT"],"longTrades":28,"shortTrades":67,"drawdown":-0.16733548541215892,"drawdownPct":-16.733548541215892},{"index":47,"date":"2025-12-31","infoMonth":"2025-11-30","ret":-0.08905660361597668,"retPct":-8.905660361597668,"capital":21921.968417531392,"equity":2.1921968417531392,"longs":["FILUSDT","DASHUSDT"],"shorts":["ARBUSDT","APTUSDT","WIFUSDT","TRXUSDT","HBARUSDT","NEARUSDT","WLDUSDT","UNIUSDT","TIAUSDT","ZENUSDT"],"longTrades":16,"shortTrades":90,"drawdown":-0.24148975903289782,"drawdownPct":-24.14897590328978},{"index":48,"date":"2026-01-31","infoMonth":"2025-12-31","ret":-0.01624894051539514,"retPct":-1.624894051539514,"capital":21565.759656734554,"equity":2.1565759656734556,"longs":["LUNA2USDT","ZECUSDT","BCHUSDT","1000LUNCUSDT"],"shorts":["DASHUSDT","WLDUSDT","CRVUSDT","NEARUSDT","APTUSDT","USTCUSDT"],"longTrades":30,"shortTrades":49,"drawdown":-0.2538147468186902,"drawdownPct":-25.381474681869022},{"index":49,"date":"2026-02-28","infoMonth":"2026-01-31","ret":-0.10358415518280631,"retPct":-10.358415518280632,"capital":19331.888661816258,"equity":1.9331888661816259,"longs":["BNBUSDT","ETHUSDT","BTCUSDT","LINKUSDT","AXSUSDT","SOLUSDT","SUIUSDT","DASHUSDT","ADAUSDT","DOGEUSDT"],"shorts":["1000BONKUSDT","ICPUSDT","LTCUSDT","FILUSDT","AVAXUSDT","WLDUSDT","UNIUSDT","ZENUSDT","NEARUSDT","ARBUSDT"],"longTrades":83,"shortTrades":83,"drawdown":-0.3311077158793446,"drawdownPct":-33.110771587934465},{"index":50,"date":"2026-03-31","infoMonth":"2026-02-28","ret":-0.10457941599241075,"retPct":-10.457941599241074,"capital":17310.171035533207,"equity":1.7310171035533206,"longs":["DOTUSDT"],"shorts":["WIFUSDT","ARBUSDT","OPUSDT","DASHUSDT","XMRUSDT","AXSUSDT","NEARUSDT"],"longTrades":6,"shortTrades":55,"drawdown":-0.40106008031451257,"drawdownPct":-40.10600803145125},{"index":51,"date":"2026-04-30","infoMonth":"2026-03-31","ret":0.00013749922842276954,"retPct":0.013749922842276954,"capital":17312.55117069446,"equity":1.731255117069446,"longs":["NEARUSDT","BNBUSDT"],"shorts":["WLDUSDT","GALAUSDT","UNIUSDT"],"longTrades":12,"shortTrades":26,"drawdown":-0.40097772653768415,"drawdownPct":-40.097772653768416},{"index":52,"date":"2026-05-21","infoMonth":"2026-04-30","ret":0.09840712467191062,"retPct":9.840712467191063,"capital":19016.229552137822,"equity":1.9016229552137822,"longs":["ORDIUSDT","BTCUSDT","ZECUSDT","XRPUSDT","DOGEUSDT","ENJUSDT"],"shorts":["DASHUSDT","HIGHUSDT","WLDUSDT"],"longTrades":26,"shortTrades":11,"drawdown":-0.3420296669918267,"drawdownPct":-34.20296669918267}],"oosStart":"2025-01-31","config":{"tradeStart":"2022-01-31","tradeEnd":"2026-05-21 23:59:59","includePartial":true,"shortPoolMode":"next","maxPositions":10,"longSr":0.5,"shortSr":0.5,"feeBps":4},"metrics":{"full":{"cagr":15.66,"sharpe":0.58,"max_dd":-40.11,"calmar":0.39,"total_return":90.16,"win_rate":49.1,"months":53},"is":{"cagr":37.72,"sharpe":1.05,"max_dd":-16.68,"calmar":2.26,"total_return":161.21,"win_rate":52.8,"months":36},"oos":{"cagr":-20.08,"sharpe":-0.76,"max_dd":-39.91,"calmar":-0.5,"total_return":-27.2,"win_rate":41.2,"months":17}}};
+const rows = payload.rows;
+const svg = document.getElementById("mainChart");
+const slider = document.getElementById("monthSlider");
+const playButton = document.getElementById("play");
+const phaseLabel = document.getElementById("phaseLabel");
+let current = rows.length - 1;
+let timer = null;
+let speedMs = 550;
+
+const fmtPct = (x) => (x >= 0 ? "+" : "") + x.toFixed(2) + "%";
+const fmtMoney = (x) => "$" + x.toLocaleString(undefined, { maximumFractionDigits: 0 });
+const cls = (x) => x >= 0 ? "green" : "red";
+
+function scaleX(i, left, width) {
+  return left + (i / Math.max(1, rows.length - 1)) * width;
+}
+function scaleY(v, min, max, top, height) {
+  return top + (1 - (v - min) / (max - min || 1)) * height;
+}
+function linePath(points) {
+  return points.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ");
+}
+function chipHtml(items) {
+  if (!items.length) return '<span class="chip">none</span>';
+  return items.map((item) => '<span class="chip">' + item + '</span>').join("");
+}
+function draw(index) {
+  const visible = rows.slice(0, index + 1);
+  const w = 1000;
+  const h = 590;
+  const pad = { l: 66, r: 28 };
+  const eqTop = 48, eqH = 245;
+  const retTop = 338, retH = 95;
+  const ddTop = 468, ddH = 72;
+  const plotW = w - pad.l - pad.r;
+  const eqMin = Math.min(0.9, ...rows.map((r) => r.equity)) * 0.96;
+  const eqMax = Math.max(...rows.map((r) => r.equity)) * 1.04;
+  const retMin = Math.min(...rows.map((r) => r.retPct), 0) * 1.15;
+  const retMax = Math.max(...rows.map((r) => r.retPct), 0) * 1.15;
+  const ddMin = Math.min(...rows.map((r) => r.drawdownPct)) * 1.12;
+  const oosIndex = rows.findIndex((r) => r.date >= payload.oosStart);
+  const oosX = scaleX(oosIndex, pad.l, plotW);
+
+  const eqPoints = visible.map((r) => [scaleX(r.index, pad.l, plotW), scaleY(r.equity, eqMin, eqMax, eqTop, eqH)]);
+  const ddPoints = visible.map((r) => [scaleX(r.index, pad.l, plotW), scaleY(r.drawdownPct, ddMin, 0, ddTop, ddH)]);
+  const retZero = scaleY(0, retMin, retMax, retTop, retH);
+  const barW = Math.max(3, plotW / rows.length * 0.7);
+  const bars = visible.map((r) => {
+    const x = scaleX(r.index, pad.l, plotW) - barW / 2;
+    const y = scaleY(r.retPct, retMin, retMax, retTop, retH);
+    const bh = Math.abs(retZero - y);
+    return '<rect x="' + x.toFixed(1) + '" y="' + Math.min(y, retZero).toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + bh.toFixed(1) + '" fill="' + (r.retPct >= 0 ? '#2ea043' : '#f85149') + '"/>';
+  }).join("");
+  const last = rows[index];
+  const lastX = scaleX(last.index, pad.l, plotW);
+  const lastY = scaleY(last.equity, eqMin, eqMax, eqTop, eqH);
+  const monthTicks = rows
+    .filter((r) => r.date.endsWith("-12-31") || r.index === 0 || r.index === rows.length - 1)
+    .map((r) => '<text x="' + scaleX(r.index, pad.l, plotW).toFixed(1) + '" y="570" text-anchor="middle" fill="#9aa4b2" font-size="12">' + r.date.slice(0, 4) + '</text>')
+    .join("");
+
+  svg.innerHTML =
+    '<rect x="0" y="0" width="' + w + '" height="' + h + '" fill="#111827"/>' +
+    '<rect x="' + oosX.toFixed(1) + '" y="34" width="' + (w - pad.r - oosX).toFixed(1) + '" height="510" fill="#7c2d12" opacity="0.18"/>' +
+    '<line x1="' + oosX.toFixed(1) + '" y1="34" x2="' + oosX.toFixed(1) + '" y2="544" stroke="#fbbf24" stroke-dasharray="6 6"/>' +
+    '<text x="' + (oosX + 8).toFixed(1) + '" y="52" fill="#fbbf24" font-size="12">OOS starts</text>' +
+    '<line x1="' + pad.l + '" y1="' + (eqTop + eqH) + '" x2="' + (w - pad.r) + '" y2="' + (eqTop + eqH) + '" stroke="#30363d"/>' +
+    '<line x1="' + pad.l + '" y1="' + (retTop + retH) + '" x2="' + (w - pad.r) + '" y2="' + (retTop + retH) + '" stroke="#30363d"/>' +
+    '<line x1="' + pad.l + '" y1="' + (ddTop + ddH) + '" x2="' + (w - pad.r) + '" y2="' + (ddTop + ddH) + '" stroke="#30363d"/>' +
+    '<text x="16" y="176" transform="rotate(-90 16 176)" fill="#9aa4b2" text-anchor="middle" font-size="12">Equity</text>' +
+    '<text x="16" y="386" transform="rotate(-90 16 386)" fill="#9aa4b2" text-anchor="middle" font-size="12">Return</text>' +
+    '<text x="16" y="506" transform="rotate(-90 16 506)" fill="#9aa4b2" text-anchor="middle" font-size="12">DD</text>' +
+    '<path d="' + linePath(eqPoints) + '" fill="none" stroke="#58a6ff" stroke-width="3"/>' +
+    '<circle cx="' + lastX.toFixed(1) + '" cy="' + lastY.toFixed(1) + '" r="5" fill="#58a6ff" stroke="#f0f6fc" stroke-width="2"/>' +
+    '<text x="' + Math.min(lastX + 10, 890).toFixed(1) + '" y="' + Math.max(lastY - 10, 20).toFixed(1) + '" fill="#c9d1d9" font-size="12">' + last.date + ' / ' + last.equity.toFixed(2) + 'x</text>' +
+    '<line x1="' + pad.l + '" y1="' + retZero.toFixed(1) + '" x2="' + (w - pad.r) + '" y2="' + retZero.toFixed(1) + '" stroke="#c9d1d9" opacity="0.55"/>' +
+    bars +
+    '<path d="' + linePath(ddPoints) + '" fill="none" stroke="#ff7b72" stroke-width="2"/>' +
+    monthTicks;
+
+  document.getElementById("dateValue").textContent = last.date;
+  document.getElementById("infoValue").textContent = last.infoMonth;
+  const returnValue = document.getElementById("returnValue");
+  returnValue.textContent = fmtPct(last.retPct);
+  returnValue.className = "stat-value " + cls(last.retPct);
+  document.getElementById("capitalValue").textContent = fmtMoney(last.capital);
+  document.getElementById("drawdownValue").textContent = last.drawdownPct.toFixed(2) + "%";
+  document.getElementById("tradesValue").textContent = (last.longTrades + last.shortTrades).toString();
+  document.getElementById("longsList").innerHTML = chipHtml(last.longs);
+  document.getElementById("shortsList").innerHTML = chipHtml(last.shorts);
+  document.getElementById("monthCount").textContent = (index + 1) + " / " + rows.length;
+  phaseLabel.textContent = last.date >= payload.oosStart ? "OOS" : "IS";
+  phaseLabel.style.color = last.date >= payload.oosStart ? "#fbbf24" : "#58a6ff";
+}
+
+function setIndex(next) {
+  current = Math.max(0, Math.min(rows.length - 1, Number(next)));
+  slider.value = current;
+  draw(current);
+}
+function stop() {
+  clearInterval(timer);
+  timer = null;
+  playButton.textContent = "▶";
+}
+function play() {
+  if (timer) {
+    stop();
+    return;
+  }
+  if (current >= rows.length - 1) setIndex(0);
+  playButton.textContent = "Ⅱ";
+  timer = setInterval(() => {
+    if (current >= rows.length - 1) {
+      stop();
+      return;
+    }
+    setIndex(current + 1);
+  }, speedMs);
+}
+
+slider.addEventListener("input", (event) => {
+  stop();
+  setIndex(event.target.value);
+});
+playButton.addEventListener("click", play);
+document.querySelectorAll("[data-speed]").forEach((button) => {
+  button.addEventListener("click", () => {
+    speedMs = Number(button.dataset.speed);
+    document.querySelectorAll("[data-speed]").forEach((b) => b.classList.remove("active"));
+    button.classList.add("active");
+    if (timer) {
+      stop();
+      play();
+    }
+  });
+});
+setIndex(current);
+</script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+{
+  "config": {
+    "max_symbols": 180,
+    "interval": "6h",
+    "start": "2021-01-01",
+    "end": "2024-12-31 23:59:59",
+    "long_k": 15,
+    "short_k": 15,
+    "max_positions": 5,
+    "long_sr": 1.3,
+    "short_sr": 1.7,
+    "fee_bps": 4.0,
+    "min_daily_volume": 5000000.0,
+    "output": "results_level2_coingecko_current_default.json",
+    "universe_source": "coingecko-current"
+  },
+  "universe_symbols": 180,
+  "usable_symbols": 180,
+  "metrics": {
+    "cagr": 6.73,
+    "sharpe": 0.36,
+    "max_dd": -35.93,
+    "calmar": 0.19,
+    "total_return": 21.58,
+    "win_rate": 44.4,
+    "months": 36
+  },
+  "active_months": 33,
+  "avg_trades_per_month": 28.53,
+  "history": [
+    {
+      "date": "2022-01-31",
+      "info_month": "2021-12-31",
+      "return": 0.0356073210162128,
+      "capital": 10356.073210162129,
+      "longs": [],
+      "shorts": [
+        "IOSTUSDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 3
+    },
+    {
+      "date": "2022-02-28",
+      "info_month": "2022-01-31",
+      "return": 0.012564375603612333,
+      "capital": 10486.190803753112,
+      "longs": [],
+      "shorts": [
+        "CELRUSDT",
+        "BELUSDT",
+        "ARPAUSDT",
+        "ALICEUSDT",
+        "CHRUSDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 36
+    },
+    {
+      "date": "2022-03-31",
+      "info_month": "2022-02-28",
+      "return": 0.0,
+      "capital": 10486.190803753112,
+      "longs": [],
+      "shorts": [],
+      "long_trades": 0,
+      "short_trades": 0
+    },
+    {
+      "date": "2022-04-30",
+      "info_month": "2022-03-31",
+      "return": -0.10779291171830221,
+      "capital": 9355.85376418288,
+      "longs": [
+        "ZECUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 10,
+      "short_trades": 0
+    },
+    {
+      "date": "2022-05-31",
+      "info_month": "2022-04-30",
+      "return": 0.12836979477360919,
+      "capital": 10556.862791822936,
+      "longs": [],
+      "shorts": [
+        "ONEUSDT",
+        "CELRUSDT",
+        "CTSIUSDT",
+        "STORJUSDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 40
+    },
+    {
+      "date": "2022-06-30",
+      "info_month": "2022-05-31",
+      "return": 0.04244287005565581,
+      "capital": 11004.926347491664,
+      "longs": [],
+      "shorts": [
+        "GMTUSDT",
+        "KNCUSDT",
+        "MTLUSDT",
+        "OGNUSDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 35
+    },
+    {
+      "date": "2022-07-31",
+      "info_month": "2022-06-30",
+      "return": 0.0,
+      "capital": 11004.926347491664,
+      "longs": [],
+      "shorts": [],
+      "long_trades": 0,
+      "short_trades": 0
+    },
+    {
+      "date": "2022-08-31",
+      "info_month": "2022-07-31",
+      "return": -0.13222267858854997,
+      "capital": 9549.82550815661,
+      "longs": [
+        "SOLUSDT",
+        "BNBUSDT",
+        "BCHUSDT",
+        "XRPUSDT",
+        "ZECUSDT"
+      ],
+      "shorts": [
+        "RLCUSDT",
+        "GTCUSDT"
+      ],
+      "long_trades": 59,
+      "short_trades": 23
+    },
+    {
+      "date": "2022-09-30",
+      "info_month": "2022-08-31",
+      "return": -0.05845083288177337,
+      "capital": 8991.630253329251,
+      "longs": [],
+      "shorts": [
+        "CHRUSDT",
+        "ONEUSDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 19
+    },
+    {
+      "date": "2022-10-31",
+      "info_month": "2022-09-30",
+      "return": 0.02458843735048357,
+      "capital": 9212.720390491952,
+      "longs": [],
+      "shorts": [
+        "SPELLUSDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 9
+    },
+    {
+      "date": "2022-11-30",
+      "info_month": "2022-10-31",
+      "return": 0.10556286703509789,
+      "capital": 10185.241568104988,
+      "longs": [],
+      "shorts": [
+        "C98USDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 9
+    },
+    {
+      "date": "2022-12-31",
+      "info_month": "2022-11-30",
+      "return": -0.007413571449697464,
+      "capital": 10109.732552007414,
+      "longs": [
+        "XMRUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 6,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-01-31",
+      "info_month": "2022-12-31",
+      "return": -0.05680087657522041,
+      "capital": 9535.490881112353,
+      "longs": [],
+      "shorts": [
+        "STGUSDT",
+        "GTCUSDT",
+        "C98USDT"
+      ],
+      "long_trades": 0,
+      "short_trades": 21
+    },
+    {
+      "date": "2023-02-28",
+      "info_month": "2023-01-31",
+      "return": -0.0021721108608979242,
+      "capital": 9514.778737805496,
+      "longs": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "ADAUSDT",
+        "SOLUSDT",
+        "AVAXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 33,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-03-31",
+      "info_month": "2023-02-28",
+      "return": 0.0,
+      "capital": 9514.778737805496,
+      "longs": [],
+      "shorts": [],
+      "long_trades": 0,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-04-30",
+      "info_month": "2023-03-31",
+      "return": -0.06726459221254692,
+      "capital": 8874.771026014398,
+      "longs": [
+        "XLMUSDT"
+      ],
+      "shorts": [
+        "ARPAUSDT"
+      ],
+      "long_trades": 7,
+      "short_trades": 12
+    },
+    {
+      "date": "2023-05-31",
+      "info_month": "2023-04-30",
+      "return": -0.12077182913046566,
+      "capital": 7802.948696088579,
+      "longs": [
+        "BCHUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 8,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-06-30",
+      "info_month": "2023-05-31",
+      "return": -0.022726664438961073,
+      "capital": 7625.613699438145,
+      "longs": [
+        "TRXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 4,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-07-31",
+      "info_month": "2023-06-30",
+      "return": -0.02486182502792078,
+      "capital": 7436.027025912198,
+      "longs": [
+        "XMRUSDT",
+        "ZECUSDT",
+        "LINKUSDT",
+        "BCHUSDT",
+        "XLMUSDT"
+      ],
+      "shorts": [
+        "STGUSDT",
+        "HFTUSDT",
+        "BELUSDT",
+        "OGNUSDT",
+        "IDUSDT"
+      ],
+      "long_trades": 42,
+      "short_trades": 29
+    },
+    {
+      "date": "2023-08-31",
+      "info_month": "2023-07-31",
+      "return": -0.051819899553197823,
+      "capital": 7050.692852354564,
+      "longs": [
+        "DOGEUSDT",
+        "LINKUSDT",
+        "XLMUSDT"
+      ],
+      "shorts": [
+        "MAVUSDT",
+        "ALICEUSDT"
+      ],
+      "long_trades": 19,
+      "short_trades": 21
+    },
+    {
+      "date": "2023-09-30",
+      "info_month": "2023-08-31",
+      "return": 0.07397962534336823,
+      "capital": 7572.300467982919,
+      "longs": [
+        "TRXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 8,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-10-31",
+      "info_month": "2023-09-30",
+      "return": 0.14999405683308084,
+      "capital": 8708.100534734715,
+      "longs": [
+        "LINKUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 16,
+      "short_trades": 0
+    },
+    {
+      "date": "2023-11-30",
+      "info_month": "2023-10-31",
+      "return": -0.013133332608371504,
+      "capital": 8593.734154024905,
+      "longs": [
+        "BTCUSDT",
+        "SOLUSDT",
+        "TRXUSDT",
+        "XLMUSDT",
+        "DOGEUSDT"
+      ],
+      "shorts": [
+        "IDUSDT",
+        "BELUSDT",
+        "GTCUSDT",
+        "STGUSDT",
+        "MAVUSDT"
+      ],
+      "long_trades": 40,
+      "short_trades": 45
+    },
+    {
+      "date": "2023-12-31",
+      "info_month": "2023-11-30",
+      "return": -0.049649496776368304,
+      "capital": 8167.059577847679,
+      "longs": [
+        "SUIUSDT",
+        "ETHUSDT",
+        "LINKUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 29,
+      "short_trades": 0
+    },
+    {
+      "date": "2024-01-31",
+      "info_month": "2023-12-31",
+      "return": -0.035376078971496756,
+      "capital": 7878.14103325682,
+      "longs": [
+        "XLMUSDT",
+        "SOLUSDT",
+        "BNBUSDT",
+        "ETHUSDT",
+        "LINKUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 44,
+      "short_trades": 0
+    },
+    {
+      "date": "2024-02-29",
+      "info_month": "2024-01-31",
+      "return": 0.20682720342572875,
+      "capital": 9507.55491135881,
+      "longs": [
+        "BTCUSDT"
+      ],
+      "shorts": [
+        "JOEUSDT",
+        "ALICEUSDT",
+        "TLMUSDT"
+      ],
+      "long_trades": 5,
+      "short_trades": 19
+    },
+    {
+      "date": "2024-03-31",
+      "info_month": "2024-02-29",
+      "return": 0.05344275979639282,
+      "capital": 10015.664884737575,
+      "longs": [
+        "ETHUSDT",
+        "BNBUSDT",
+        "ADAUSDT",
+        "XRPUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 36,
+      "short_trades": 0
+    },
+    {
+      "date": "2024-04-30",
+      "info_month": "2024-03-31",
+      "return": 0.011443543558213864,
+      "capital": 10130.279582110543,
+      "longs": [
+        "BTCUSDT",
+        "DOGEUSDT",
+        "BNBUSDT",
+        "BCHUSDT",
+        "ETHUSDT"
+      ],
+      "shorts": [
+        "BICOUSDT"
+      ],
+      "long_trades": 36,
+      "short_trades": 5
+    },
+    {
+      "date": "2024-05-31",
+      "info_month": "2024-04-30",
+      "return": -0.09460924394500354,
+      "capital": 9171.861489895558,
+      "longs": [
+        "XRPUSDT"
+      ],
+      "shorts": [
+        "ARPAUSDT",
+        "STORJUSDT",
+        "CELRUSDT"
+      ],
+      "long_trades": 5,
+      "short_trades": 28
+    },
+    {
+      "date": "2024-06-30",
+      "info_month": "2024-05-31",
+      "return": -0.027044056380623148,
+      "capital": 8923.817150647557,
+      "longs": [
+        "LINKUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 3,
+      "short_trades": 0
+    },
+    {
+      "date": "2024-07-31",
+      "info_month": "2024-06-30",
+      "return": 0.04904210339996174,
+      "capital": 9361.459914071967,
+      "longs": [
+        "TRXUSDT",
+        "BTCUSDT"
+      ],
+      "shorts": [
+        "MAVUSDT",
+        "ALICEUSDT",
+        "STGUSDT",
+        "TLMUSDT",
+        "NFPUSDT"
+      ],
+      "long_trades": 12,
+      "short_trades": 49
+    },
+    {
+      "date": "2024-08-31",
+      "info_month": "2024-07-31",
+      "return": 0.01165381389913963,
+      "capital": 9470.556625734816,
+      "longs": [
+        "SUIUSDT",
+        "XRPUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 12,
+      "short_trades": 0
+    },
+    {
+      "date": "2024-09-30",
+      "info_month": "2024-08-31",
+      "return": 0.029415020240392338,
+      "capital": 9749.133240568588,
+      "longs": [
+        "ADAUSDT",
+        "BNBUSDT",
+        "TRXUSDT",
+        "BCHUSDT",
+        "BTCUSDT"
+      ],
+      "shorts": [
+        "STGUSDT",
+        "STORJUSDT",
+        "GTCUSDT"
+      ],
+      "long_trades": 24,
+      "short_trades": 23
+    },
+    {
+      "date": "2024-10-31",
+      "info_month": "2024-09-30",
+      "return": 0.02399617996360144,
+      "capital": 9983.075196298401,
+      "longs": [
+        "SOLUSDT",
+        "BTCUSDT",
+        "SUIUSDT",
+        "ETHUSDT",
+        "TRXUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 35,
+      "short_trades": 0
+    },
+    {
+      "date": "2024-11-30",
+      "info_month": "2024-10-31",
+      "return": 0.2503007883868883,
+      "capital": 12481.846788457482,
+      "longs": [
+        "BTCUSDT",
+        "BNBUSDT",
+        "DOGEUSDT",
+        "ETHUSDT",
+        "ZECUSDT"
+      ],
+      "shorts": [
+        "STORJUSDT",
+        "BICOUSDT",
+        "CELRUSDT",
+        "STGUSDT"
+      ],
+      "long_trades": 38,
+      "short_trades": 30
+    },
+    {
+      "date": "2024-12-31",
+      "info_month": "2024-11-30",
+      "return": -0.025913748262743674,
+      "capital": 12158.39535292726,
+      "longs": [
+        "ADAUSDT",
+        "XLMUSDT",
+        "BTCUSDT",
+        "LINKUSDT",
+        "ZECUSDT"
+      ],
+      "shorts": [],
+      "long_trades": 40,
+      "short_trades": 0
+    }
+  ],
+  "known_gaps_vs_paper": [
+    "Uses quote volume instead of CoinGecko market capitalization.",
+    "Uses current Binance trading symbols; delisted futures are unavailable through exchangeInfo.",
+    "Uses constant fee/slippage bps and does not include historical funding rates yet.",
+    "Reconstructed entry/exit rules from paper description; authors did not publish code."
+  ]
+}

@@ -7,3 +7,5 @@ __pycache__/
 .venv/
 venv/
 adaptive-trend/cache/
+adaptive-trend/cache_v5/
+adaptive-trend/paper_reproduction/cache/
