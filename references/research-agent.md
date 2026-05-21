@@ -128,9 +128,10 @@ sessions_send(label="main", message="[RESEARCH v{round}] 報告完成：3-5 行�
 
 ## 7. Spawn Judge
 使用 sessions_spawn 啟動 Judge agent：
-- label: "crypto-judge"
+- label: "crypto-judge-r{round}"
 - mode: "run"
 - runtime: "subagent"
+- context: "isolated"
 - task: 使用 references/judge-agent.md 的模板，填入當前 round。
 
 注意：

@@ -166,9 +166,10 @@ sessions_send(label="main", message="[JUDGE v{round}] score X/100，verdict: ...
 ## 9. Spawn 下一輪 Research（如果未完成）
 如果 status != "complete"：
   使用 sessions_spawn 啟動 Research agent：
-  - label: "crypto-research"
+  - label: "crypto-research-r{round}"
   - mode: "run"
   - runtime: "subagent"
+  - context: "isolated"
   - task: 使用 references/research-agent.md 的模板，填入新的 round。
 
 如果 status == "complete"：
