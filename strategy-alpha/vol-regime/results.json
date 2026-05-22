@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "strategy": "Volatility Regime-Conditional Momentum",
+    "universe": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "XRPUSDT",
+      "ADAUSDT",
+      "DOGEUSDT",
+      "AVAXUSDT",
+      "DOTUSDT",
+      "MATICUSDT",
+      "LTCUSDT",
+      "LINKUSDT",
+      "UNIUSDT",
+      "ATOMUSDT",
+      "ETCUSDT",
+      "XLMUSDT",
+      "ALGOUSDT",
+      "VETUSDT",
+      "FILUSDT",
+      "TRXUSDT"
+    ],
+    "start": "2021-01-01",
+    "end": "2024-12-31",
+    "hold_days": 3,
+    "fee_bps": 4,
+    "momentum_window_days": 7,
+    "vol_window_days": 30,
+    "generated_at": "2026-05-21T19:08:36.809344Z"
+  },
+  "performance": {
+    "regime_conditional": {
+      "label": "Regime-Conditional",
+      "ann_return_pct": -43.36,
+      "ann_vol_pct": 41.25,
+      "sharpe": -1.051,
+      "max_drawdown_pct": -91.5,
+      "win_rate_pct": 45.53,
+      "n_obs": 1454
+    },
+    "unconditional": {
+      "label": "Unconditional",
+      "ann_return_pct": -12.35,
+      "ann_vol_pct": 41.18,
+      "sharpe": -0.3,
+      "max_drawdown_pct": -85.67,
+      "win_rate_pct": 45.53,
+      "n_obs": 1454
+    },
+    "low_vol_regime": {
+      "label": "Regime-Conditional (Low-Vol)",
+      "ann_return_pct": -12.97,
+      "ann_vol_pct": 35.63,
+      "sharpe": -0.364,
+      "max_drawdown_pct": -72.25,
+      "win_rate_pct": 45.36,
+      "n_obs": 1089
+    },
+    "high_vol_regime": {
+      "label": "Regime-Conditional (High-Vol)",
+      "ann_return_pct": -128.64,
+      "ann_vol_pct": 43.19,
+      "sharpe": -2.979,
+      "max_drawdown_pct": -72.92,
+      "win_rate_pct": 45.17,
+      "n_obs": 321
+    },
+    "unconditional_low_vol": {
+      "label": "Unconditional (Low-Vol)",
+      "ann_return_pct": -12.97,
+      "ann_vol_pct": 35.63,
+      "sharpe": -0.364,
+      "max_drawdown_pct": -72.25,
+      "win_rate_pct": 45.36,
+      "n_obs": 1089
+    },
+    "unconditional_high_vol": {
+      "label": "Unconditional (High-Vol)",
+      "ann_return_pct": 11.84,
+      "ann_vol_pct": 43.19,
+      "sharpe": 0.274,
+      "max_drawdown_pct": -51.75,
+      "win_rate_pct": 45.17,
+      "n_obs": 321
+    }
+  },
+  "annual_breakdown": {
+    "2021": {
+      "regime_conditional_ann_ret_pct": 18.45,
+      "unconditional_ann_ret_pct": 6.19,
+      "low_vol_ret_pct": 42.84,
+      "high_vol_ret_pct": -3.47,
+      "low_vol_n_days": 255,
+      "high_vol_n_days": 60
+    },
+    "2022": {
+      "regime_conditional_ann_ret_pct": -21.95,
+      "unconditional_ann_ret_pct": 1.57,
+      "low_vol_ret_pct": 11.25,
+      "high_vol_ret_pct": -33.2,
+      "low_vol_n_days": 231,
+      "high_vol_n_days": 134
+    },
+    "2023": {
+      "regime_conditional_ann_ret_pct": -26.61,
+      "unconditional_ann_ret_pct": -35.12,
+      "low_vol_ret_pct": -26.7,
+      "high_vol_ret_pct": 0.09,
+      "low_vol_n_days": 339,
+      "high_vol_n_days": 26
+    },
+    "2024": {
+      "regime_conditional_ann_ret_pct": -142.62,
+      "unconditional_ann_ret_pct": -21.83,
+      "low_vol_ret_pct": -66.07,
+      "high_vol_ret_pct": -76.56,
+      "low_vol_n_days": 264,
+      "high_vol_n_days": 101
+    }
+  },
+  "vol_threshold_sensitivity": {
+    "p30": {
+      "label": "Threshold p30",
+      "ann_return_pct": -26.44,
+      "ann_vol_pct": 41.22,
+      "sharpe": -0.641,
+      "max_drawdown_pct": -81.51,
+      "win_rate_pct": 47.59,
+      "n_obs": 1454
+    },
+    "p50": {
+      "label": "Threshold p50",
+      "ann_return_pct": -43.36,
+      "ann_vol_pct": 41.25,
+      "sharpe": -1.051,
+      "max_drawdown_pct": -91.5,
+      "win_rate_pct": 45.53,
+      "n_obs": 1454
+    },
+    "p70": {
+      "label": "Threshold p70",
+      "ann_return_pct": -3.04,
+      "ann_vol_pct": 41.15,
+      "sharpe": -0.074,
+      "max_drawdown_pct": -82.48,
+      "win_rate_pct": 46.84,
+      "n_obs": 1454
+    }
+  },
+  "regime_duration_stats": {
+    "low": {
+      "count": 22,
+      "mean_days": 49.5,
+      "median_days": 26.5,
+      "min_days": 1,
+      "max_days": 332,
+      "p25": 3.2,
+      "p75": 73.2
+    },
+    "high": {
+      "count": 21,
+      "mean_days": 15.3,
+      "median_days": 6.0,
+      "min_days": 1,
+      "max_days": 39,
+      "p25": 3.0,
+      "p75": 30.0
+    }
+  },
+  "regime_calendar": {
+    "counts": {
+      "low": 1090,
+      "high": 321
+    },
+    "pct": {
+      "low": 77.3,
+      "high": 22.7
+    },
+    "total_obs": 1411
+  },
+  "btc_vol_stats": {
+    "mean": 0.5855,
+    "median": 0.5566,
+    "min": 0.1681,
+    "max": 1.2135,
+    "p25": 0.4321,
+    "p75": 0.6987
+  }
+}

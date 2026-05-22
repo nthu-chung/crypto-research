@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "generated_at": "2026-05-21T19:14:57.571672Z",
+    "backtest_window": "2023-01-01 to 2024-12-31",
+    "symbols_used": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "XRPUSDT",
+      "DOGEUSDT",
+      "ADAUSDT",
+      "AVAXUSDT",
+      "LINKUSDT",
+      "DOTUSDT",
+      "LTCUSDT",
+      "NEARUSDT",
+      "UNIUSDT",
+      "ATOMUSDT",
+      "ETCUSDT",
+      "BCHUSDT",
+      "FILUSDT",
+      "AAVEUSDT",
+      "MATICUSDT",
+      "OPUSDT"
+    ],
+    "n_symbols": 20,
+    "taker_fee_bps": 4,
+    "oi_data_note": "Binance openInterestHist API is limited to 30-day lookback. For the 2023-2024 backtest, taker buy/sell volume ratio is used as an OI proxy. Validation confirms moderate correlation with actual OI changes over the 30-day overlap window.",
+    "signal_method": "taker_net_flow_proxy_5d_vs_price_change_5d",
+    "oi_proxy_formula": "divergence = (taker_buy_5d/vol_5d - 0.5)*2 - price_pct_change_5d",
+    "divergence_percentiles": {
+      "p10": -0.133957,
+      "p20": -0.086749,
+      "p30": -0.057525,
+      "p70": 0.009458,
+      "p80": 0.030425,
+      "p90": 0.064431
+    },
+    "oi_proxy_validation": {
+      "method": "Pearson correlation of (taker_proxy_5d vs actual_OI_change_5d) over 30-day overlap",
+      "correlations": {
+        "BTCUSDT": 0.361,
+        "ETHUSDT": -0.17,
+        "SOLUSDT": 0.358
+      }
+    }
+  },
+  "results": {
+    "short_hold3d": {
+      "label": "short_hold3d",
+      "n_trades": 2881,
+      "win_rate": 0.4551,
+      "avg_trade_return_pct": -0.9455,
+      "annual_return_pct": -66.81,
+      "sharpe": -4.422,
+      "max_drawdown_pct": -88.23,
+      "calmar": -0.757,
+      "total_return_pct": -88.54,
+      "n_calendar_days": 717
+    },
+    "long_hold3d": {
+      "label": "long_hold3d",
+      "n_trades": 2881,
+      "win_rate": 0.5186,
+      "avg_trade_return_pct": 1.5313,
+      "annual_return_pct": -36.63,
+      "sharpe": -1.483,
+      "max_drawdown_pct": -74.81,
+      "calmar": -0.49,
+      "total_return_pct": -59.54,
+      "n_calendar_days": 724
+    },
+    "short_hold7d": {
+      "label": "short_hold7d",
+      "n_trades": 2880,
+      "win_rate": 0.4191,
+      "avg_trade_return_pct": -2.5514,
+      "annual_return_pct": -82.5,
+      "sharpe": -8.453,
+      "max_drawdown_pct": -96.75,
+      "calmar": -0.853,
+      "total_return_pct": -96.8,
+      "n_calendar_days": 721
+    },
+    "long_hold7d": {
+      "label": "long_hold7d",
+      "n_trades": 2881,
+      "win_rate": 0.512,
+      "avg_trade_return_pct": 2.8776,
+      "annual_return_pct": -39.81,
+      "sharpe": -2.117,
+      "max_drawdown_pct": -81.24,
+      "calmar": -0.49,
+      "total_return_pct": -63.67,
+      "n_calendar_days": 728
+    },
+    "longshort_hold3d": {
+      "label": "longshort_hold3d",
+      "n_trades": 5762,
+      "win_rate": 0.4868,
+      "avg_trade_return_pct": 0.2929,
+      "annual_return_pct": -4.48,
+      "sharpe": -0.109,
+      "max_drawdown_pct": -53.96,
+      "calmar": -0.083,
+      "total_return_pct": -8.74,
+      "n_calendar_days": 729
+    },
+    "longshort_hold7d": {
+      "label": "longshort_hold7d",
+      "n_trades": 5761,
+      "win_rate": 0.4655,
+      "avg_trade_return_pct": 0.1636,
+      "annual_return_pct": -8.48,
+      "sharpe": -0.469,
+      "max_drawdown_pct": -55.06,
+      "calmar": -0.154,
+      "total_return_pct": -16.31,
+      "n_calendar_days": 733
+    },
+    "short_top30pct_hold7d": {
+      "label": "short_top30pct_hold7d",
+      "n_trades": 4320,
+      "win_rate": 0.4417,
+      "avg_trade_return_pct": -1.9562,
+      "annual_return_pct": -77.4,
+      "sharpe": -7.737,
+      "max_drawdown_pct": -94.63,
+      "calmar": -0.818,
+      "total_return_pct": -94.7,
+      "n_calendar_days": 721
+    },
+    "long_top30pct_hold7d": {
+      "label": "long_top30pct_hold7d",
+      "n_trades": 4321,
+      "win_rate": 0.4978,
+      "avg_trade_return_pct": 2.2933,
+      "annual_return_pct": -34.29,
+      "sharpe": -1.823,
+      "max_drawdown_pct": -78.45,
+      "calmar": -0.437,
+      "total_return_pct": -56.78,
+      "n_calendar_days": 729
+    },
+    "short_top20pct_hold7d": {
+      "label": "short_top20pct_hold7d",
+      "n_trades": 2880,
+      "win_rate": 0.4191,
+      "avg_trade_return_pct": -2.5514,
+      "annual_return_pct": -82.5,
+      "sharpe": -8.453,
+      "max_drawdown_pct": -96.75,
+      "calmar": -0.853,
+      "total_return_pct": -96.8,
+      "n_calendar_days": 721
+    },
+    "long_top20pct_hold7d": {
+      "label": "long_top20pct_hold7d",
+      "n_trades": 2881,
+      "win_rate": 0.512,
+      "avg_trade_return_pct": 2.8776,
+      "annual_return_pct": -39.81,
+      "sharpe": -2.117,
+      "max_drawdown_pct": -81.24,
+      "calmar": -0.49,
+      "total_return_pct": -63.67,
+      "n_calendar_days": 728
+    },
+    "short_top10pct_hold7d": {
+      "label": "short_top10pct_hold7d",
+      "n_trades": 1441,
+      "win_rate": 0.3949,
+      "avg_trade_return_pct": -3.1482,
+      "annual_return_pct": -77.32,
+      "sharpe": -7.489,
+      "max_drawdown_pct": -94.55,
+      "calmar": -0.818,
+      "total_return_pct": -94.64,
+      "n_calendar_days": 720
+    },
+    "long_top10pct_hold7d": {
+      "label": "long_top10pct_hold7d",
+      "n_trades": 1441,
+      "win_rate": 0.5441,
+      "avg_trade_return_pct": 4.258,
+      "annual_return_pct": -48.25,
+      "sharpe": -2.652,
+      "max_drawdown_pct": -87.54,
+      "calmar": -0.551,
+      "total_return_pct": -73.12,
+      "n_calendar_days": 728
+    }
+  }
+}

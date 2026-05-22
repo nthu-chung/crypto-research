@@ -1,0 +1,3113 @@
+{
+  "metadata": {
+    "strategy": "Sector Rotation Momentum",
+    "start_date": "2022-01-01",
+    "end_date": "2024-12-31",
+    "hold_days": 7,
+    "roll_window": 30,
+    "mom_days": 7,
+    "taker_fee": 0.0004,
+    "excluded_symbols": [
+      "PEPEUSDT",
+      "SHIBUSDT"
+    ]
+  },
+  "performance": {
+    "n_periods": 150,
+    "ann_return": 0.0168,
+    "ann_vol": 0.8517,
+    "sharpe": 0.0197,
+    "max_drawdown": -0.8937,
+    "win_rate": 0.48
+  },
+  "sector_rotation_frequency": {
+    "L2": 34,
+    "Meme": 39,
+    "L1_short": 12,
+    "Storage": 39,
+    "Infra": 47,
+    "Exchange_short": 21,
+    "DeFi": 43,
+    "Meme_short": 29,
+    "Exchange": 39,
+    "L1": 30,
+    "DeFi_short": 18,
+    "Storage_short": 16,
+    "L2_short": 11,
+    "Infra_short": 16,
+    "AI": 29,
+    "AI_short": 27
+  },
+  "sector_ic": {
+    "L2": 0.2492,
+    "Meme": 0.0907,
+    "L1": 0.2847,
+    "Storage": 0.1182,
+    "Infra": 0.0366,
+    "Exchange": -0.0127,
+    "DeFi": -0.0088,
+    "AI": -0.0014
+  },
+  "period_returns": [
+    {
+      "entry": "2022-02-13",
+      "exit": "2022-02-20",
+      "long_syms": [
+        "MATICUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "NEARUSDT",
+        "SOLUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Meme"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.08276683989200467,
+      "short_ret": -0.06386656200844038,
+      "gross_ret": -0.018900277883564298,
+      "net_ret": -0.0205002778835643
+    },
+    {
+      "entry": "2022-02-20",
+      "exit": "2022-02-27",
+      "long_syms": [
+        "FILUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.01875016460909118,
+      "short_ret": -0.05345639083905218,
+      "gross_ret": 0.034706226229961,
+      "net_ret": 0.033106226229961004
+    },
+    {
+      "entry": "2022-02-27",
+      "exit": "2022-03-06",
+      "long_syms": [
+        "UNIUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.11330219421301585,
+      "short_ret": -0.018482331867773816,
+      "gross_ret": -0.09481986234524203,
+      "net_ret": -0.09641986234524204
+    },
+    {
+      "entry": "2022-03-06",
+      "exit": "2022-03-13",
+      "long_syms": [
+        "NEARUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "L1"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.029975697228696807,
+      "short_ret": -0.02075222698111384,
+      "gross_ret": -0.009223470247582966,
+      "net_ret": -0.010823470247582966
+    },
+    {
+      "entry": "2022-03-13",
+      "exit": "2022-03-20",
+      "long_syms": [
+        "AAVEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Infra"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.23306520539940645,
+      "short_ret": 0.07006197790353008,
+      "gross_ret": 0.16300322749587637,
+      "net_ret": 0.16140322749587638
+    },
+    {
+      "entry": "2022-03-20",
+      "exit": "2022-03-27",
+      "long_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Meme"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": 0.16530905647557204,
+      "short_ret": 0.3439768602540836,
+      "gross_ret": -0.17866780377851155,
+      "net_ret": -0.18026780377851154
+    },
+    {
+      "entry": "2022-03-27",
+      "exit": "2022-04-03",
+      "long_syms": [
+        "FILUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Meme"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.04346825933998866,
+      "short_ret": 0.04652837464284865,
+      "gross_ret": -0.0030601153028599892,
+      "net_ret": -0.004660115302859989
+    },
+    {
+      "entry": "2022-04-03",
+      "exit": "2022-04-10",
+      "long_syms": [
+        "AAVEUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "DeFi"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": -0.2245090677040244,
+      "short_ret": -0.15543182087430407,
+      "gross_ret": -0.06907724682972033,
+      "net_ret": -0.07067724682972033
+    },
+    {
+      "entry": "2022-04-10",
+      "exit": "2022-04-17",
+      "long_syms": [
+        "DOGEUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Exchange"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.04435400527281669,
+      "short_ret": -0.06017429045253869,
+      "gross_ret": 0.015820285179722005,
+      "net_ret": 0.014220285179722004
+    },
+    {
+      "entry": "2022-04-17",
+      "exit": "2022-04-24",
+      "long_syms": [
+        "FILUSDT",
+        "MATICUSDT"
+      ],
+      "short_syms": [
+        "NEARUSDT",
+        "ADAUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "L2"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.017084523545831287,
+      "short_ret": -0.037128258180889606,
+      "gross_ret": 0.02004373463505832,
+      "net_ret": 0.018443734635058318
+    },
+    {
+      "entry": "2022-04-24",
+      "exit": "2022-05-01",
+      "long_syms": [
+        "MATICUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Infra"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.16494930684874815,
+      "short_ret": -0.20134370205787455,
+      "gross_ret": 0.03639439520912641,
+      "net_ret": 0.03479439520912641
+    },
+    {
+      "entry": "2022-05-01",
+      "exit": "2022-05-08",
+      "long_syms": [
+        "BNBUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Meme"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.07560162609842785,
+      "short_ret": -0.1324104126647675,
+      "gross_ret": 0.05680878656633964,
+      "net_ret": 0.055208786566339645
+    },
+    {
+      "entry": "2022-05-08",
+      "exit": "2022-05-15",
+      "long_syms": [
+        "NEARUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "L1"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.2859277375853831,
+      "short_ret": -0.12278975627582711,
+      "gross_ret": -0.16313798130955598,
+      "net_ret": -0.16473798130955597
+    },
+    {
+      "entry": "2022-05-15",
+      "exit": "2022-05-22",
+      "long_syms": [
+        "LINKUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Exchange"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.02896755247153915,
+      "short_ret": -0.07799742157284073,
+      "gross_ret": 0.04902986910130158,
+      "net_ret": 0.047429869101301585
+    },
+    {
+      "entry": "2022-05-22",
+      "exit": "2022-05-29",
+      "long_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.042099904167036684,
+      "short_ret": -0.036704730831973786,
+      "gross_ret": -0.005395173335062897,
+      "net_ret": -0.006995173335062897
+    },
+    {
+      "entry": "2022-05-29",
+      "exit": "2022-06-05",
+      "long_syms": [
+        "FILUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Meme"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.02683927274972492,
+      "short_ret": -0.021984493080773326,
+      "gross_ret": -0.004854779668951592,
+      "net_ret": -0.006454779668951592
+    },
+    {
+      "entry": "2022-06-05",
+      "exit": "2022-06-12",
+      "long_syms": [
+        "ADAUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "L1"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.1584897445836061,
+      "short_ret": -0.14851981936778724,
+      "gross_ret": -0.009969925215818853,
+      "net_ret": -0.011569925215818854
+    },
+    {
+      "entry": "2022-06-12",
+      "exit": "2022-06-19",
+      "long_syms": [
+        "MATICUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Infra"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.08618229533914984,
+      "short_ret": -0.09870850538195869,
+      "gross_ret": 0.01252621004280885,
+      "net_ret": 0.010926210042808849
+    },
+    {
+      "entry": "2022-06-19",
+      "exit": "2022-06-26",
+      "long_syms": [
+        "SOLUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.18626092702947106,
+      "short_ret": 0.08815042353160196,
+      "gross_ret": 0.0981105034978691,
+      "net_ret": 0.09651050349786909
+    },
+    {
+      "entry": "2022-06-26",
+      "exit": "2022-07-03",
+      "long_syms": [
+        "MATICUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Meme"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": -0.1258597881712728,
+      "short_ret": -0.07126848946660691,
+      "gross_ret": -0.05459129870466589,
+      "net_ret": -0.05619129870466589
+    },
+    {
+      "entry": "2022-07-03",
+      "exit": "2022-07-10",
+      "long_syms": [
+        "DOGEUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Exchange"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.03614246152658551,
+      "short_ret": -0.004182754182754156,
+      "gross_ret": 0.04032521570933967,
+      "net_ret": 0.03872521570933967
+    },
+    {
+      "entry": "2022-07-10",
+      "exit": "2022-07-17",
+      "long_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Exchange"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.12400809440815208,
+      "short_ret": -0.062472110664881564,
+      "gross_ret": 0.18648020507303364,
+      "net_ret": 0.18488020507303365
+    },
+    {
+      "entry": "2022-07-17",
+      "exit": "2022-07-24",
+      "long_syms": [
+        "MATICUSDT",
+        "OPUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Exchange"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.3754093771708269,
+      "short_ret": 0.07123591940345864,
+      "gross_ret": 0.30417345776736826,
+      "net_ret": 0.30257345776736827
+    },
+    {
+      "entry": "2022-07-24",
+      "exit": "2022-07-31",
+      "long_syms": [
+        "OPUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Infra"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.40116806557500817,
+      "short_ret": 0.11316414448249179,
+      "gross_ret": 0.2880039210925164,
+      "net_ret": 0.2864039210925164
+    },
+    {
+      "entry": "2022-07-31",
+      "exit": "2022-08-07",
+      "long_syms": [
+        "FILUSDT",
+        "OPUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "L2"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.05153558069215791,
+      "short_ret": 0.012490815576781555,
+      "gross_ret": 0.039044765115376356,
+      "net_ret": 0.03744476511537636
+    },
+    {
+      "entry": "2022-08-07",
+      "exit": "2022-08-14",
+      "long_syms": [
+        "AVAXUSDT",
+        "NEARUSDT"
+      ],
+      "short_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "L1"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": 0.06928888373557984,
+      "short_ret": -0.07181614452206853,
+      "gross_ret": 0.14110502825764837,
+      "net_ret": 0.13950502825764838
+    },
+    {
+      "entry": "2022-08-14",
+      "exit": "2022-08-21",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": -0.17207177044755545,
+      "short_ret": -0.18090945515579915,
+      "gross_ret": 0.008837684708243698,
+      "net_ret": 0.007237684708243698
+    },
+    {
+      "entry": "2022-08-21",
+      "exit": "2022-08-28",
+      "long_syms": [
+        "DOGEUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Exchange"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.09650677469741925,
+      "short_ret": -0.12041803150834474,
+      "gross_ret": 0.023911256810925485,
+      "net_ret": 0.022311256810925485
+    },
+    {
+      "entry": "2022-08-28",
+      "exit": "2022-09-04",
+      "long_syms": [
+        "MATICUSDT",
+        "ADAUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "L1"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.15878289015482527,
+      "short_ret": 0.02397926117952065,
+      "gross_ret": 0.13480362897530462,
+      "net_ret": 0.13320362897530463
+    },
+    {
+      "entry": "2022-09-04",
+      "exit": "2022-09-11",
+      "long_syms": [
+        "OPUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.10853426237682096,
+      "short_ret": 0.007278481012658045,
+      "gross_ret": 0.10125578136416291,
+      "net_ret": 0.09965578136416291
+    },
+    {
+      "entry": "2022-09-11",
+      "exit": "2022-09-18",
+      "long_syms": [
+        "NEARUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "L1"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.1965200427019198,
+      "short_ret": -0.18014361536059953,
+      "gross_ret": -0.016376427341320277,
+      "net_ret": -0.017976427341320277
+    },
+    {
+      "entry": "2022-09-18",
+      "exit": "2022-09-25",
+      "long_syms": [
+        "LINKUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Meme"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": 0.05523670021217375,
+      "short_ret": -0.02164733909198968,
+      "gross_ret": 0.07688403930416343,
+      "net_ret": 0.07528403930416343
+    },
+    {
+      "entry": "2022-09-25",
+      "exit": "2022-10-02",
+      "long_syms": [
+        "FILUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Meme"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": -0.0451171298954281,
+      "short_ret": -0.018233196749778913,
+      "gross_ret": -0.026883933145649186,
+      "net_ret": -0.028483933145649187
+    },
+    {
+      "entry": "2022-10-02",
+      "exit": "2022-10-09",
+      "long_syms": [
+        "UNIUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "DeFi"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.018346692251905827,
+      "short_ret": 0.07289614410357426,
+      "gross_ret": -0.05454945185166843,
+      "net_ret": -0.056149451851668426
+    },
+    {
+      "entry": "2022-10-09",
+      "exit": "2022-10-16",
+      "long_syms": [
+        "MATICUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "DeFi"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.014143051618637437,
+      "short_ret": -0.021171818835370115,
+      "gross_ret": 0.007028767216732679,
+      "net_ret": 0.005428767216732679
+    },
+    {
+      "entry": "2022-10-16",
+      "exit": "2022-10-23",
+      "long_syms": [
+        "BNBUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.0030769680483810347,
+      "short_ret": 0.025314305130819115,
+      "gross_ret": -0.02223733708243808,
+      "net_ret": -0.02383733708243808
+    },
+    {
+      "entry": "2022-10-23",
+      "exit": "2022-10-30",
+      "long_syms": [
+        "OPUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "DeFi"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": 0.09996042234490543,
+      "short_ret": 0.05254932604024232,
+      "gross_ret": 0.047411096304663114,
+      "net_ret": 0.04581109630466312
+    },
+    {
+      "entry": "2022-10-30",
+      "exit": "2022-11-06",
+      "long_syms": [
+        "DOGEUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Exchange"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.025886606960312142,
+      "short_ret": 0.025699746119364764,
+      "gross_ret": 0.0001868608409473782,
+      "net_ret": -0.0014131391590526219
+    },
+    {
+      "entry": "2022-11-06",
+      "exit": "2022-11-13",
+      "long_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Exchange"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.25658959990392033,
+      "short_ret": -0.25937554508983096,
+      "gross_ret": 0.002785945185910632,
+      "net_ret": 0.001185945185910632
+    },
+    {
+      "entry": "2022-11-13",
+      "exit": "2022-11-20",
+      "long_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "short_syms": [
+        "SOLUSDT",
+        "APTUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Infra"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.07693098369352769,
+      "short_ret": -0.047324437409574094,
+      "gross_ret": -0.029606546283953594,
+      "net_ret": -0.031206546283953595
+    },
+    {
+      "entry": "2022-11-20",
+      "exit": "2022-11-27",
+      "long_syms": [
+        "AAVEUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.0710805280390332,
+      "short_ret": 0.28087261394624075,
+      "gross_ret": -0.20979208590720755,
+      "net_ret": -0.21139208590720754
+    },
+    {
+      "entry": "2022-11-27",
+      "exit": "2022-12-04",
+      "long_syms": [
+        "LINKUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Exchange"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": 0.01398964722479984,
+      "short_ret": 0.15099727001823404,
+      "gross_ret": -0.1370076227934342,
+      "net_ret": -0.1386076227934342
+    },
+    {
+      "entry": "2022-12-04",
+      "exit": "2022-12-11",
+      "long_syms": [
+        "UNIUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "DeFi"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.0820308112943765,
+      "short_ret": -0.02592909744819316,
+      "gross_ret": -0.05610171384618334,
+      "net_ret": -0.05770171384618334
+    },
+    {
+      "entry": "2022-12-11",
+      "exit": "2022-12-18",
+      "long_syms": [
+        "NEARUSDT",
+        "SOLUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.12109092760631035,
+      "short_ret": -0.15320665083135387,
+      "gross_ret": 0.032115723225043524,
+      "net_ret": 0.030515723225043524
+    },
+    {
+      "entry": "2022-12-18",
+      "exit": "2022-12-25",
+      "long_syms": [
+        "MATICUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "DeFi"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.023703160237513066,
+      "short_ret": -0.026938239159000954,
+      "gross_ret": 0.0032350789214878883,
+      "net_ret": 0.0016350789214878883
+    },
+    {
+      "entry": "2022-12-25",
+      "exit": "2023-01-01",
+      "long_syms": [
+        "BNBUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.02687875276794549,
+      "short_ret": -0.07570770243581315,
+      "gross_ret": 0.10258645520375864,
+      "net_ret": 0.10098645520375864
+    },
+    {
+      "entry": "2023-01-01",
+      "exit": "2023-01-08",
+      "long_syms": [
+        "FILUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Exchange"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.11649135468480587,
+      "short_ret": 0.04857549857549848,
+      "gross_ret": 0.0679158561093074,
+      "net_ret": 0.06631585610930739
+    },
+    {
+      "entry": "2023-01-08",
+      "exit": "2023-01-15",
+      "long_syms": [
+        "SOLUSDT",
+        "OPUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "L2"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.5136101412422611,
+      "short_ret": 0.17035728841190045,
+      "gross_ret": 0.34325285283036067,
+      "net_ret": 0.3416528528303607
+    },
+    {
+      "entry": "2023-01-15",
+      "exit": "2023-01-22",
+      "long_syms": [
+        "APTUSDT",
+        "SOLUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "DeFi"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": 0.36704315345996763,
+      "short_ret": 0.15436955135020192,
+      "gross_ret": 0.2126736021097657,
+      "net_ret": 0.21107360210976572
+    },
+    {
+      "entry": "2023-01-22",
+      "exit": "2023-01-29",
+      "long_syms": [
+        "AAVEUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "DeFi"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.018379215947071925,
+      "short_ret": 0.045944787097199846,
+      "gross_ret": -0.02756557115012792,
+      "net_ret": -0.029165571150127922
+    },
+    {
+      "entry": "2023-01-29",
+      "exit": "2023-02-05",
+      "long_syms": [
+        "APTUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "L1"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.10079020587108145,
+      "short_ret": -0.014501830177498176,
+      "gross_ret": -0.08628837569358327,
+      "net_ret": -0.08788837569358328
+    },
+    {
+      "entry": "2023-02-05",
+      "exit": "2023-02-12",
+      "long_syms": [
+        "FETUSDT",
+        "OPUSDT"
+      ],
+      "short_syms": [
+        "APTUSDT",
+        "AVAXUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "L2"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.16147515406082147,
+      "short_ret": -0.1334336950095748,
+      "gross_ret": -0.028041459051246664,
+      "net_ret": -0.029641459051246665
+    },
+    {
+      "entry": "2023-02-12",
+      "exit": "2023-02-19",
+      "long_syms": [
+        "FETUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Infra"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.10956863364722524,
+      "short_ret": 0.0600414078674949,
+      "gross_ret": 0.049527225779730344,
+      "net_ret": 0.04792722577973035
+    },
+    {
+      "entry": "2023-02-19",
+      "exit": "2023-02-26",
+      "long_syms": [
+        "FILUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Infra"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.12566910280235377,
+      "short_ret": 0.04657335907335902,
+      "gross_ret": -0.1722424618757128,
+      "net_ret": -0.17384246187571278
+    },
+    {
+      "entry": "2023-02-26",
+      "exit": "2023-03-05",
+      "long_syms": [
+        "SOLUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "L1"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.08117847744168871,
+      "short_ret": -0.11059573851282789,
+      "gross_ret": 0.029417261071139178,
+      "net_ret": 0.027817261071139177
+    },
+    {
+      "entry": "2023-03-05",
+      "exit": "2023-03-12",
+      "long_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Exchange"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": -0.049627508761054595,
+      "short_ret": -0.011374265690234364,
+      "gross_ret": -0.03825324307082023,
+      "net_ret": -0.03985324307082023
+    },
+    {
+      "entry": "2023-03-12",
+      "exit": "2023-03-19",
+      "long_syms": [
+        "APTUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "L2"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.09013509226788163,
+      "short_ret": 0.10511064278187554,
+      "gross_ret": -0.014975550513993907,
+      "net_ret": -0.016575550513993908
+    },
+    {
+      "entry": "2023-03-19",
+      "exit": "2023-03-26",
+      "long_syms": [
+        "BNBUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "AI"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.06782671496904358,
+      "short_ret": -0.09600382104760374,
+      "gross_ret": 0.028177106078560166,
+      "net_ret": 0.026577106078560165
+    },
+    {
+      "entry": "2023-03-26",
+      "exit": "2023-04-02",
+      "long_syms": [
+        "LINKUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Meme"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.031005723067509483,
+      "short_ret": -0.06182795698924737,
+      "gross_ret": 0.09283368005675685,
+      "net_ret": 0.09123368005675685
+    },
+    {
+      "entry": "2023-04-02",
+      "exit": "2023-04-09",
+      "long_syms": [
+        "FILUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Meme"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.044083334284507614,
+      "short_ret": -0.00309340817042425,
+      "gross_ret": 0.047176742454931864,
+      "net_ret": 0.045576742454931866
+    },
+    {
+      "entry": "2023-04-09",
+      "exit": "2023-04-16",
+      "long_syms": [
+        "FILUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "DeFi"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.09921136468317515,
+      "short_ret": 0.13114754098360648,
+      "gross_ret": -0.03193617630043133,
+      "net_ret": -0.033536176300431327
+    },
+    {
+      "entry": "2023-04-16",
+      "exit": "2023-04-23",
+      "long_syms": [
+        "ARBUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "L2"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.19204383530331876,
+      "short_ret": -0.16921621195395065,
+      "gross_ret": -0.02282762334936811,
+      "net_ret": -0.02442762334936811
+    },
+    {
+      "entry": "2023-04-23",
+      "exit": "2023-04-30",
+      "long_syms": [
+        "BNBUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Infra"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.005468711256307046,
+      "short_ret": 0.009399212498412357,
+      "gross_ret": -0.003930501242105311,
+      "net_ret": -0.005530501242105311
+    },
+    {
+      "entry": "2023-04-30",
+      "exit": "2023-05-07",
+      "long_syms": [
+        "FILUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "ARBUSDT",
+        "OPUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Exchange"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": -0.058928438179446985,
+      "short_ret": -0.11913576735357484,
+      "gross_ret": 0.060207329174127855,
+      "net_ret": 0.05860732917412786
+    },
+    {
+      "entry": "2023-05-07",
+      "exit": "2023-05-14",
+      "long_syms": [
+        "AAVEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "DeFi"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.07399337319933524,
+      "short_ret": -0.1674723756906077,
+      "gross_ret": 0.09347900249127244,
+      "net_ret": 0.09187900249127244
+    },
+    {
+      "entry": "2023-05-14",
+      "exit": "2023-05-21",
+      "long_syms": [
+        "APTUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "DeFi"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.021067162093075353,
+      "short_ret": 0.007051016175860569,
+      "gross_ret": -0.028118178268935923,
+      "net_ret": -0.029718178268935923
+    },
+    {
+      "entry": "2023-05-21",
+      "exit": "2023-05-28",
+      "long_syms": [
+        "FETUSDT",
+        "OPUSDT"
+      ],
+      "short_syms": [
+        "SUIUSDT",
+        "SOLUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "L2"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": 0.05327729203530196,
+      "short_ret": 0.02508522715652023,
+      "gross_ret": 0.02819206487878173,
+      "net_ret": 0.02659206487878173
+    },
+    {
+      "entry": "2023-05-28",
+      "exit": "2023-06-04",
+      "long_syms": [
+        "FETUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Storage"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.00533317274073708,
+      "short_ret": -0.057958794233342825,
+      "gross_ret": 0.0632919669740799,
+      "net_ret": 0.06169196697407991
+    },
+    {
+      "entry": "2023-06-04",
+      "exit": "2023-06-11",
+      "long_syms": [
+        "FETUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Storage"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.2946039986162289,
+      "short_ret": -0.1795417001837289,
+      "gross_ret": -0.11506229843249999,
+      "net_ret": -0.11666229843249999
+    },
+    {
+      "entry": "2023-06-11",
+      "exit": "2023-06-18",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.002880579669055139,
+      "short_ret": -0.0005467468562054822,
+      "gross_ret": 0.003427326525260621,
+      "net_ret": 0.001827326525260621
+    },
+    {
+      "entry": "2023-06-18",
+      "exit": "2023-06-25",
+      "long_syms": [
+        "SUIUSDT",
+        "APTUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "Storage"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.07849440575758704,
+      "short_ret": 0.2439824945295408,
+      "gross_ret": -0.16548808877195376,
+      "net_ret": -0.16708808877195375
+    },
+    {
+      "entry": "2023-06-25",
+      "exit": "2023-07-02",
+      "long_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.027471372493432122,
+      "short_ret": 0.03264008034481325,
+      "gross_ret": -0.005168707851381127,
+      "net_ret": -0.006768707851381127
+    },
+    {
+      "entry": "2023-07-02",
+      "exit": "2023-07-09",
+      "long_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Exchange"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.022493699106825638,
+      "short_ret": -0.03984122316965566,
+      "gross_ret": 0.017347524062830022,
+      "net_ret": 0.01574752406283002
+    },
+    {
+      "entry": "2023-07-09",
+      "exit": "2023-07-16",
+      "long_syms": [
+        "MATICUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "L2"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.05961361313747282,
+      "short_ret": 0.07435730556459497,
+      "gross_ret": -0.014743692427122146,
+      "net_ret": -0.016343692427122147
+    },
+    {
+      "entry": "2023-07-16",
+      "exit": "2023-07-23",
+      "long_syms": [
+        "OPUSDT",
+        "MATICUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Meme"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": 0.02363372213137166,
+      "short_ret": 0.047334558823529216,
+      "gross_ret": -0.023700836692157556,
+      "net_ret": -0.025300836692157557
+    },
+    {
+      "entry": "2023-07-23",
+      "exit": "2023-07-30",
+      "long_syms": [
+        "LINKUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Storage"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.048277358245681246,
+      "short_ret": 0.013131000203432108,
+      "gross_ret": -0.061408358449113354,
+      "net_ret": -0.06300835844911336
+    },
+    {
+      "entry": "2023-07-30",
+      "exit": "2023-08-06",
+      "long_syms": [
+        "DOGEUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Exchange"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": -0.022803995936960086,
+      "short_ret": -0.05986754966887431,
+      "gross_ret": 0.03706355373191422,
+      "net_ret": 0.035463553731914225
+    },
+    {
+      "entry": "2023-08-06",
+      "exit": "2023-08-13",
+      "long_syms": [
+        "OPUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "L2"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": -0.05490810096332521,
+      "short_ret": 0.03733446041138366,
+      "gross_ret": -0.09224256137470888,
+      "net_ret": -0.09384256137470888
+    },
+    {
+      "entry": "2023-08-13",
+      "exit": "2023-08-20",
+      "long_syms": [
+        "FETUSDT",
+        "APTUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "L1"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.10199268738574047,
+      "short_ret": -0.14639368392881047,
+      "gross_ret": 0.044400996543070004,
+      "net_ret": 0.042800996543070007
+    },
+    {
+      "entry": "2023-08-20",
+      "exit": "2023-08-27",
+      "long_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "L1"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.04085421740870693,
+      "short_ret": -0.010346449286721793,
+      "gross_ret": -0.030507768121985135,
+      "net_ret": -0.03210776812198513
+    },
+    {
+      "entry": "2023-08-27",
+      "exit": "2023-09-03",
+      "long_syms": [
+        "AAVEUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Exchange"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.039932793176195525,
+      "short_ret": -0.04494720965309196,
+      "gross_ret": 0.005014416476896433,
+      "net_ret": 0.003414416476896433
+    },
+    {
+      "entry": "2023-09-03",
+      "exit": "2023-09-10",
+      "long_syms": [
+        "FETUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "SUIUSDT",
+        "NEARUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Infra"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.055540020097796516,
+      "short_ret": -0.018514792189800233,
+      "gross_ret": -0.03702522790799628,
+      "net_ret": -0.03862522790799628
+    },
+    {
+      "entry": "2023-09-10",
+      "exit": "2023-09-17",
+      "long_syms": [
+        "LINKUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Storage"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.045366515442275435,
+      "short_ret": 0.06728436785585595,
+      "gross_ret": -0.02191785241358052,
+      "net_ret": -0.02351785241358052
+    },
+    {
+      "entry": "2023-09-17",
+      "exit": "2023-09-24",
+      "long_syms": [
+        "AAVEUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "SUIUSDT",
+        "NEARUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Storage"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": 0.002065457541058635,
+      "short_ret": 0.005065622841353756,
+      "gross_ret": -0.003000165300295121,
+      "net_ret": -0.004600165300295121
+    },
+    {
+      "entry": "2023-09-24",
+      "exit": "2023-10-01",
+      "long_syms": [
+        "LINKUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "DeFi"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.16292699520332676,
+      "short_ret": 0.04775847172890457,
+      "gross_ret": 0.11516852347442219,
+      "net_ret": 0.11356852347442219
+    },
+    {
+      "entry": "2023-10-01",
+      "exit": "2023-10-08",
+      "long_syms": [
+        "SOLUSDT",
+        "SUIUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "L2"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": -0.08238181070040757,
+      "short_ret": -0.04721083364393086,
+      "gross_ret": -0.035170977056476704,
+      "net_ret": -0.0367709770564767
+    },
+    {
+      "entry": "2023-10-08",
+      "exit": "2023-10-15",
+      "long_syms": [
+        "AVAXUSDT",
+        "SOLUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "L1"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": -0.07265567454106181,
+      "short_ret": -0.0324683791889423,
+      "gross_ret": -0.04018729535211951,
+      "net_ret": -0.04178729535211951
+    },
+    {
+      "entry": "2023-10-15",
+      "exit": "2023-10-22",
+      "long_syms": [
+        "BNBUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Meme"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": 0.03932085016479259,
+      "short_ret": 0.061743717033819756,
+      "gross_ret": -0.02242286686902717,
+      "net_ret": -0.02402286686902717
+    },
+    {
+      "entry": "2023-10-22",
+      "exit": "2023-10-29",
+      "long_syms": [
+        "LINKUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "DeFi"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.07792032615828015,
+      "short_ret": 0.3398832491037507,
+      "gross_ret": -0.2619629229454705,
+      "net_ret": -0.2635629229454705
+    },
+    {
+      "entry": "2023-10-29",
+      "exit": "2023-11-05",
+      "long_syms": [
+        "FETUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Infra"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.05131186381186409,
+      "short_ret": 0.10163323465913043,
+      "gross_ret": -0.050321370847266345,
+      "net_ret": -0.05192137084726634
+    },
+    {
+      "entry": "2023-11-05",
+      "exit": "2023-11-12",
+      "long_syms": [
+        "UNIUSDT",
+        "ARBUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "DeFi"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.09790037012631103,
+      "short_ret": 0.12260756485500723,
+      "gross_ret": -0.024707194728696202,
+      "net_ret": -0.026307194728696203
+    },
+    {
+      "entry": "2023-11-12",
+      "exit": "2023-11-19",
+      "long_syms": [
+        "FILUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.06028689411351196,
+      "short_ret": -0.0045623385012919515,
+      "gross_ret": -0.055724555612220006,
+      "net_ret": -0.05732455561222
+    },
+    {
+      "entry": "2023-11-19",
+      "exit": "2023-11-26",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Meme"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.0851517444792762,
+      "short_ret": -0.009925558312654958,
+      "gross_ret": 0.09507730279193116,
+      "net_ret": 0.09347730279193116
+    },
+    {
+      "entry": "2023-11-26",
+      "exit": "2023-12-03",
+      "long_syms": [
+        "WLDUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "AVAXUSDT",
+        "SOLUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "AI"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.04640254360012269,
+      "short_ret": 0.06784869572891061,
+      "gross_ret": -0.1142512393290333,
+      "net_ret": -0.11585123932903331
+    },
+    {
+      "entry": "2023-12-03",
+      "exit": "2023-12-10",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.11560583253050305,
+      "short_ret": 0.01897680712376798,
+      "gross_ret": 0.09662902540673507,
+      "net_ret": 0.09502902540673507
+    },
+    {
+      "entry": "2023-12-10",
+      "exit": "2023-12-17",
+      "long_syms": [
+        "ADAUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "Meme"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.034227767937197395,
+      "short_ret": 0.3860114347113658,
+      "gross_ret": -0.3517836667741684,
+      "net_ret": -0.3533836667741684
+    },
+    {
+      "entry": "2023-12-17",
+      "exit": "2023-12-24",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Storage"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.04369739809795831,
+      "short_ret": -0.013227228734272622,
+      "gross_ret": -0.030470169363685684,
+      "net_ret": -0.03207016936368568
+    },
+    {
+      "entry": "2023-12-24",
+      "exit": "2023-12-31",
+      "long_syms": [
+        "OPUSDT",
+        "NEARUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "L1"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.00011510522034591242,
+      "short_ret": 0.01360512626832111,
+      "gross_ret": -0.013490021047975198,
+      "net_ret": -0.015090021047975199
+    },
+    {
+      "entry": "2023-12-31",
+      "exit": "2024-01-07",
+      "long_syms": [
+        "FILUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "AVAXUSDT",
+        "NEARUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "DeFi"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.17926560852688422,
+      "short_ret": -0.12443966389335914,
+      "gross_ret": -0.05482594463352508,
+      "net_ret": -0.05642594463352508
+    },
+    {
+      "entry": "2024-01-07",
+      "exit": "2024-01-14",
+      "long_syms": [
+        "LINKUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Meme"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.07304218485572866,
+      "short_ret": 0.03033009669881437,
+      "gross_ret": 0.042712088156914296,
+      "net_ret": 0.0411120881569143
+    },
+    {
+      "entry": "2024-01-14",
+      "exit": "2024-01-21",
+      "long_syms": [
+        "LINKUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Meme"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.05535535501650468,
+      "short_ret": -0.07452333283968687,
+      "gross_ret": 0.12987868785619155,
+      "net_ret": 0.12827868785619156
+    },
+    {
+      "entry": "2024-01-21",
+      "exit": "2024-01-28",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "ARBUSDT",
+        "OPUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": -0.06898840540695567,
+      "short_ret": -0.01980899344717435,
+      "gross_ret": -0.049179411959781316,
+      "net_ret": -0.05077941195978131
+    },
+    {
+      "entry": "2024-01-28",
+      "exit": "2024-02-04",
+      "long_syms": [
+        "AVAXUSDT",
+        "SOLUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "AI"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.0021160789588137163,
+      "short_ret": -0.006472902652620904,
+      "gross_ret": 0.004356823693807188,
+      "net_ret": 0.002756823693807188
+    },
+    {
+      "entry": "2024-02-04",
+      "exit": "2024-02-11",
+      "long_syms": [
+        "LINKUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Exchange"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.08095682655332026,
+      "short_ret": 0.1659886963018703,
+      "gross_ret": -0.08503186974855004,
+      "net_ret": -0.08663186974855004
+    },
+    {
+      "entry": "2024-02-11",
+      "exit": "2024-02-18",
+      "long_syms": [
+        "FETUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "APTUSDT",
+        "SUIUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "AI"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": 0.19905930973932495,
+      "short_ret": 0.06749668930263919,
+      "gross_ret": 0.13156262043668576,
+      "net_ret": 0.12996262043668577
+    },
+    {
+      "entry": "2024-02-18",
+      "exit": "2024-02-25",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Storage"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.3949240916248258,
+      "short_ret": -0.0693251229080798,
+      "gross_ret": 0.4642492145329056,
+      "net_ret": 0.4626492145329056
+    },
+    {
+      "entry": "2024-02-25",
+      "exit": "2024-03-03",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Storage"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.26606512682021216,
+      "short_ret": 0.09545915372712255,
+      "gross_ret": 0.1706059730930896,
+      "net_ret": 0.16900597309308962
+    },
+    {
+      "entry": "2024-03-03",
+      "exit": "2024-03-10",
+      "long_syms": [
+        "DOGEUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Storage"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.061172918310351765,
+      "short_ret": 0.3837476852583479,
+      "gross_ret": -0.32257476694799614,
+      "net_ret": -0.32417476694799613
+    },
+    {
+      "entry": "2024-03-10",
+      "exit": "2024-03-17",
+      "long_syms": [
+        "BNBUSDT",
+        "MATICUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "L2"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.016941436841767465,
+      "short_ret": -0.0634084658161379,
+      "gross_ret": 0.04646702897437044,
+      "net_ret": 0.04486702897437044
+    },
+    {
+      "entry": "2024-03-17",
+      "exit": "2024-03-24",
+      "long_syms": [
+        "AVAXUSDT",
+        "SOLUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "Exchange"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.06802243408242004,
+      "short_ret": -0.09726440552414917,
+      "gross_ret": 0.02924197144172913,
+      "net_ret": 0.02764197144172913
+    },
+    {
+      "entry": "2024-03-24",
+      "exit": "2024-03-31",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.14122247382163922,
+      "short_ret": 0.06627841508902788,
+      "gross_ret": 0.07494405873261134,
+      "net_ret": 0.07334405873261134
+    },
+    {
+      "entry": "2024-03-31",
+      "exit": "2024-04-07",
+      "long_syms": [
+        "FILUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Storage",
+        "Meme"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.10488919045763057,
+      "short_ret": -0.11807980039950361,
+      "gross_ret": 0.013190609941873044,
+      "net_ret": 0.011590609941873043
+    },
+    {
+      "entry": "2024-04-07",
+      "exit": "2024-04-14",
+      "long_syms": [
+        "ARBUSDT",
+        "MATICUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "L2"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.2251512332704677,
+      "short_ret": -0.2336949350119384,
+      "gross_ret": 0.008543701741470677,
+      "net_ret": 0.006943701741470677
+    },
+    {
+      "entry": "2024-04-14",
+      "exit": "2024-04-21",
+      "long_syms": [
+        "BNBUSDT",
+        "ARBUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "L2"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.015871606170408392,
+      "short_ret": 0.03167400893595551,
+      "gross_ret": -0.01580240276554712,
+      "net_ret": -0.01740240276554712
+    },
+    {
+      "entry": "2024-04-21",
+      "exit": "2024-04-28",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "L2"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.12824018900957718,
+      "short_ret": -0.07309516282010764,
+      "gross_ret": -0.05514502618946954,
+      "net_ret": -0.056745026189469534
+    },
+    {
+      "entry": "2024-04-28",
+      "exit": "2024-05-05",
+      "long_syms": [
+        "OPUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "L2"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.035222099359293546,
+      "short_ret": 0.1567850517914915,
+      "gross_ret": -0.12156295243219795,
+      "net_ret": -0.12316295243219795
+    },
+    {
+      "entry": "2024-05-05",
+      "exit": "2024-05-12",
+      "long_syms": [
+        "WLDUSDT",
+        "TAOUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Meme"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.08293184443798846,
+      "short_ret": 0.004547298667928912,
+      "gross_ret": -0.08747914310591737,
+      "net_ret": -0.08907914310591737
+    },
+    {
+      "entry": "2024-05-12",
+      "exit": "2024-05-19",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "DeFi"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": -0.09807805010181947,
+      "short_ret": 0.05584295939338113,
+      "gross_ret": -0.1539210094952006,
+      "net_ret": -0.1555210094952006
+    },
+    {
+      "entry": "2024-05-19",
+      "exit": "2024-05-26",
+      "long_syms": [
+        "LINKUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "DeFi"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.24688149007121507,
+      "short_ret": -0.008293388821750736,
+      "gross_ret": 0.2551748788929658,
+      "net_ret": 0.2535748788929658
+    },
+    {
+      "entry": "2024-05-26",
+      "exit": "2024-06-02",
+      "long_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "SOLUSDT",
+        "NEARUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Exchange"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.10777998800164174,
+      "short_ret": -0.04038006159181312,
+      "gross_ret": -0.06739992640982861,
+      "net_ret": -0.06899992640982862
+    },
+    {
+      "entry": "2024-06-02",
+      "exit": "2024-06-09",
+      "long_syms": [
+        "BNBUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Storage"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.08499090152362099,
+      "short_ret": -0.026334137640075195,
+      "gross_ret": 0.11132503916369618,
+      "net_ret": 0.10972503916369618
+    },
+    {
+      "entry": "2024-06-09",
+      "exit": "2024-06-16",
+      "long_syms": [
+        "BNBUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Storage"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": -0.11888457727219898,
+      "short_ret": -0.07539100684261968,
+      "gross_ret": -0.0434935704295793,
+      "net_ret": -0.045093570429579295
+    },
+    {
+      "entry": "2024-06-16",
+      "exit": "2024-06-23",
+      "long_syms": [
+        "UNIUSDT",
+        "OPUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "L2"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.18387053294000527,
+      "short_ret": -0.05445017604192259,
+      "gross_ret": -0.12942035689808268,
+      "net_ret": -0.13102035689808267
+    },
+    {
+      "entry": "2024-06-23",
+      "exit": "2024-06-30",
+      "long_syms": [
+        "FETUSDT",
+        "TAOUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Meme"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": 0.009363024240205409,
+      "short_ret": 0.04480746791131862,
+      "gross_ret": -0.03544444367111321,
+      "net_ret": -0.03704444367111321
+    },
+    {
+      "entry": "2024-06-30",
+      "exit": "2024-07-07",
+      "long_syms": [
+        "LINKUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "Storage"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.16173436358336202,
+      "short_ret": -0.15788751008358648,
+      "gross_ret": -0.0038468534997755377,
+      "net_ret": -0.0054468534997755376
+    },
+    {
+      "entry": "2024-07-07",
+      "exit": "2024-07-14",
+      "long_syms": [
+        "DOTUSDT",
+        "SOLUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "L1"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.09531949182984456,
+      "short_ret": 0.11030490787542768,
+      "gross_ret": -0.014985416045583122,
+      "net_ret": -0.016585416045583123
+    },
+    {
+      "entry": "2024-07-14",
+      "exit": "2024-07-21",
+      "long_syms": [
+        "TAOUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "DeFi"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.10359625366203179,
+      "short_ret": 0.21681415929203562,
+      "gross_ret": -0.11321790563000383,
+      "net_ret": -0.11481790563000384
+    },
+    {
+      "entry": "2024-07-21",
+      "exit": "2024-07-28",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Meme"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.1254389734770538,
+      "short_ret": -0.0345785173492808,
+      "gross_ret": -0.09086045612777299,
+      "net_ret": -0.092460456127773
+    },
+    {
+      "entry": "2024-07-28",
+      "exit": "2024-08-04",
+      "long_syms": [
+        "UNIUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "NEARUSDT",
+        "DOTUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "DeFi"
+      ],
+      "bottom_sector": "L1",
+      "long_ret": -0.16661900135984248,
+      "short_ret": -0.21032299685094474,
+      "gross_ret": 0.043703995491102265,
+      "net_ret": 0.04210399549110227
+    },
+    {
+      "entry": "2024-08-04",
+      "exit": "2024-08-11",
+      "long_syms": [
+        "AAVEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "TAOUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Infra"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.07135484242026563,
+      "short_ret": 0.09506208708147951,
+      "gross_ret": -0.16641692950174514,
+      "net_ret": -0.16801692950174513
+    },
+    {
+      "entry": "2024-08-11",
+      "exit": "2024-08-18",
+      "long_syms": [
+        "SUIUSDT",
+        "TAOUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "AI"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": -0.0355702534909077,
+      "short_ret": 0.13293452184822274,
+      "gross_ret": -0.16850477533913044,
+      "net_ret": -0.17010477533913043
+    },
+    {
+      "entry": "2024-08-18",
+      "exit": "2024-08-25",
+      "long_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "TAOUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Exchange"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.14532029273439961,
+      "short_ret": 0.2314144775793755,
+      "gross_ret": -0.08609418484497589,
+      "net_ret": -0.08769418484497589
+    },
+    {
+      "entry": "2024-08-25",
+      "exit": "2024-09-01",
+      "long_syms": [
+        "FETUSDT",
+        "WLDUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.2030910790773927,
+      "short_ret": -0.10711794657180729,
+      "gross_ret": -0.09597313250558542,
+      "net_ret": -0.09757313250558543
+    },
+    {
+      "entry": "2024-09-01",
+      "exit": "2024-09-08",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "MATICUSDT",
+        "ARBUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": 0.005002919906975101,
+      "short_ret": -0.002455342343401834,
+      "gross_ret": 0.007458262250376935,
+      "net_ret": 0.005858262250376935
+    },
+    {
+      "entry": "2024-09-08",
+      "exit": "2024-09-15",
+      "long_syms": [
+        "SUIUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "L2"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": 0.08616858588753529,
+      "short_ret": 0.09957656600997966,
+      "gross_ret": -0.013407980122444374,
+      "net_ret": -0.015007980122444375
+    },
+    {
+      "entry": "2024-09-15",
+      "exit": "2024-09-22",
+      "long_syms": [
+        "TAOUSDT",
+        "BNBUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "AI"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.3094394399455419,
+      "short_ret": 0.07330784888276498,
+      "gross_ret": 0.23613159106277692,
+      "net_ret": 0.23453159106277693
+    },
+    {
+      "entry": "2024-09-22",
+      "exit": "2024-09-29",
+      "long_syms": [
+        "SUIUSDT",
+        "APTUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "L1",
+        "Exchange"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.062390116460315004,
+      "short_ret": 0.1201222801654378,
+      "gross_ret": -0.057732163705122796,
+      "net_ret": -0.059332163705122794
+    },
+    {
+      "entry": "2024-09-29",
+      "exit": "2024-10-06",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "BNBUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "Exchange",
+      "long_ret": -0.0990677159372903,
+      "short_ret": -0.04280247079360833,
+      "gross_ret": -0.056265245143681974,
+      "net_ret": -0.05786524514368197
+    },
+    {
+      "entry": "2024-10-06",
+      "exit": "2024-10-13",
+      "long_syms": [
+        "TAOUSDT",
+        "WLDUSDT"
+      ],
+      "short_syms": [
+        "ARBUSDT",
+        "OPUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "DeFi"
+      ],
+      "bottom_sector": "L2",
+      "long_ret": 0.04083524785905668,
+      "short_ret": -0.018168763980277447,
+      "gross_ret": 0.059004011839334125,
+      "net_ret": 0.05740401183933413
+    },
+    {
+      "entry": "2024-10-13",
+      "exit": "2024-10-20",
+      "long_syms": [
+        "UNIUSDT",
+        "AVAXUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "L1"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.003932205805855904,
+      "short_ret": 0.1145542527452077,
+      "gross_ret": -0.11062204693935179,
+      "net_ret": -0.1122220469393518
+    },
+    {
+      "entry": "2024-10-20",
+      "exit": "2024-10-27",
+      "long_syms": [
+        "DOGEUSDT",
+        "FILUSDT"
+      ],
+      "short_syms": [
+        "TAOUSDT",
+        "FETUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Storage"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.045158982325128216,
+      "short_ret": -0.1417715738783113,
+      "gross_ret": 0.09661259155318308,
+      "net_ret": 0.09501259155318308
+    },
+    {
+      "entry": "2024-10-27",
+      "exit": "2024-11-03",
+      "long_syms": [
+        "UNIUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "TAOUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Infra"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": -0.04283863943896027,
+      "short_ret": -0.1519217703669209,
+      "gross_ret": 0.10908313092796063,
+      "net_ret": 0.10748313092796062
+    },
+    {
+      "entry": "2024-11-03",
+      "exit": "2024-11-10",
+      "long_syms": [
+        "DOGEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "WLDUSDT",
+        "TAOUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "Infra"
+      ],
+      "bottom_sector": "AI",
+      "long_ret": 0.58221096376224,
+      "short_ret": 0.2577802683040198,
+      "gross_ret": 0.32443069545822023,
+      "net_ret": 0.32283069545822024
+    },
+    {
+      "entry": "2024-11-10",
+      "exit": "2024-11-17",
+      "long_syms": [
+        "ADAUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "L1"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.2559367584282529,
+      "short_ret": -0.09908547885402097,
+      "gross_ret": 0.3550222372822739,
+      "net_ret": 0.3534222372822739
+    },
+    {
+      "entry": "2024-11-17",
+      "exit": "2024-11-24",
+      "long_syms": [
+        "DOGEUSDT",
+        "SUIUSDT"
+      ],
+      "short_syms": [
+        "AAVEUSDT",
+        "UNIUSDT"
+      ],
+      "top_sectors": [
+        "Meme",
+        "L1"
+      ],
+      "bottom_sector": "DeFi",
+      "long_ret": 0.0344648700959152,
+      "short_ret": 0.1512503065277886,
+      "gross_ret": -0.11678543643187339,
+      "net_ret": -0.1183854364318734
+    },
+    {
+      "entry": "2024-11-24",
+      "exit": "2024-12-01",
+      "long_syms": [
+        "OPUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "L2",
+        "Infra"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.08845605371783472,
+      "short_ret": 0.024299586488872205,
+      "gross_ret": 0.06415646722896251,
+      "net_ret": 0.0625564672289625
+    },
+    {
+      "entry": "2024-12-01",
+      "exit": "2024-12-08",
+      "long_syms": [
+        "WLDUSDT",
+        "FETUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "AI",
+        "DeFi"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.11756087710802798,
+      "short_ret": 0.05853669599927391,
+      "gross_ret": 0.05902418110875407,
+      "net_ret": 0.05742418110875407
+    },
+    {
+      "entry": "2024-12-08",
+      "exit": "2024-12-15",
+      "long_syms": [
+        "UNIUSDT",
+        "AAVEUSDT"
+      ],
+      "short_syms": [
+        "DOGEUSDT"
+      ],
+      "top_sectors": [
+        "DeFi",
+        "Infra"
+      ],
+      "bottom_sector": "Meme",
+      "long_ret": 0.10960741015336772,
+      "short_ret": -0.12921817753304898,
+      "gross_ret": 0.2388255876864167,
+      "net_ret": 0.23722558768641672
+    },
+    {
+      "entry": "2024-12-15",
+      "exit": "2024-12-22",
+      "long_syms": [
+        "AAVEUSDT",
+        "LINKUSDT"
+      ],
+      "short_syms": [
+        "FILUSDT"
+      ],
+      "top_sectors": [
+        "Infra",
+        "DeFi"
+      ],
+      "bottom_sector": "Storage",
+      "long_ret": -0.18987782187630703,
+      "short_ret": -0.2830636781950423,
+      "gross_ret": 0.09318585631873527,
+      "net_ret": 0.09158585631873527
+    },
+    {
+      "entry": "2024-12-22",
+      "exit": "2024-12-29",
+      "long_syms": [
+        "BNBUSDT",
+        "DOGEUSDT"
+      ],
+      "short_syms": [
+        "LINKUSDT"
+      ],
+      "top_sectors": [
+        "Exchange",
+        "Meme"
+      ],
+      "bottom_sector": "Infra",
+      "long_ret": 0.03717283593514864,
+      "short_ret": -0.05153051983336354,
+      "gross_ret": 0.08870335576851218,
+      "net_ret": 0.08710335576851218
+    }
+  ]
+}
