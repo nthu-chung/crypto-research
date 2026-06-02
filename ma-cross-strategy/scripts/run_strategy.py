@@ -2,159 +2,174 @@
 run_strategy.py — backtest / paper / live 三模式統一入口
 =========================================================
 
+透過 cyqnt_trd 框架的 entrypoints 執行，不自己實作邏輯。
+
 用法：
-  # 回測（不連網路，吃本地 parquet）
-  python3.11 scripts/run_strategy.py --mode backtest
+  # 回測
+  python scripts/run_strategy.py --mode backtest
 
-  # Paper trade（連 Binance REST，假帳戶模擬成交）
-  python3.11 scripts/run_strategy.py --mode paper
+  # Paper trade
+  python scripts/run_strategy.py --mode paper
 
-  # Live trade（paper daemon + signal_executor 雙 process）
-  python3.11 scripts/run_strategy.py --mode live
-  python3.11 scripts/run_strategy.py --mode live --dry-run   # 先驗證不真實下單
+  # Live trade（dry-run 先驗證）
+  python scripts/run_strategy.py --mode live --dry-run
 
-訊號一致性保證：
-  三種模式都執行同一份 strategies/ma_cross_v1.py 的 make_signals()。
-  差別只在 broker 層：
-    backtest → 無 broker，純吃歷史 parquet
-    paper    → PaperBrokerAdapter（假帳戶）
-    live     → paper daemon（假帳戶）+ signal_executor（binance-cli 真實下單）
+  # Live trade（真實下單）
+  python scripts/run_strategy.py --mode live --max-notional 200
 """
 
 from __future__ import annotations
 
 import argparse
 import os
+import shutil
 import subprocess
 import sys
-import threading
+import time
 from pathlib import Path
 
-WORKSPACE  = Path("/root/.openclaw/workspace")
-VENV_PIP   = WORKSPACE / "venv-pip"
-SCRIPTS    = WORKSPACE / "scripts"
-STRATEGIES = WORKSPACE / "strategies"
 
-# paper daemon state 目錄
-STATE_DIR  = WORKSPACE / "watcher" / "MA_CROSS_BTCUSDT_1h"
+def _find_python() -> str:
+    for candidate in ["python3.11", "python3.12", "python3"]:
+        if shutil.which(candidate):
+            return candidate
+    return sys.executable
 
-PYTHONPATH = f"{VENV_PIP}:{WORKSPACE}"
+
+def _workspace() -> Path:
+    """策略 workspace 根目錄（script 上層）"""
+    return Path(__file__).resolve().parent.parent
+
 
 # ── Backtest ──────────────────────────────────────────────────────────────────
 
-def run_backtest(symbol: str, interval: str, data_path: str) -> int:
-    """
-    mvp_backtest --engine python 跑 ma_cross_v1 回測。
-    --strategy-module 在 import 時觸發 strategy.register()。
-    """
+def run_backtest(args) -> int:
+    python = _find_python()
+    workspace = _workspace()
+
     cmd = [
-        "python3.11", "-m",
+        python, "-m",
         "cyqnt_trd.standard_bot.entrypoints.mvp_backtest",
         "--engine",          "python",
-        "--strategy",        "ma_cross_v1",
-        "--strategy-module", "strategies.ma_cross_v1",
-        "--symbol",          symbol,
-        "--interval",        interval,
-        "--data-path",       data_path,
-        "--fee-bps",         "4",
-        "--slippage-bps",    "2",
-        "--initial-capital", "10000",
+        "--strategy",        args.strategy,
+        "--strategy-module", args.strategy_module,
+        "--symbol",          args.symbol,
+        "--interval",        args.interval,
+        "--market-type",     args.market_type,
+        "--initial-capital", str(args.initial_capital),
+        "--commission-bps",  str(args.fee_bps),
+        "--slippage-bps",    str(args.slippage_bps),
+        "--execution-model", "next_bar_open",
+        "--tail-bars",       "120",
     ]
-    env = {**os.environ, "PYTHONPATH": PYTHONPATH}
-    print("[run_strategy] mode=backtest")
-    print("[run_strategy]", " ".join(cmd))
-    result = subprocess.run(cmd, env=env)
-    return result.returncode
+
+    # 資料來源：若有 --data-path 就用 --historical-dir，否則用 --allow-remote-api
+    if args.data_path:
+        data_path = args.data_path if Path(args.data_path).is_absolute() else str(workspace / args.data_path)
+        cmd += ["--historical-dir", str(Path(data_path).parent.parent.parent)]
+        cmd += ["--storage-timeframe", "1m"]
+        cmd += ["--limit", str(args.limit)]
+    else:
+        cmd += ["--allow-remote-api", "--limit", str(args.limit)]
+
+    env = {**os.environ, "PYTHONPATH": f"{workspace}:{os.environ.get('PYTHONPATH', '')}"}
+    print(f"[run_strategy] mode=backtest")
+    print(f"[run_strategy] {' '.join(cmd)}")
+    return subprocess.run(cmd, env=env).returncode
 
 
 # ── Paper trade ───────────────────────────────────────────────────────────────
 
-def run_paper(symbol: str, interval: str) -> int:
-    """啟動 paper daemon（foreground），Ctrl+C 停止。"""
-    STATE_DIR.mkdir(parents=True, exist_ok=True)
+def run_paper(args) -> int:
+    python = _find_python()
+    workspace = _workspace()
+    state_dir = _state_dir(args)
+    state_dir.mkdir(parents=True, exist_ok=True)
+
     cmd = [
-        "python3.11", "-m",
+        python, "-m",
         "cyqnt_trd.standard_bot.entrypoints.mvp_paper_daemon",
-        "--symbol",          symbol,
-        "--interval",        interval,
-        "--strategy",        "ma_cross_v1",
-        "--strategy-module", "strategies.ma_cross_v1",
         "--engine",          "python",
-        "--state-dir",       str(STATE_DIR),
-        "--poll-interval",   "3570",
-        "--warm-up-bars",    "80",
-        "--initial-capital", "10000",
-        "--fee-bps",         "4",
-        "--slippage-bps",    "2",
-        "--market-type",     "futures",
-        "--jarvis-user-id",  "147809639",
-        "--jarvis-thread-id","019e6e1c-5d38-7a19-9c13-2cd8c7b50163",
+        "--strategy",        args.strategy,
+        "--strategy-module", args.strategy_module,
+        "--symbol",          args.symbol,
+        "--interval",        args.interval,
+        "--market-type",     args.market_type,
+        "--state-dir",       str(state_dir),
+        "--poll-interval",   str(args.poll_interval),
+        "--warm-up-bars",    str(args.warm_up_bars),
+        "--initial-capital", str(args.initial_capital),
+        "--fee-bps",         str(args.fee_bps),
+        "--slippage-bps",    str(args.slippage_bps),
     ]
-    env = {**os.environ, "PYTHONPATH": PYTHONPATH}
-    print("[run_strategy] mode=paper")
-    print("[run_strategy]", " ".join(cmd))
-    result = subprocess.run(cmd, env=env)
-    return result.returncode
+
+    env = {**os.environ, "PYTHONPATH": f"{workspace}:{os.environ.get('PYTHONPATH', '')}"}
+    print(f"[run_strategy] mode=paper")
+    print(f"[run_strategy] state_dir={state_dir}")
+    print(f"[run_strategy] {' '.join(cmd)}")
+    return subprocess.run(cmd, env=env).returncode
 
 
 # ── Live trade ────────────────────────────────────────────────────────────────
 
-def run_live(symbol: str, interval: str, max_notional: float,
-             notional_fraction: float, dry_run: bool) -> int:
+def run_live(args) -> int:
     """
     同時啟動兩個 process：
-      1. paper daemon  — 產生訊號（與 paper/backtest 邏輯完全相同）
-      2. signal_executor — 偵測 trades.jsonl → binance-cli 下單
-
-    兩者都在前台跑，Ctrl+C 同時停止。
+      1. Paper daemon（訊號來源，和 paper mode 完全相同）
+      2. Live executor（讀 trades.jsonl → binance-cli 真實下單）
     """
-    STATE_DIR.mkdir(parents=True, exist_ok=True)
-    env = {**os.environ, "PYTHONPATH": PYTHONPATH}
+    python = _find_python()
+    workspace = _workspace()
+    state_dir = _state_dir(args)
+    state_dir.mkdir(parents=True, exist_ok=True)
 
-    # ── process 1：paper daemon ──────────────────────────────────────────────
+    env = {**os.environ, "PYTHONPATH": f"{workspace}:{os.environ.get('PYTHONPATH', '')}"}
+
+    # Process 1: Paper Daemon
     daemon_cmd = [
-        "python3.11", "-m",
+        python, "-m",
         "cyqnt_trd.standard_bot.entrypoints.mvp_paper_daemon",
-        "--symbol",          symbol,
-        "--interval",        interval,
-        "--strategy",        "ma_cross_v1",
-        "--strategy-module", "strategies.ma_cross_v1",
         "--engine",          "python",
-        "--state-dir",       str(STATE_DIR),
-        "--poll-interval",   "3570",
-        "--warm-up-bars",    "80",
-        "--initial-capital", "10000",
-        "--fee-bps",         "4",
-        "--slippage-bps",    "2",
-        "--market-type",     "futures",
-        "--jarvis-user-id",  "147809639",
-        "--jarvis-thread-id","019e6e1c-5d38-7a19-9c13-2cd8c7b50163",
+        "--strategy",        args.strategy,
+        "--strategy-module", args.strategy_module,
+        "--symbol",          args.symbol,
+        "--interval",        args.interval,
+        "--market-type",     args.market_type,
+        "--state-dir",       str(state_dir),
+        "--poll-interval",   str(args.poll_interval),
+        "--warm-up-bars",    str(args.warm_up_bars),
+        "--initial-capital", str(args.initial_capital),
+        "--fee-bps",         str(args.fee_bps),
+        "--slippage-bps",    str(args.slippage_bps),
     ]
 
-    # ── process 2：signal_executor ───────────────────────────────────────────
+    # Process 2: Live Executor
     executor_cmd = [
-        "python3.11", str(SCRIPTS / "signal_executor.py"),
-        "--state-dir",        str(STATE_DIR),
-        "--symbol",           symbol,
-        "--notional-fraction",str(notional_fraction),
-        "--max-notional",     str(max_notional),
+        python, "-m",
+        "cyqnt_trd.standard_bot.entrypoints.mvp_live_executor",
+        "--state-dir",         str(state_dir),
+        "--symbol",            args.symbol,
+        "--max-notional",      str(args.max_notional),
+        "--notional-fraction", str(args.notional_fraction),
     ]
-    if dry_run:
+    if args.dry_run:
         executor_cmd.append("--dry-run")
 
-    print("[run_strategy] mode=live  dry_run=%s" % dry_run)
-    print("[run_strategy] daemon:   ", " ".join(daemon_cmd))
-    print("[run_strategy] executor: ", " ".join(executor_cmd))
-    if dry_run:
-        print("[run_strategy] ⚠️  DRY-RUN: executor will print orders but NOT submit to Binance")
+    print(f"[run_strategy] mode=live  dry_run={args.dry_run}")
+    print(f"[run_strategy] state_dir={state_dir}")
+    print(f"[run_strategy] daemon:   {' '.join(daemon_cmd[:6])} ...")
+    print(f"[run_strategy] executor: {' '.join(executor_cmd[:6])} ...")
+    if args.dry_run:
+        print(f"[run_strategy] ⚠️  DRY-RUN: executor 只印指令不下單")
     else:
-        print("[run_strategy] ⚠️  LIVE: real orders will be placed on Binance Futures mainnet")
+        print(f"[run_strategy] ⚠️  LIVE: 真實下單！max_notional={args.max_notional} USDT")
+        print(f"[run_strategy] ⚠️  緊急停止: touch {state_dir}/EMERGENCY_STOP")
 
-    daemon_proc   = subprocess.Popen(daemon_cmd,   env=env)
+    daemon_proc = subprocess.Popen(daemon_cmd, env=env)
+    time.sleep(3)  # 等 daemon 建立 state dir
     executor_proc = subprocess.Popen(executor_cmd, env=env)
 
     try:
-        # 等待任一 process 退出
         while True:
             if daemon_proc.poll() is not None:
                 print("[run_strategy] daemon exited, stopping executor")
@@ -164,7 +179,7 @@ def run_live(symbol: str, interval: str, max_notional: float,
                 print("[run_strategy] executor exited, stopping daemon")
                 daemon_proc.terminate()
                 break
-            import time; time.sleep(2)
+            time.sleep(2)
     except KeyboardInterrupt:
         print("\n[run_strategy] Ctrl+C — stopping both processes")
         daemon_proc.terminate()
@@ -175,44 +190,54 @@ def run_live(symbol: str, interval: str, max_notional: float,
     return 0
 
 
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+def _state_dir(args) -> Path:
+    if args.state_dir:
+        return Path(args.state_dir)
+    workspace = _workspace()
+    run_id = f"{args.strategy.upper()}_{args.symbol}_{args.interval}"
+    return workspace / "watcher" / run_id
+
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="MA cross strategy — backtest / paper / live 統一入口"
     )
-    parser.add_argument("--mode",
-        choices=["backtest", "paper", "live"], default="paper",
-        help="執行模式（預設 paper）"
-    )
-    parser.add_argument("--symbol",   default="BTCUSDT")
+    parser.add_argument("--mode", choices=["backtest", "paper", "live"], default="paper")
+    parser.add_argument("--symbol", default="BTCUSDT")
     parser.add_argument("--interval", default="1h")
-    parser.add_argument("--data-path", default=str(WORKSPACE / "data" / "BTCUSDT_1h.parquet"),
-        help="回測用本地 parquet（backtest mode 用）"
-    )
-    parser.add_argument("--max-notional", type=float, default=200.0,
-        help="單筆最大下單 USDT（live mode 風控）"
-    )
-    parser.add_argument("--notional-fraction", type=float, default=0.95,
-        help="下單佔可用餘額比例（live mode）"
-    )
-    parser.add_argument("--dry-run", action="store_true",
-        help="live mode：只印出 binance-cli 指令，不真正送出"
-    )
+    parser.add_argument("--strategy", default="ma_cross_v1")
+    parser.add_argument("--strategy-module", default="strategies.ma_cross_v1")
+    parser.add_argument("--market-type", default="futures")
+    parser.add_argument("--state-dir", default=None)
+
+    # Simulation params
+    parser.add_argument("--initial-capital", type=float, default=10000.0)
+    parser.add_argument("--fee-bps", type=float, default=4.0)
+    parser.add_argument("--slippage-bps", type=float, default=2.0)
+    parser.add_argument("--warm-up-bars", type=int, default=80)
+    parser.add_argument("--poll-interval", type=int, default=3570)
+
+    # Backtest params
+    parser.add_argument("--data-path", default=None, help="Historical parquet path")
+    parser.add_argument("--limit", type=int, default=2000)
+
+    # Live params
+    parser.add_argument("--max-notional", type=float, default=200.0)
+    parser.add_argument("--notional-fraction", type=float, default=0.95)
+    parser.add_argument("--dry-run", action="store_true")
+
     args = parser.parse_args()
 
     if args.mode == "backtest":
-        return run_backtest(args.symbol, args.interval, args.data_path)
+        return run_backtest(args)
     elif args.mode == "paper":
-        return run_paper(args.symbol, args.interval)
+        return run_paper(args)
     else:
-        return run_live(
-            symbol=args.symbol,
-            interval=args.interval,
-            max_notional=args.max_notional,
-            notional_fraction=args.notional_fraction,
-            dry_run=args.dry_run,
-        )
+        return run_live(args)
 
 
 if __name__ == "__main__":
